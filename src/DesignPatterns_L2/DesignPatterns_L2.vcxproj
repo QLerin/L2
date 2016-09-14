@@ -19,7 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Frame.cpp" />
+    <ClCompile Include="IDrawable.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Frame.h" />
+    <ClInclude Include="IDrawable.h" />
+    <ClInclude Include="RenderDefines.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{7D848C96-272B-4B74-B0A9-FD7A498D7D36}</ProjectGuid>
