@@ -36,6 +36,19 @@ void Frame::WriteBounds()
 	}
 }
 
+const char Frame::DrawRule(const char left, const char right)
+{
+	switch (left)
+	{
+	case ' ':
+		return right;
+	case '*':
+		return left;
+	}
+
+	return right;
+}
+
 void Frame::ClearArea(const uint16_t rowBegin, const uint16_t rowEnd, const uint16_t colBegin, const uint16_t colEnd, const char clearSymbol)
 {
 	if (!isInitialized_)

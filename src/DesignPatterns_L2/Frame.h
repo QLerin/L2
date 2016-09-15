@@ -19,7 +19,7 @@ namespace l2
 
 			Frame() = delete;
 			Frame(const Frame & original) = delete;
-			std::vector<std::string> frameBuffer_;
+			t_ImageBuffer frameBuffer_;
 
 			uint16_t width_;
 			uint16_t height_;
@@ -27,6 +27,8 @@ namespace l2
 			bool isInitialized_;
 
 			void WriteBounds();
+
+			static const char DrawRule(const char left, const char right);
 		protected:
 			void ClearArea(const uint16_t rowBegin, const uint16_t rowEnd, const uint16_t colBegin, const uint16_t colEnd, const char clearSymbol = ' ');
 		public:
@@ -40,6 +42,8 @@ namespace l2
 			const uint16_t GetColumnEnd() { return height_ - 2; }
 
 			void Draw(const IDrawable & drawable);
+
+			/// Display what's currently inside the frameBuffer
 			void Display() const;
 		};
 
