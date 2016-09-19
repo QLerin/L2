@@ -4,6 +4,7 @@
 #include <vector>
 #include <memory>
 
+//Test
 namespace l2 {
 	namespace common {
 		class HighScore {
