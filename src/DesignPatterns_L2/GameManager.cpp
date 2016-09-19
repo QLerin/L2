@@ -9,7 +9,7 @@ static const uint16_t DEFAULT_FRAME_HEIGHT = 75;
 static const std::string SCENE_CONTENTS_PATH_DEBUG = "Contents.dat";
 static const std::string SCENE_CONTENTS_PATH_RELEASE = "/res/Contents.dat";
 
-GameManager::GameManager() : mainFrame_(DEFAULT_FRAME_WIDTH, DEFAULT_FRAME_HEIGHT)
+GameManager::GameManager() : mainFrame_(true)
 {
 #ifdef _DEBUG
 	Initialize(SCENE_CONTENTS_PATH_DEBUG);

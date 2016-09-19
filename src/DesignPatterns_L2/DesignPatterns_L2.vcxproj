@@ -19,15 +19,41 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CharacterStatistics.cpp" />
+    <ClCompile Include="ColorizeDrawable.cpp" />
+    <ClCompile Include="Colorizer.cpp" />
+    <ClCompile Include="ConsoleWindow.cpp" />
+    <ClCompile Include="ControlledGameObject.cpp" />
+    <ClCompile Include="DrawableGameObject.cpp" />
     <ClCompile Include="Frame.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="IDrawable.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MenuInputHandler.cpp" />
+    <ClCompile Include="PlayerInputHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Character.h" />
+    <ClInclude Include="CharacterStatistics.h" />
+    <ClInclude Include="ColorizedDrawable.h" />
+    <ClInclude Include="Colorizer.h" />
+    <ClInclude Include="ConsoleWindow.h" />
+    <ClInclude Include="ControlledGameObject.h" />
+    <ClInclude Include="DrawableGameObject.h" />
     <ClInclude Include="Frame.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="IDrawable.h" />
+    <ClInclude Include="InputHandler.h" />
+    <ClInclude Include="InputManager.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuInputHandler.h" />
+    <ClInclude Include="PlayerInputHandler.h" />
     <ClInclude Include="RenderDefines.h" />
+    <ClInclude Include="Singleton.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="Statistics.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{7D848C96-272B-4B74-B0A9-FD7A498D7D36}</ProjectGuid>

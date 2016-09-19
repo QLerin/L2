@@ -1,5 +1,6 @@
 #pragma once
 
+#include "ConsoleWindow.h"
 #include "Frame.h"
 #include "IDrawable.h"
 #include "GameObject.h"
@@ -21,7 +22,7 @@ namespace l2
 			GameManager(const GameManager & right) = delete;
 
 			/// The main console window frame (single buffered)
-			l2::rendering::Frame mainFrame_;
+			l2::rendering::ConsoleWindow mainFrame_;
 
 			/// Holds all objects to be drawn on screen
 			std::list<l2::rendering::IDrawable> screenObjects_;

@@ -1,9 +1,7 @@
 #pragma once
 
-#include "RenderDefines.h"
-#include "IDrawable.h"
-#include <vector>
-#include <string>
+#include <Windows.h>
+#include <stdint.h>
 
 namespace l2
 {
@@ -11,40 +9,33 @@ namespace l2
 	namespace rendering
 	{
 
+		class IDrawable;
+
 		class Frame
 		{
 		private:
-			static const uint16_t MAX_WIDTH = 1920;
-			static const uint16_t MAX_HEIGHT = 1080;
-
-			Frame() = delete;
-			Frame(const Frame & original) = delete;
-			t_ImageBuffer frameBuffer_;
-
-			uint16_t width_;
-			uint16_t height_;
-
-			bool isInitialized_;
-
-			void WriteBounds();
-
-			static const char DrawRule(const char left, const char right);
-		protected:
-			void ClearArea(const uint16_t rowBegin, const uint16_t rowEnd, const uint16_t colBegin, const uint16_t colEnd, const char clearSymbol = ' ');
+			/// Handle to the frame buffer ( a console window buffer )
+			HANDLE frameBuffer_;
+			uint16_t width_, height_;
+			static uint16_t numActiveBuffers_;
 		public:
-			Frame(const uint16_t width, const uint16_t height);
-			virtual ~Frame();
-			void Clear();
+			Frame() = delete;
+			Frame(const Frame & right) = delete;
+			Frame(const bool isConsoleApp);
+			~Frame();
 
-			const uint16_t GetRowBegin() { return 1; }
-			const uint16_t GetColumnBegin() { return 1; }
-			const uint16_t GetRowEnd() { return width_ - 2; }
-			const uint16_t GetColumnEnd() { return height_ - 2; }
+			/// Retrieves the assigned framebuffer handle
+			const HANDLE GetBufferHandle() const { return frameBuffer_; }
+			void WriteBuffer(const IDrawable & drawable);
 
-			void Draw(const IDrawable & drawable);
+			/// Clears the entire framebuffer
+			void Clear(const uint16_t x = 0, const uint16_t y = 0, uint16_t width = 0, uint16_t height = 0);
+			/// Displays the associated frame buffer
+			///
+			/// \note this finalizes a buffer swap from ConsoleWindow
+			void Draw();
 
-			/// Display what's currently inside the frameBuffer
-			void Display() const;
+			static const uint16_t GetNumActiveBuffers() { return numActiveBuffers_; }
 		};
 
 	}

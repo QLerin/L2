@@ -1,38 +1,37 @@
-#include "GameManager.h"
+#include "ConsoleWindow.h"
 #include "IDrawable.h"
-#include "Frame.h"
-#include <string>
 
 using namespace std;
 using namespace l2::rendering;
 
-IDrawable::IDrawable(const uint16_t width, const uint16_t height, const std::shared_ptr<Frame> parentFrame) : x_(0), y_(0), parentFrame_(parentFrame)
+IDrawable::IDrawable(const IDrawable & right) : isDataSet_(right.isDataSet_), isSpaceSet_(right.isSpaceSet_), parentWindow_(right.parentWindow_),
+												x_(right.x_), y_(right.y_), width_(right.width_), height_(right.height_)
 {
-	imageBuffer_.resize(height);
-	for (string & row : imageBuffer_)
-		row.resize(width, FD_EMPTY);
 }
 
-void IDrawable::SetImage(const t_ImageBuffer & asciiImage)
+IDrawable::IDrawable(shared_ptr<ConsoleWindow> parentWindow)
 {
-	if (asciiImage.size())
-		return;
+	parentWindow_ = parentWindow;
+}
+
+void IDrawable::SetDrawableSpace(const uint16_t x, const uint16_t y, const uint16_t width, const uint16_t height)
+{
+	x_ = x;
+	y_ = y;
+	width_ = width;
+	height_ = height;
+
+	isSpaceSet_ = true;
+}
+
+void IDrawable::SetDrawableData(const string & data)
+{
+	drawableData_ = data;
+	isDataSet_ = true;
 }
 
 void IDrawable::Draw()
 {
-	if (parentFrame_)
-		parentFrame_->Draw(*this);
-}
-
-void IDrawable::MovePosition(const uint16_t x, const uint16_t y)
-{
-	x_ += x;
-	y_ += y;
-}
-
-void IDrawable::SetPosition(const uint16_t x, const uint16_t y)
-{
-	x_ = x;
-	y_ = y;
+	if (parentWindow_ && isDataSet_ && isSpaceSet_)
+		parentWindow_->Draw(*this);
 }

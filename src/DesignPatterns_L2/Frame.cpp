@@ -1,82 +1,106 @@
-#include "RenderDefines.h"
 #include "Frame.h"
-#include <memory>
-#include <iostream>
+#include "IDrawable.h"
+#include "Colorizer.h"
+#include <string>
 
 using namespace std;
 using namespace l2::rendering;
 
-Frame::Frame(const uint16_t width, const uint16_t height) : width_(width), height_(height)
+uint16_t Frame::numActiveBuffers_ = 0;
+
+static const uint16_t ASCII_CP = 20127;
+
+Frame::Frame(const bool isConsoleApp)
 {
-	if (width > MAX_WIDTH || height > MAX_HEIGHT)
+ 	if (isConsoleApp && !numActiveBuffers_)
+		frameBuffer_ = GetStdHandle(STD_OUTPUT_HANDLE);
+	else
 	{
-		isInitialized_ = false;
-		return;
+		if (!numActiveBuffers_)
+		{
+			if (AllocConsole())
+			{
+				AttachConsole(ATTACH_PARENT_PROCESS);
+				SetConsoleCP(ASCII_CP);
+				SetConsoleOutputCP(ASCII_CP);
+			}
+		}
+		frameBuffer_ = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
+#ifdef _DEBUG
+		if (frameBuffer_ == INVALID_HANDLE_VALUE)
+		{
+			DWORD rc = GetLastError();
+			printf("%d", rc);
+		}
+#endif
 	}
-
-	frameBuffer_ = vector<string>(height, string(width, ' '));
-
-	isInitialized_ = true;
-
-	WriteBounds();
-}
-
-void Frame::WriteBounds()
-{
-	if (!isInitialized_)
-		return;
-
-	frameBuffer_[0].replace(frameBuffer_[0].begin(), frameBuffer_[0].end(), width_, FD_WALL);
-	frameBuffer_[height_ - 1].replace(frameBuffer_[height_-1].begin(), frameBuffer_[height_-1].end(), width_, FD_WALL);
-
-	for (uint16_t i = 1; i < height_-1; ++i)
-	{
-		frameBuffer_[i][0] = FD_WALL;
-		frameBuffer_[i][width_ - 1] = FD_WALL;
-	}
-}
-
-const char Frame::DrawRule(const char left, const char right)
-{
-	switch (left)
-	{
-	case ' ':
-		return right;
-	case '*':
-		return left;
-	}
-
-	return right;
-}
-
-void Frame::ClearArea(const uint16_t rowBegin, const uint16_t rowEnd, const uint16_t colBegin, const uint16_t colEnd, const char clearSymbol)
-{
-	if (!isInitialized_)
-		return;
-
-	for (uint16_t i = colBegin; i < colEnd; ++i)
-		for (uint16_t j = rowBegin; j < rowEnd; ++j)
-			frameBuffer_[i].replace(static_cast<size_t>(rowBegin), static_cast<size_t>(rowEnd), to_string(clearSymbol).c_str());
-}
-
-void Frame::Clear()
-{
-	if (!isInitialized_)
-		return;
-	ClearArea(0, width_, 0, width_, ' ');
+	++numActiveBuffers_;
 }
 
 Frame::~Frame()
 {
+	CloseHandle(frameBuffer_);
+	if (!(--numActiveBuffers_))
+		FreeConsole();
 }
 
-void Frame::Draw(const IDrawable & drawable)
-{
-	drawable.x_;
+void Frame::WriteBuffer(const IDrawable & drawable)
+{	
+	//Clear(drawable.x_, drawable.y_, drawable.width_, drawable.height_);
+
+	COORD cursorPosition;
+	ZeroMemory(&cursorPosition, sizeof(cursorPosition));
+	for (uint16_t i = 0; i < drawable.height_; ++i)
+	{
+		cursorPosition.Y = drawable.y_ + i;
+		cursorPosition.X = drawable.x_;
+		SetConsoleCursorPosition(frameBuffer_, cursorPosition);
+
+		{
+			DWORD actualCharsWritten(0);
+			WriteConsole(frameBuffer_, &(drawable.drawableData_.c_str()[drawable.width_*i]), drawable.width_, &actualCharsWritten, nullptr);
+			
+#pragma message ("If actual characters written does not match the argument provided, an error probably occured. LOG THIS")
+			printf("placeholder");
+		}
+	}
 }
 
-void Frame::Display() const
+void Frame::Clear(const uint16_t x, const uint16_t y, uint16_t width, uint16_t height)
 {
-	for (uint16_t i = 0; i < frameBuffer_.size(); ++i)
-		cout << frameBuffer_[i] << endl;
+	if (!x && !y && !width && !height)
+	{
+		width = width_;
+		height = height_;
+	}
+	
+	CONSOLE_SCREEN_BUFFER_INFO colorInformation;
+	ZeroMemory(&colorInformation, sizeof(colorInformation));
+	GetConsoleScreenBufferInfo(frameBuffer_, &colorInformation);
+
+	Colorizer::COLOR_ATTRIBUTES attributes;
+	ZeroMemory(&attributes, sizeof(attributes));
+	attributes.backgroundColor = Colorizer::Black;
+	attributes.foregroundColor = Colorizer::White;
+	Colorizer::GetInstance()->Colorize(*this, attributes);
+
+	shared_ptr<char> clearBuffer(new char[width], default_delete<char[]>());
+	memset(clearBuffer.get(), '*', sizeof(char) * width);
+
+	COORD cursorPosition;
+	ZeroMemory(&cursorPosition, sizeof(cursorPosition));
+
+	for (uint16_t i = 0; i < height; ++i)
+	{
+		cursorPosition.Y = i;
+		DWORD actual(0);
+		WriteConsole(frameBuffer_, clearBuffer.get(), width_, &actual, nullptr);
+	}
+
+	Colorizer::GetInstance()->Colorize(*this, colorInformation.wAttributes);
+}
+
+void Frame::Draw()
+{
+	SetConsoleActiveScreenBuffer(frameBuffer_);
 }

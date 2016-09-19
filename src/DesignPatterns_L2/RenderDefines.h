@@ -9,5 +9,5 @@
 
 typedef std::vector<std::string> t_ImageBuffer;
 
-const char FD_EMPTY			= ' '; ///< Empty character
-const char FD_WALL			= '*'; ///< Representation of a wall inside the console window
+const unsigned char FD_EMPTY			= 0xDB; ///< Empty character
+const unsigned char FD_WALL				= '*'; ///< Representation of a wall inside the console window

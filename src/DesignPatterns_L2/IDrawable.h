@@ -1,41 +1,42 @@
 #pragma once
 
-#include "RenderDefines.h"
-#include <stdint.h>
-#include <vector>
+#include <Windows.h>
 #include <memory>
+#include <vector>
 
 namespace l2
 {
 
 	namespace rendering
 	{
+
 		class Frame;
+		class ConsoleWindow;
 
 		class IDrawable
 		{
 			friend Frame;
-		private:
+			friend ConsoleWindow;
+		protected:
 			IDrawable() = delete;
-			IDrawable(const IDrawable * right);
-			t_ImageBuffer imageBuffer_;
 
-			uint16_t x_, y_;
-			std::shared_ptr<Frame> parentFrame_;
+			std::shared_ptr<ConsoleWindow> parentWindow_;
+			std::string drawableData_;
+
+			bool isDataSet_;
+			bool isSpaceSet_;
+
+			uint16_t x_, y_, width_, height_;
 		public:
-			/// The only non-deleted constructor
-			///
-			/// Drawable should operate with preset values
-			IDrawable(const uint16_t width, const uint16_t height, const std::shared_ptr<Frame> parentFrame);
+			IDrawable(const IDrawable & right);
+			IDrawable(std::shared_ptr<ConsoleWindow> parentWindow);
+			void SetDrawableData(const std::string & data);
+			void SetDrawableSpace(const uint16_t x, const uint16_t y, const uint16_t width, const uint16_t height);
 
-			/// Set the ASCII image for drawing inside the console window
-			///
-			/// ASCII image should meet requirements set by constructor;
-			void SetImage(const t_ImageBuffer & asciiImage);
-			void Draw();
+			const bool IsDataSet() { return isDataSet_; }
+			const bool IsSpaceSet() { return isSpaceSet_; }
 
-			void MovePosition(const uint16_t x, const uint16_t y);
-			void SetPosition(const uint16_t x, const uint16_t y);
+			virtual void Draw();
 		};
 
 	}
