@@ -1,5 +1,6 @@
 #pragma once
 
+#include <mutex>
 #include <memory>
 
 namespace l2
@@ -11,6 +12,8 @@ namespace l2
 		template <typename T> class Singleton
 		{
 			friend std::shared_ptr<T>;
+		private:
+			std::mutex initLock_;
 		protected:
 			Singleton() { }
 			Singleton(const Singleton<T> & right) = delete;
@@ -27,7 +30,11 @@ namespace l2
 		std::shared_ptr<T> Singleton<T>::GetInstance()
 		{
 			if (!instance_)
-				instance_ = std::shared_ptr<T>(new T);
+			{
+				std::lock_guard<std::mutex> lock(initLock_);
+				if(!instance_)
+					instance_ = std::shared_ptr<T>(new T);
+			}
 			return instance_;
 		}
 
