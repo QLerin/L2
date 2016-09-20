@@ -13,7 +13,7 @@ namespace l2
 		{
 			friend std::shared_ptr<T>;
 		private:
-			std::mutex initLock_;
+			static std::mutex initLock_;
 		protected:
 			Singleton() { }
 			Singleton(const Singleton<T> & right) = delete;
@@ -22,6 +22,9 @@ namespace l2
 		public:
 			static std::shared_ptr<T> GetInstance();
 		};
+
+		template <typename T>
+		std::mutex Singleton<T>::initLock_;
 
 		template <typename T>
 		std::shared_ptr<T> Singleton<T>::instance_(nullptr);

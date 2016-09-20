@@ -25,12 +25,12 @@
     <ClCompile Include="ConsoleWindow.cpp" />
     <ClCompile Include="Frame.cpp" />
     <ClCompile Include="GameManager.cpp" />
-    <ClCompile Include="Highscore.cpp" />
     <ClCompile Include="IDrawable.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuInputHandler.cpp" />
     <ClCompile Include="PlayerInputHandler.cpp" />
+    <ClCompile Include="Score.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h" />
@@ -41,14 +41,13 @@
     <ClInclude Include="Frame.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="Highscore.h" />
     <ClInclude Include="IDrawable.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuInputHandler.h" />
     <ClInclude Include="PlayerInputHandler.h" />
-    <ClInclude Include="Points.h" />
+    <ClInclude Include="Score.h" />
     <ClInclude Include="RenderDefines.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Item.h" />

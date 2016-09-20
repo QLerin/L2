@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Points.h"
+#include "Score.h"
 #include <vector>
 #include <memory>
 
@@ -11,16 +11,18 @@ namespace l2 {
 		private:
 			HighScore();
 			~HighScore();
-			std::vector <Scores> highscores_;
+			std::vector <Score> highscores_;
 			const bool Load() { return false; }
 			const bool Save() { return false; }
 
 			static HighScore * instance_;
 		public:
-			void addNewScore(Scores s) {
+			void addNewScore(Score s) {
 				highscores_.push_back(s);
 			}
-			
+
+		
+
 			HighScore * GetInstance() { return instance_; }
 		};
 	}
