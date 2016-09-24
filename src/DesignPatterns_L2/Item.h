@@ -2,6 +2,7 @@
 
 #include "GameObject.h"
 #include "Character.h"
+#include <memory>
 
 namespace l2
 {

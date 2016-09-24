@@ -29,8 +29,10 @@
     <ClCompile Include="IDrawable.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuInputHandler.cpp" />
     <ClCompile Include="PlayerInputHandler.cpp" />
+    <ClCompile Include="StartMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrayStorage.h" />
@@ -60,6 +62,7 @@
     <ClInclude Include="SharedResources.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="StartMenu.h" />
     <ClInclude Include="Statistics.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

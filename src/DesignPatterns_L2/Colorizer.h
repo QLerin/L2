@@ -34,6 +34,9 @@ namespace l2
 			{
 				Color backgroundColor;
 				Color foregroundColor;
+
+                COLOR_ATTRIBUTES() : backgroundColor(Black), foregroundColor(White) { ; }
+                COLOR_ATTRIBUTES(const Color fg, const Color bg) : foregroundColor(fg), backgroundColor(bg) { ; }
 			};
 
 		private:

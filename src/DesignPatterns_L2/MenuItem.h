@@ -4,20 +4,28 @@
 
 namespace l2
 {
+    namespace rendering
+    {
+        class ConsoleWindow;
+    }
+}
+
+namespace l2
+{
 
 	namespace gameobjects
 	{
-		
-		class ConsoleWindow;
 
 		class MenuItem
 		{
 		private:
-
-		protected:
-
+            ColorizedDrawable item_;
 		public:
+            MenuItem() = delete;
+            MenuItem(const MenuItem & right) = delete;
+            MenuItem(std::shared_ptr<l2::rendering::ConsoleWindow> parentWindow) : item_(parentWindow) { }
 
+            void Draw() { item_.Draw(); }
 		};
 
 	}

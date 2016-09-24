@@ -28,6 +28,11 @@ namespace l2
 			const uint64_t GetStorageSize() const { return container_.size(); }
 		};
 
+        template <typename T>
+        void ArrayStorage<T>::PerformCleanup()
+        {
+        }
+
 		template <typename T>
 		ArrayStorage<T>::ArrayStorage(const ArrayStorage & original) : container_(original.container_)
 		{

@@ -30,6 +30,11 @@ namespace l2
 
 		};
 
+        template <typename K, typename T>
+        void MapStorage<K, T>::PerformCleanup()
+        {
+        }
+
 		template <typename K, typename T>
 		MapStorage<K, T>::MapStorage(const MapStorage<K, T> & right) : container_(right.container_)
 		{
