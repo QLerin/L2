@@ -33,6 +33,7 @@
     <ClCompile Include="PlayerInputHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ArrayStorage.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="CharacterStatistics.h" />
     <ClInclude Include="ColorizedDrawable.h" />
@@ -45,11 +46,18 @@
     <ClInclude Include="IDrawable.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="MapStorage.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuInputHandler.h" />
+    <ClInclude Include="MenuItem.h" />
     <ClInclude Include="PlayerInputHandler.h" />
     <ClInclude Include="Points.h" />
+    <ClInclude Include="Receiver.h" />
+    <ClInclude Include="Register.h" />
     <ClInclude Include="RenderDefines.h" />
+    <ClInclude Include="ResourceStorage.h" />
+    <ClInclude Include="Sender.h" />
+    <ClInclude Include="SharedResources.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Statistics.h" />
@@ -145,8 +153,7 @@
       <OpenMPSupport>false</OpenMPSupport>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
-      <DisableSpecificWarnings>
-      </DisableSpecificWarnings>
+      <DisableSpecificWarnings>4505</DisableSpecificWarnings>
       <PrecompiledHeaderFile />
     </ClCompile>
     <Link>
@@ -166,7 +173,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -181,8 +188,7 @@
       <OpenMPSupport>false</OpenMPSupport>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
-      <DisableSpecificWarnings>
-      </DisableSpecificWarnings>
+      <DisableSpecificWarnings>4505</DisableSpecificWarnings>
       <PrecompiledHeaderFile />
     </ClCompile>
     <Link>
@@ -216,8 +222,7 @@
       <OpenMPSupport>false</OpenMPSupport>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
-      <DisableSpecificWarnings>
-      </DisableSpecificWarnings>
+      <DisableSpecificWarnings>4505</DisableSpecificWarnings>
       <PrecompiledHeaderFile />
     </ClCompile>
     <Link>
@@ -254,8 +259,7 @@
       <OpenMPSupport>false</OpenMPSupport>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
-      <DisableSpecificWarnings>
-      </DisableSpecificWarnings>
+      <DisableSpecificWarnings>4505</DisableSpecificWarnings>
       <PrecompiledHeaderFile />
     </ClCompile>
     <Link>

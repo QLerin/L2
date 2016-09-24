@@ -2,6 +2,8 @@
 
 #include <thread>
 #include "Singleton.h"
+#include "Sender.h"
+#include "Message.h"
 
 namespace l2
 {
@@ -15,6 +17,8 @@ namespace l2
 			InputManager() : isRunning_(false) { }
 			InputManager(const InputManager & right) = delete;
 			std::thread inputThread_;
+
+			Sender<Message> inputSender_;
 
 			bool isRunning_;
 			void PollInput();
