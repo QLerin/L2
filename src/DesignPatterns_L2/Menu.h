@@ -15,6 +15,10 @@ namespace l2
     {
         class ConsoleWindow;
     }
+    namespace sys
+    {
+        class MenuLoader;
+    }
 }
 
 namespace l2
@@ -25,6 +29,7 @@ namespace l2
 
 		class Menu
 		{
+            friend l2::sys::MenuLoader;
 		private:
             Menu() = delete;
 			Menu(const Menu & right) = delete;
@@ -36,14 +41,12 @@ namespace l2
             l2r::Colorizer::COLOR_ATTRIBUTES selectedItemColor_;
 
             l2s::ArrayStorage<MenuItem> menuItems_;
-            uint16_t selectedItem_;
+            uint64_t selectedItem_;
 
             bool isInitialized_;
 
 			void NextSelection();
 			void PreviousSelection();
-
-            virtual const bool LoadResource(const std::string & path) = 0;
 		public:
 			Menu(std::shared_ptr<l2r::ConsoleWindow> parentWindow, const std::string & path);
 

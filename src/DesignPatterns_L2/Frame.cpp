@@ -61,7 +61,7 @@ void Frame::WriteBuffer(const IDrawable & drawable)
 			WriteConsole(frameBuffer_, &(drawable.drawableData_.c_str()[drawable.width_*i]), drawable.width_, &actualCharsWritten, nullptr);
 			
 #pragma message ("If actual characters written does not match the argument provided, an error probably occured. LOG THIS")
-			printf("placeholder");
+			//printf("placeholder");
 		}
 	}
 }

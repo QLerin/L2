@@ -19,7 +19,7 @@ namespace l2
 		class MenuItem
 		{
 		private:
-            ColorizedDrawable item_;
+            l2::rendering:: ColorizedDrawable item_;
 		public:
             MenuItem() = delete;
             MenuItem(const MenuItem & right) = delete;
