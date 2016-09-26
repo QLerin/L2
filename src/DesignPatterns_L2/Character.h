@@ -1,7 +1,10 @@
 #pragma once
 
-#include "ControlledGameObject.h"
 #include "CharacterStatistics.h"
+#include "ColorizedDrawable.h"
+#include <memory>
+
+namespace l2r = l2::rendering;
 
 namespace l2
 {
@@ -9,12 +12,15 @@ namespace l2
 	namespace gameobjects
 	{
 
-		class Character : public ControlledGameObject
+		class Character : public IGameObject
 		{
 		protected:
-			CharacterStatistics stats_;
-		public:
+			std::shared_ptr<CharacterStatistics> stats_;
+            l2r::ColorizedDrawable model_;
 
+		public:
+            virtual void Attack(Character & target);
+            virtual void TakeDamage(const uint64_t damage);
 		};
 
 	}

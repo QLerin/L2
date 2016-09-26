@@ -36,12 +36,15 @@
     <ClCompile Include="Score.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EnemyArcher.h" />
     <ClInclude Include="ArrayStorage.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="CharacterStatistics.h" />
     <ClInclude Include="ColorizedDrawable.h" />
     <ClInclude Include="Colorizer.h" />
     <ClInclude Include="ConsoleWindow.h" />
+    <ClInclude Include="EnemyNPC.h" />
+    <ClInclude Include="EquippableItem.h" />
     <ClInclude Include="Frame.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
@@ -54,6 +57,7 @@
     <ClInclude Include="MenuInputHandler.h" />
     <ClInclude Include="MenuItem.h" />
     <ClInclude Include="MenuLoader.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerInputHandler.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="Receiver.h" />
@@ -66,6 +70,10 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="StartMenu.h" />
     <ClInclude Include="Statistics.h" />
+    <ClInclude Include="EnemySwordsman.h" />
+    <ClInclude Include="UsableItem.h" />
+    <ClInclude Include="Weapon.h" />
+    <ClInclude Include="EnemyMage.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{7D848C96-272B-4B74-B0A9-FD7A498D7D36}</ProjectGuid>
