@@ -1,5 +1,6 @@
 #include "Colorizer.h"
 #include "Frame.h"
+#include "Logger.h"
 
 using namespace std;
 using namespace l2::rendering;
@@ -13,7 +14,7 @@ void Colorizer::Colorize(const Frame & frame, const COLOR_ATTRIBUTES attributes)
 {
 	if (!SetConsoleTextAttribute(frame.GetBufferHandle(), GetConsoleColor(attributes)))
 	{
-		printf("This is bad");
+        LOG_WARNING("Failed to set frame color. Framebuffer handle: " + std::to_string((PTR_TYPE)frame.GetBufferHandle()));
 	}
 }
 

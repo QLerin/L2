@@ -2,8 +2,10 @@
 #include "IDrawable.h"
 #include "Colorizer.h"
 #include <string>
+#include "Logger.h"
 
 using namespace std;
+using namespace l2::sys;
 using namespace l2::rendering;
 
 uint16_t Frame::numActiveBuffers_ = 0;
@@ -12,27 +14,36 @@ static const uint16_t ASCII_CP = 20127;
 
 Frame::Frame(const bool isConsoleApp)
 {
- 	if (isConsoleApp && !numActiveBuffers_)
-		frameBuffer_ = GetStdHandle(STD_OUTPUT_HANDLE);
+    if (isConsoleApp && !numActiveBuffers_)
+    {
+        LOG_INFO("Initializing first console buffer from provided standard output.");
+        frameBuffer_ = GetStdHandle(STD_OUTPUT_HANDLE);
+        if (frameBuffer_ == INVALID_HANDLE_VALUE)
+        {
+            LOG_ERROR("Retrieval of standard output buffer failed. Exiting.");
+            exit(-1);
+        }
+        LOG_INFO("Framebuffer with handle: " + std::to_string((PTR_TYPE)frameBuffer_) + " retrieved");
+    }
 	else
 	{
 		if (!numActiveBuffers_)
 		{
-			if (AllocConsole())
-			{
-				AttachConsole(ATTACH_PARENT_PROCESS);
-				SetConsoleCP(ASCII_CP);
-				SetConsoleOutputCP(ASCII_CP);
-			}
+            if (AllocConsole())
+            {
+                AttachConsole(ATTACH_PARENT_PROCESS);
+                SetConsoleCP(ASCII_CP);
+                SetConsoleOutputCP(ASCII_CP);
+            }
+            else
+                LOG_WARNING("Allocation of console failed!");
 		}
 		frameBuffer_ = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
-#ifdef _DEBUG
-		if (frameBuffer_ == INVALID_HANDLE_VALUE)
-		{
-			DWORD rc = GetLastError();
-			printf("%d", rc);
-		}
-#endif
+        if (frameBuffer_ == INVALID_HANDLE_VALUE)
+        {
+            LOG_INFO("Allocation of console output buffer No: " + std::to_string(numActiveBuffers_ + 1) + "has failed. Exiting.");
+            exit(-1);
+        }
 	}
 	++numActiveBuffers_;
 }
@@ -46,8 +57,6 @@ Frame::~Frame()
 
 void Frame::WriteBuffer(const IDrawable & drawable)
 {	
-	//Clear(drawable.x_, drawable.y_, drawable.width_, drawable.height_);
-
 	COORD cursorPosition;
 	ZeroMemory(&cursorPosition, sizeof(cursorPosition));
 	for (uint16_t i = 0; i < drawable.height_; ++i)
@@ -58,10 +67,9 @@ void Frame::WriteBuffer(const IDrawable & drawable)
 
 		{
 			DWORD actualCharsWritten(0);
-			WriteConsole(frameBuffer_, &(drawable.drawableData_.c_str()[drawable.width_*i]), drawable.width_, &actualCharsWritten, nullptr);
-			
-#pragma message ("If actual characters written does not match the argument provided, an error probably occured. LOG THIS")
-			//printf("placeholder");
+			BOOL rc = WriteConsole(frameBuffer_, &(drawable.drawableData_.c_str()[drawable.width_*i]), drawable.width_, &actualCharsWritten, nullptr);
+            if (!rc)
+                LOG_ERROR("Error while attempting to write console output buffer. \n DATA DUMP: " + drawable.drawableData_);
 		}
 	}
 }
@@ -70,6 +78,7 @@ void Frame::Clear(const uint16_t x, const uint16_t y, uint16_t width, uint16_t h
 {
 	if (!x && !y && !width && !height)
 	{
+        LOG_INFO("Full-screen clear requested.");
 		width = width_;
 		height = height_;
 	}
@@ -94,13 +103,17 @@ void Frame::Clear(const uint16_t x, const uint16_t y, uint16_t width, uint16_t h
 	{
 		cursorPosition.Y = i;
 		DWORD actual(0);
-		WriteConsole(frameBuffer_, clearBuffer.get(), width_, &actual, nullptr);
+        if (!WriteConsole(frameBuffer_, clearBuffer.get(), width_, &actual, nullptr))
+            LOG_ERROR("Error occured while clearing BackBuffer");
 	}
+    
+    LOG_INFO("BackBuffer cleared with foreground: White and background: Black");
 
 	Colorizer::GetInstance()->Colorize(*this, colorInformation.wAttributes);
 }
 
 void Frame::Draw()
 {
+    LOG_INFO("Swapping active console buffers");
 	SetConsoleActiveScreenBuffer(frameBuffer_);
 }

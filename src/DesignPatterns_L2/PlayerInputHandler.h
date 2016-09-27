@@ -13,12 +13,12 @@ namespace l2
 		private:
 			PlayerInputHandler(const PlayerInputHandler & right) = delete;
 		protected:
-			virtual void OnKeyQ();
-			virtual void OnKeyW();
-			virtual void OnKeyE();
-			virtual void OnKeyR();
-			virtual void OnKeyESC();
-			virtual void OnKeyI();
+			void (*OnKeyQ)();
+			void (*OnKeyW)();
+			void (*OnKeyE)();
+			void (*OnKeyR)();
+			void (*OnKeyESC)();
+			void (*OnKeyI)();
 		public:
 			PlayerInputHandler() = default;
 			virtual void HandleInput(const InputManager::ConsoleInput inputEvent);

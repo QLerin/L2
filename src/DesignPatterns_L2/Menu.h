@@ -5,6 +5,7 @@
 #include "MenuItem.h"
 #include "ArrayStorage.h"
 #include <list>
+#include "MenuInputHandler.h"
 
 namespace l2s = l2::sys;
 namespace l2r = l2::rendering;
@@ -35,6 +36,7 @@ namespace l2
 			Menu(const Menu & right) = delete;
 		protected:
             std::shared_ptr<l2r::ConsoleWindow> parentWindow_;
+            l2s::MenuInputHandler * inHandler_;
 
 			l2r::ColorizedDrawable menu_;
 			l2r::Colorizer::COLOR_ATTRIBUTES menuBoxColor_;

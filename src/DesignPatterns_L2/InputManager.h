@@ -31,9 +31,11 @@ namespace l2
 				KEY_RIGHT,
 				KEY_Q,
 				KEY_W,
+				KEY_E,
 				KEY_R,
-				KEY_T,
-				KEY_ESC
+                KEY_I,
+				KEY_ESC,
+                KEY_ENTER
 			};
 
 			void StartPolling();

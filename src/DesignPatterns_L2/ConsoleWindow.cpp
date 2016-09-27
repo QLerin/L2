@@ -1,7 +1,9 @@
 #include "ConsoleWindow.h"
 #include "Colorizer.h"
+#include "Logger.h"
 
 using namespace std;
+using namespace l2::sys;
 using namespace l2::rendering;
 
 ConsoleWindow::ConsoleWindow(const bool isConsoleApp) : currentBuffer_(FRONT_BUFFER),
@@ -12,14 +14,17 @@ ConsoleWindow::ConsoleWindow(const bool isConsoleApp) : currentBuffer_(FRONT_BUF
 
 void ConsoleWindow::SwapBuffers()
 {
+    LOG_INFO("Swapping active screen buffers...");
 	switch (currentBuffer_)
 	{
 	case FRONT_BUFFER:
+        LOG_INFO("Swapping to Front buffer");
 		currentBuffer_ = BACK_BUFFER;
 		if(backBuffer_)
 			backBuffer_->Draw();
 		break;
 	case BACK_BUFFER:
+        LOG_INFO("Swapping to back buffer");
 		currentBuffer_ = FRONT_BUFFER;
 		if(frontBuffer_)
 			frontBuffer_->Draw();

@@ -3,6 +3,7 @@
 #include <memory>
 #include <list>
 #include "Receiver.h"
+#include "Logger.h"
 
 namespace l2
 {
@@ -43,9 +44,15 @@ namespace l2
 			if (register_ && messageType_ != UNDEFINED_MESSAGE)
 			{
 				auto lst(register_->GetReceiverList(messageType_));
-                for (uint16_t i = 0; i < lst->GetStorageSize(); ++i)
-                    if ((*lst)[i])
-                        (*lst)[i]->HandleMessage(message);
+                if (lst)
+                {
+                    LOG_INFO("Broadcasting message to " + std::to_string(lst->GetStorageSize()) + " receivers");
+                    for (uint16_t i = 0; i < lst->GetStorageSize(); ++i)
+                        if ((*lst)[i])
+                            (*lst)[i]->HandleMessage(message);
+                }
+                else
+                    LOG_WARNING("Attempting to send messages to null receiver list");
 			}
 		}
 

@@ -11,15 +11,15 @@ namespace l2
 		private:
 			MenuInputHandler(const MenuInputHandler & right) = delete;
 		protected:
-			virtual void OnKeyUp();
-			virtual void OnKeyDown();
-			virtual void OnKeyLeft();
-			virtual void OnKeyRight();
-			virtual void OnKeyEnter();
-			virtual void OnKeyEsc();
+			void (*OnKeyUp)();
+			void (*OnKeyDown)();
+			void (*OnKeyLeft)();
+			void (*OnKeyRight)();
+			void (*OnKeyEnter)();
+			void (*OnKeyEsc)();
 		public:
 			MenuInputHandler() = default;
-			virtual void HandleInput(const InputManager::ConsoleInput inputEvent);
+			void HandleInput(const InputManager::ConsoleInput inputEvent);
 		};
 	}
 }

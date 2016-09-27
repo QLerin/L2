@@ -1,5 +1,6 @@
 #include "InputManager.h"
 #include "GameManager.h"
+#include "Logger.h"
 #include <conio.h>
 
 using namespace std;
@@ -7,7 +8,10 @@ using namespace l2::sys;
 
 void InputManager::PollInput()
 {
+
 	isRunning_ = true;
+
+    LOG_INFO("Input polling thread has started");
 
 	while (isRunning_)
 	{
@@ -28,5 +32,8 @@ void InputManager::StartPolling()
 
 void InputManager::StopPolling()
 {
+    LOG_INFO("Stopping poll operations");
 	isRunning_ = false;
+    inputThread_.join();
+    LOG_INFO("Polling operation stopped");
 }

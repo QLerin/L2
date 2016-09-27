@@ -8,6 +8,7 @@
 #include "ArrayStorage.h"
 //#include "Sender.h"
 //#include "Receiver.h"
+#include "Logger.h"
 
 namespace l2
 {
@@ -69,11 +70,15 @@ namespace l2
                 *(container_[messageType]) = std::make_pair(nullptr, new receiverList_t());
             }
             else if (container_[messageType]->first == sender)
+            {
+                LOG_WARNING("Failed to register sender in register for message type: " + to_string(messageType));
                 return false;
-
+            }
             container_[messageType]->first = sender;
             sender->messageType_ = messageType;
             sender->register_ = this;
+
+            LOG_INFO("Sender was registered for message type: " + std::to_string(messageType));
 
             return true;
         }
@@ -84,9 +89,19 @@ namespace l2
             std::recursive_mutex & mtx(container_.GetContainerLock());
             std::lock_guard<std::recursive_mutex> lock(mtx);
             if (!sender || container_[sender->messageType_]->first != sender)
+            {
+                if (!sender)
+                    LOG_WARNING("Invalid attempt to unregister sender from register. Provided parameter is NULL.");
+                else
+                    LOG_WARNING("A different sender was registered to this message type.");
+
                 return false;
+            }
 
             container_[sender->messageType_]->first = nullptr;
+
+            LOG_INFO(("Sender with message type " + std::to_string(sender->messageType_) + " was unregistered."));
+
             sender->register_ = nullptr;
             sender->messageType_ = UNDEFINED_MESSAGE;
 
@@ -105,7 +120,7 @@ namespace l2
                 container_.AddResource(new unit_t, messageType);
                 *(container_[messageType]) = make_pair(nullptr, new receiverList_t());
             }
-            
+
             unit_t * refNode(container_[messageType]);
 
             std::lock_guard<std::recursive_mutex> nodeLock(refNode->second->GetContainerLock());
@@ -118,6 +133,8 @@ namespace l2
             receiver->messageType_ = messageType;
             receiver->register_ = this;
 
+            LOG_INFO("A receiver for message type: " + std::to_string(messageType) + " was added to the register");
+
             return true;
         }
 
@@ -125,7 +142,10 @@ namespace l2
         bool Register<T>::UnregisterReceiver(Receiver<T> * receiver)
         {
             if (!receiver || receiver->messageType_ == UNDEFINED_MESSAGE)
+            {
+                LOG_WARNING("Attempting to remove uninitialized receiver from register");
                 return false;
+            }
 
             unit_t * refNode(container_[receiver->messageType_]);
 
@@ -143,9 +163,18 @@ namespace l2
                     }
                 }
             }
+
+            if (wasRemoved)
+            {
+                LOG_INFO("Receiver for message type: " + std::to_string(receiver->messageType_) + " was successfully removed");
+                receiver->messageType_ = UNDEFINED_MESSAGE;
+                receiver->register_ = nullptr;
+            }
+            else
+                LOG_WARNING("Failed to remove receiver from register");
+
             return wasRemoved;
         }
 
     }
-
 }

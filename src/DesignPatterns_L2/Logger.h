@@ -56,10 +56,16 @@ namespace l2
 
 #ifndef LOG_DEFINES
 
-#define LOG_ERROR(message)          Logger::GetInstance()->LogError(__FUNCTION__, message)
-#define LOG_INFO(message)           Logger::GetInstance()->LogInfo(__FUNCTION__, message)
-#define LOG_WARNING(message)        Logger::GetInstance()->LogWarning(__FUNCTION__, message)
+#define LOG_ERROR(message)          l2::sys::Logger::GetInstance()->LogError(__FUNCTION__, message)
+#define LOG_INFO(message)           l2::sys::Logger::GetInstance()->LogInfo(__FUNCTION__, message)
+#define LOG_WARNING(message)        l2::sys::Logger::GetInstance()->LogWarning(__FUNCTION__, message)
 
+#endif
+
+#ifdef _WIN64_
+#define PTR_TYPE    uint64_t
+#else
+#define PTR_TYPE    uint32_t
 #endif
 
 	}
