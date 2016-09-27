@@ -2,6 +2,7 @@
 #include <string>
 #include <mutex>
 #include <memory>
+#include <windows.h>
 
 namespace l2
 {
@@ -10,40 +11,31 @@ namespace l2
 	{
 
 		class Score {
-			friend std::shared_ptr<Score>;
-		private:
-			static std::mutex initLock_;
-
-		protected:
 			Score() = default;
-			Score(const Score & right) : name_(right.name_), points_(right.points_) { }
+			Score(const Score & right) : points_(right.points_) { }
 
-			static std::shared_ptr<Score> instance_;
-
-			int points_;
-			std::string name_;
+			std::mutex scoreLock_;
+			long points_;
 
 		public:
-			static std::shared_ptr<Score> getInstance();
-
+			static Score & getInstance();
 
 			void setPoints(const int p) {
+				std::lock_guard<std::mutex> lock(scoreLock_);
 				points_ = p;
 			}
-			void setName(const std::string & n) {
-				name_ = n;
-			}
+
 			void changePoints(int change) {
+				std::lock_guard<std::mutex> lock(scoreLock_);
 				points_ += change;
 			}
-			void saveScore2File();
+
+			void saveScore2File(const std::string & name);
 
 			const int getPoints() {
 				return points_;
 			}
-			const std::string & getName() {
-				return name_;
-			}
+
 		};
 
 
