@@ -104,9 +104,6 @@
     <ClCompile Include="MenuInputHandler.cpp">
       <Filter>Source Files\Sys</Filter>
     </ClCompile>
-    <ClCompile Include="CharacterStatistics.cpp">
-      <Filter>Source Files\GameObjects\Fluff</Filter>
-    </ClCompile>
     <ClCompile Include="ColorizeDrawable.cpp">
       <Filter>Source Files\ConsoleUI</Filter>
     </ClCompile>
