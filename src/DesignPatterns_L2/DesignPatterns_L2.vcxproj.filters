@@ -111,6 +111,9 @@
     <Filter Include="Header Files\GameObjects\Items\Usables\LifeUsables\Factories">
       <UniqueIdentifier>{f3c1c10b-8800-4acb-a8be-28d7d92fb272}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameObjects\Medkits">
+      <UniqueIdentifier>{f383cc80-d0c0-44c3-b39a-3cad1bfb7375}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Frame.cpp">
@@ -155,6 +158,21 @@
     <ClCompile Include="Menu.cpp">
       <Filter>Source Files\ConsoleUI</Filter>
     </ClCompile>
+    <ClCompile Include="EnemyArcher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyMage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemySwordsman.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Medkit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MedkitBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Frame.h">
@@ -193,9 +211,6 @@
     <ClInclude Include="Score.h">
       <Filter>Header Files\GameObjects\Characters\Fluff</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyNPC.h">
-      <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
-    </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files\GameObjects\Characters\Player</Filter>
     </ClInclude>
@@ -215,15 +230,6 @@
       <Filter>Header Files\ConsoleUI</Filter>
     </ClInclude>
     <ClInclude Include="EnemyFactory.h">
-      <Filter>Header Files\GameObjects\Characters\Enemy Factory</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyArcherFactory.h">
-      <Filter>Header Files\GameObjects\Characters\Enemy Factory</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemySwordsmanFactory.h">
-      <Filter>Header Files\GameObjects\Characters\Enemy Factory</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyMageFactory.h">
       <Filter>Header Files\GameObjects\Characters\Enemy Factory</Filter>
     </ClInclude>
     <ClInclude Include="Inventory.h">
@@ -369,6 +375,27 @@
     </ClInclude>
     <ClInclude Include="EpicFactory.h">
       <Filter>Header Files\GameObjects\Items\Usables\UsableFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="LargeMedkitBuilder.h">
+      <Filter>Header Files\GameObjects\Medkits</Filter>
+    </ClInclude>
+    <ClInclude Include="MediumMedkitBuilder.h">
+      <Filter>Header Files\GameObjects\Medkits</Filter>
+    </ClInclude>
+    <ClInclude Include="Medkit.h">
+      <Filter>Header Files\GameObjects\Medkits</Filter>
+    </ClInclude>
+    <ClInclude Include="MedkitBuilder.h">
+      <Filter>Header Files\GameObjects\Medkits</Filter>
+    </ClInclude>
+    <ClInclude Include="MedkitEngineer.h">
+      <Filter>Header Files\GameObjects\Medkits</Filter>
+    </ClInclude>
+    <ClInclude Include="SmallMedkitBuilder.h">
+      <Filter>Header Files\GameObjects\Medkits</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
