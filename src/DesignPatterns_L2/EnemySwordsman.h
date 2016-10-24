@@ -15,6 +15,8 @@ namespace l2
         protected:
 
         public:
+            virtual void Attack(Character & target) { }
+            virtual void TakeDamage(const uint64_t damage) { }
         };
 
     }

@@ -13,8 +13,7 @@ namespace l2
         class EnemyNPC : public Character
         {
         protected:
-
-        public:
+            EnemyNPC(const std::string & name) : Character(name) { }
         };
 
     }

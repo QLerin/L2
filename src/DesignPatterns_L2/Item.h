@@ -12,15 +12,13 @@ namespace l2
 
 		class Item : public IGameObject
 		{
-		protected:
+        private:
             Item() = delete;
-            Item(const Item & right) = default;
-            Item(const std::string & name) : IGameObject(name), parentCharacter_(nullptr) { }
-			std::shared_ptr<Character> parentCharacter_;
-		public:
+        protected:
+            Item(const Item & right) : IGameObject(right.objectName_), destroyOnUse_(right.destroyOnUse_) { }
+            Item(const std::string & name, const bool destroyOnUse) : IGameObject(name), destroyOnUse_(destroyOnUse) { }
 
-			virtual void ActivateEffect() = 0;
-			virtual void DeactivateEffect() = 0;
+            const bool destroyOnUse_;
 		};
 
 	}

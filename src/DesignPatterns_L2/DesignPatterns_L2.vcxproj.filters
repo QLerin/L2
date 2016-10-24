@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\GameObjects">
+      <UniqueIdentifier>{2bf53c23-fa91-4d8a-a4ff-8cf903e3102f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Sys">
+      <UniqueIdentifier>{2c01b19e-0214-4875-b020-736f57cbc9f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Sys">
+      <UniqueIdentifier>{1c68b295-4277-4cc1-8a22-e8c10a982709}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects">
+      <UniqueIdentifier>{dd779d36-b545-412e-a5df-994b7e2a7e94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Interfaces">
+      <UniqueIdentifier>{07480674-60e7-4ae2-a699-2268862f0e17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Characters">
+      <UniqueIdentifier>{c618c40d-62e1-4e97-8da4-7628e7e7c133}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Items">
+      <UniqueIdentifier>{bb8bf484-a7bd-4971-8b87-9e1fc97377e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\Fluff">
+      <UniqueIdentifier>{3037815b-bef9-445c-af56-69eee4f16df8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Menus">
+      <UniqueIdentifier>{e66d7429-cb89-4aa1-b27e-7934be71dd36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Characters\Fluff">
+      <UniqueIdentifier>{8fec3c6e-353d-40cf-9b17-3224f2fd0594}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\Menus">
+      <UniqueIdentifier>{ad0e43d7-3e2d-4457-a845-bf2322db0941}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Sys\main">
+      <UniqueIdentifier>{eda3170f-7c33-4ffb-ad27-31e570a8cd43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Characters\Enemies">
+      <UniqueIdentifier>{32269315-a5c7-4fe0-a5af-c45aff5a9baf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Characters\Player">
+      <UniqueIdentifier>{a3392613-9029-4a55-ad15-42c54ed568d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ConsoleUI">
+      <UniqueIdentifier>{af3e4145-2c67-4fb5-889c-215ec50832d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ConsoleUI">
+      <UniqueIdentifier>{8fb484d8-a537-4a3f-81ff-f93d9daa8e8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Characters\Enemy Factory">
+      <UniqueIdentifier>{b22f9c72-2923-4405-9c5d-4d2824411a81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Inventory">
+      <UniqueIdentifier>{52428ce1-d767-413b-8e8a-8906b68f8387}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\Items">
+      <UniqueIdentifier>{20b17937-a457-4fae-8062-7a09af65ba58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Items\Equippables">
+      <UniqueIdentifier>{9108feee-699d-4b24-b874-be831b07cf0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Items\Equippables\Armor">
+      <UniqueIdentifier>{d771e2e5-f7e6-4d50-9018-1231523dc59f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Items\Equippables\Weapons">
+      <UniqueIdentifier>{b1f18a89-9fc5-40f1-a5d1-4ad84a8fa1f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Items\Usables">
+      <UniqueIdentifier>{b7f8c8bb-9795-494a-9c49-b5ab20a6f7c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Items\Equippables\EquippableFactory">
+      <UniqueIdentifier>{50772925-1285-4131-bd39-408aead99f02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Items\Usables\UsableFactory">
+      <UniqueIdentifier>{3f48faea-c25e-40a8-a4eb-9fe9eb5a5257}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Frame.cpp">
+      <Filter>Source Files\ConsoleUI</Filter>
+    </ClCompile>
+    <ClCompile Include="IDrawable.cpp">
+      <Filter>Source Files\ConsoleUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Source Files\Sys</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Source Files\Sys</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerInputHandler.cpp">
+      <Filter>Source Files\Sys</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuInputHandler.cpp">
+      <Filter>Source Files\Sys</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterStatistics.cpp">
+      <Filter>Source Files\GameObjects\Fluff</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorizeDrawable.cpp">
+      <Filter>Source Files\ConsoleUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Colorizer.cpp">
+      <Filter>Source Files\ConsoleUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleWindow.cpp">
+      <Filter>Source Files\ConsoleUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Score.cpp">
+      <Filter>Source Files\GameObjects\Fluff</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files\Sys\main</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuLoader.cpp">
+      <Filter>Source Files\Sys</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>Source Files\Sys</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source Files\ConsoleUI</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Frame.h">
+      <Filter>Header Files\ConsoleUI</Filter>
+    </ClInclude>
+    <ClInclude Include="IDrawable.h">
+      <Filter>Header Files\ConsoleUI</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderDefines.h">
+      <Filter>Header Files\ConsoleUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Header Files\Sys</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>Header Files\Sys</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Header Files\Sys</Filter>
+    </ClInclude>
+    <ClInclude Include="InputHandler.h">
+      <Filter>Header Files\Sys</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuInputHandler.h">
+      <Filter>Header Files\Sys</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerInputHandler.h">
+      <Filter>Header Files\Sys</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterStatistics.h">
+      <Filter>Header Files\GameObjects\Characters\Fluff</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files\GameObjects\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Colorizer.h">
+      <Filter>Header Files\ConsoleUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleWindow.h">
+      <Filter>Header Files\ConsoleUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorizedDrawable.h">
+      <Filter>Header Files\ConsoleUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Header Files\GameObjects\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>Header Files\GameObjects\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="Sender.h">
+      <Filter>Header Files\Sys</Filter>
+    </ClInclude>
+    <ClInclude Include="Receiver.h">
+      <Filter>Header Files\Sys</Filter>
+    </ClInclude>
+    <ClInclude Include="Register.h">
+      <Filter>Header Files\Sys</Filter>
+    </ClInclude>
+    <ClInclude Include="SharedResources.h">
+      <Filter>Header Files\Sys</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceStorage.h">
+      <Filter>Header Files\Sys</Filter>
+    </ClInclude>
+    <ClInclude Include="MapStorage.h">
+      <Filter>Header Files\Sys</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayStorage.h">
+      <Filter>Header Files\Sys</Filter>
+    </ClInclude>
+    <ClInclude Include="StartMenu.h">
+      <Filter>Header Files\GameObjects\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="Score.h">
+      <Filter>Header Files\GameObjects\Characters\Fluff</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuLoader.h">
+      <Filter>Header Files\Sys</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>Header Files\Sys</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyNPC.h">
+      <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\GameObjects\Characters\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyArcher.h">
+      <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemySwordsman.h">
+      <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyMage.h">
+      <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Header Files\ConsoleUI</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuItem.h">
+      <Filter>Header Files\ConsoleUI</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyFactory.h">
+      <Filter>Header Files\GameObjects\Characters\Enemy Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyArcherFactory.h">
+      <Filter>Header Files\GameObjects\Characters\Enemy Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemySwordsmanFactory.h">
+      <Filter>Header Files\GameObjects\Characters\Enemy Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyMageFactory.h">
+      <Filter>Header Files\GameObjects\Characters\Enemy Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>Header Files\GameObjects\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="EquippableFactory.h">
+      <Filter>Header Files\GameObjects\Items\Equippables\EquippableFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="UsableFactory.h">
+      <Filter>Header Files\GameObjects\Items\Usables\UsableFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="Bow.h">
+      <Filter>Header Files\GameObjects\Items\Equippables\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="Staff.h">
+      <Filter>Header Files\GameObjects\Items\Equippables\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="Sword.h">
+      <Filter>Header Files\GameObjects\Items\Equippables\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>Header Files\GameObjects\Items\Equippables\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="Armor.h">
+      <Filter>Header Files\GameObjects\Items\Equippables\Armor</Filter>
+    </ClInclude>
+    <ClInclude Include="LeatherArmor.h">
+      <Filter>Header Files\GameObjects\Items\Equippables\Armor</Filter>
+    </ClInclude>
+    <ClInclude Include="PlateArmor.h">
+      <Filter>Header Files\GameObjects\Items\Equippables\Armor</Filter>
+    </ClInclude>
+    <ClInclude Include="EquippableItem.h">
+      <Filter>Header Files\GameObjects\Items\Equippables</Filter>
+    </ClInclude>
+    <ClInclude Include="ClothArmor.h">
+      <Filter>Header Files\GameObjects\Items\Equippables\Armor</Filter>
+    </ClInclude>
+    <ClInclude Include="UsableItem.h">
+      <Filter>Header Files\GameObjects\Items\Usables</Filter>
+    </ClInclude>
+    <ClInclude Include="Potion.h">
+      <Filter>Header Files\GameObjects\Items\Usables</Filter>
+    </ClInclude>
+    <ClInclude Include="Enchantment.h">
+      <Filter>Header Files\GameObjects\Items\Usables</Filter>
+    </ClInclude>
+    <ClInclude Include="Gem.h">
+      <Filter>Header Files\GameObjects\Items\Usables</Filter>
+    </ClInclude>
+    <ClInclude Include="LifeStatistics.h">
+      <Filter>Header Files\GameObjects\Characters\Fluff</Filter>
+    </ClInclude>
+    <ClInclude Include="TertiaryStatistics.h">
+      <Filter>Header Files\GameObjects\Characters\Fluff</Filter>
+    </ClInclude>
+    <ClInclude Include="TertiaryUsable.h">
+      <Filter>Header Files\GameObjects\Items\Usables</Filter>
+    </ClInclude>
+    <ClInclude Include="LifeUsable.h">
+      <Filter>Header Files\GameObjects\Items\Usables</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

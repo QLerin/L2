@@ -1,6 +1,7 @@
 #pragma once
 
-#include "EquippableItem.h"
+#include "Item.h"
+#include <memory>
 
 namespace l2
 {
@@ -8,13 +9,13 @@ namespace l2
     namespace gameobjects
     {
 
-        class Weapon : public EquippableItem
+        class Inventory
         {
-        private:
-
         protected:
 
+
         public:
+            virtual void AddItem();
 
         };
 

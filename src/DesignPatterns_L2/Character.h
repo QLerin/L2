@@ -2,6 +2,7 @@
 
 #include "CharacterStatistics.h"
 #include "ColorizedDrawable.h"
+#include "GameObject.h"
 #include <memory>
 
 namespace l2r = l2::rendering;
@@ -17,10 +18,11 @@ namespace l2
 		protected:
 			std::shared_ptr<CharacterStatistics> stats_;
             l2r::ColorizedDrawable model_;
-
 		public:
-            virtual void Attack(Character & target);
-            virtual void TakeDamage(const uint64_t damage);
+            Character(const std::string & name) : IGameObject(name), model_(nullptr) { }
+
+            virtual void Attack(Character & target) = 0;
+            virtual void TakeDamage(const uint64_t damage) = 0;
 		};
 
 	}
