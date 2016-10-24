@@ -10,6 +10,12 @@
 #include "Score.h"
 
 #include "StartMenu.h"
+#include "EnemyFactory.h"
+#include "Medkit.h"
+#include "LargeMedkitBuilder.h"
+#include "MedkitEngineer.h"
+#include "MediumMedkitBuilder.h"
+#include "SmallMedkitBuilder.h"
 
 
 using namespace std;
@@ -50,11 +56,36 @@ void testfun(const uint16_t threadid)
 
 int main(int argc, char ** argv)
 {
+	Logger::GetInstance()->Initialize("L.log");
 
 	if(argc && argv)
 		printf("Hello World!\rTest\n");
+	EnemyFactory fac;
+	Enemy *a = fac.CreateEnemy("archer"); 
+	Enemy *b = fac.CreateEnemy("swordsman");
+	Enemy *c = fac.CreateEnemy("mage");
 
- //   Logger::GetInstance()->Initialize("Linalukage2.log");
+	Score::getInstance().changePoints(-100);
+	Score::getInstance().saveScore2File("Jonas");
+
+	MedkitBuilder *a1 = new LargeMedkitBuilder();
+	MedkitBuilder *a2 = new MediumMedkitBuilder();
+	MedkitBuilder *a3 = new SmallMedkitBuilder();
+	MedkitEngineer me;
+	me.setBuilder(a1);
+	Medkit m1 = me.getKit();
+	me.setBuilder(a2);
+	Medkit m2 = me.getKit();
+	me.setBuilder(a3);
+	Medkit m3 = me.getKit();
+
+
+	Player player("Jonas");
+	m1.Use(player);
+	m2.Use(player);
+	m3.Use(player);
+
+	
 
 	//Sender<char> * snd(new Sender<char>);
 	//TestReceiver * rcv(new TestReceiver);

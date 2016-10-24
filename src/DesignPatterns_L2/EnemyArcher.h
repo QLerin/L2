@@ -1,6 +1,7 @@
 #pragma once
 
-#include "EnemyNPC.h"
+#include "Enemy.h"
+#include "Logger.h"
 
 namespace l2r = l2::rendering;
 
@@ -9,20 +10,20 @@ namespace l2
 
     namespace gameobjects
     {
-
         static const std::string DEFAULT_ARCHER_NAME = "Archer";
-
-        class EnemyArcher : public EnemyNPC
+        class EnemyArcher : public Enemy
         {
-        private:
-            
-        protected:
-
+			int arrowAmount;
         public:
-            EnemyArcher() : EnemyNPC(DEFAULT_ARCHER_NAME) { }
+			EnemyArcher() : Enemy(DEFAULT_ARCHER_NAME)
+			{
+				LOG_INFO("Enemy mage created");
+				arrowAmount = 10;
+			}
 
-            virtual void Attack(Character & target) { }
-            virtual void TakeDamage(const uint64_t damage) { }
+			void Attack(Character & target) override;
+			void TakeDamage(const uint64_t damage) override;
+			void Die();
         };
 
     }

@@ -18,6 +18,10 @@ namespace l2
 			IGameObject(const IGameObject & right) : objectName_(right.objectName_) { }
 			IGameObject(const std::string & name) : objectName_(name) { }
 		public:
+			virtual ~IGameObject()
+			{
+			}
+
 			const std::string & GetObjectName() { return objectName_; }
 		};
 

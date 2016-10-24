@@ -17,7 +17,7 @@ namespace l2
             TertiaryStatistics tertiary_;
 		public:
             CharacterStatistics() : life_(0, 0), tertiary_(0, 0, 0) { }
-			CharacterStatistics(const CharacterStatistics & right) : life_(right.life_), tertiary_(right.tertiary_) { }
+			CharacterStatistics(const CharacterStatistics & right) : life_(right.life_), tertiary_(right.tertiary_)
 			{
 			}
 			CharacterStatistics(const LifeStatistics & life, const TertiaryStatistics & tertiary) :

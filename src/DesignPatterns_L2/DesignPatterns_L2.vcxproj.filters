@@ -57,9 +57,6 @@
     <Filter Include="Source Files\ConsoleUI">
       <UniqueIdentifier>{8fb484d8-a537-4a3f-81ff-f93d9daa8e8d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\GameObjects\Characters\Enemy Factory">
-      <UniqueIdentifier>{b22f9c72-2923-4405-9c5d-4d2824411a81}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\GameObjects\Inventory">
       <UniqueIdentifier>{52428ce1-d767-413b-8e8a-8906b68f8387}</UniqueIdentifier>
     </Filter>
@@ -83,6 +80,18 @@
     </Filter>
     <Filter Include="Header Files\GameObjects\Items\Usables\UsableFactory">
       <UniqueIdentifier>{3f48faea-c25e-40a8-a4eb-9fe9eb5a5257}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\Characters">
+      <UniqueIdentifier>{19119c48-c941-4e2f-9c7b-f7e4e9ff3274}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\Characters\Enemies">
+      <UniqueIdentifier>{5216b1c5-b441-4422-b96a-643dfdef1494}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Characters\Medkits">
+      <UniqueIdentifier>{e97a54a0-4ac5-43ca-815b-ff82f8334374}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\Medkit">
+      <UniqueIdentifier>{5bbad050-53ec-4797-bc73-b3843a28cb88}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +136,21 @@
     </ClCompile>
     <ClCompile Include="Menu.cpp">
       <Filter>Source Files\ConsoleUI</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyArcher.cpp">
+      <Filter>Source Files\GameObjects\Characters\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyMage.cpp">
+      <Filter>Source Files\GameObjects\Characters\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemySwordsman.cpp">
+      <Filter>Source Files\GameObjects\Characters\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Medkit.cpp">
+      <Filter>Source Files\GameObjects\Medkit</Filter>
+    </ClCompile>
+    <ClCompile Include="MedkitBuilder.cpp">
+      <Filter>Source Files\GameObjects\Medkit</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -211,9 +235,6 @@
     <ClInclude Include="Logger.h">
       <Filter>Header Files\Sys</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyNPC.h">
-      <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
-    </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files\GameObjects\Characters\Player</Filter>
     </ClInclude>
@@ -231,18 +252,6 @@
     </ClInclude>
     <ClInclude Include="MenuItem.h">
       <Filter>Header Files\ConsoleUI</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyFactory.h">
-      <Filter>Header Files\GameObjects\Characters\Enemy Factory</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyArcherFactory.h">
-      <Filter>Header Files\GameObjects\Characters\Enemy Factory</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemySwordsmanFactory.h">
-      <Filter>Header Files\GameObjects\Characters\Enemy Factory</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyMageFactory.h">
-      <Filter>Header Files\GameObjects\Characters\Enemy Factory</Filter>
     </ClInclude>
     <ClInclude Include="Inventory.h">
       <Filter>Header Files\GameObjects\Inventory</Filter>
@@ -303,6 +312,30 @@
     </ClInclude>
     <ClInclude Include="LifeUsable.h">
       <Filter>Header Files\GameObjects\Items\Usables</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyFactory.h">
+      <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Medkit.h">
+      <Filter>Header Files\GameObjects\Characters\Medkits</Filter>
+    </ClInclude>
+    <ClInclude Include="MedkitBuilder.h">
+      <Filter>Header Files\GameObjects\Characters\Medkits</Filter>
+    </ClInclude>
+    <ClInclude Include="SmallMedkitBuilder.h">
+      <Filter>Header Files\GameObjects\Characters\Medkits</Filter>
+    </ClInclude>
+    <ClInclude Include="MediumMedkitBuilder.h">
+      <Filter>Header Files\GameObjects\Characters\Medkits</Filter>
+    </ClInclude>
+    <ClInclude Include="LargeMedkitBuilder.h">
+      <Filter>Header Files\GameObjects\Characters\Medkits</Filter>
+    </ClInclude>
+    <ClInclude Include="MedkitEngineer.h">
+      <Filter>Header Files\GameObjects\Characters\Medkits</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

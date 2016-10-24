@@ -1,6 +1,9 @@
 #pragma once
 
-#include "EnemyNPC.h"
+#include "Enemy.h"
+#include "EnemyMage.h"
+#include "EnemyArcher.h"
+#include "EnemySwordsman.h"
 
 namespace l2
 {
@@ -10,9 +13,27 @@ namespace l2
 
         class EnemyFactory
         {
-            virtual std::shared_ptr<EnemyNPC> CreateEnemy() = 0;
+        public:
+			Enemy* CreateEnemy(std::string enemyType);
         };
 
+	    inline Enemy* EnemyFactory::CreateEnemy(std::string enemyType)
+	    {
+			Enemy * temp;
+			if (enemyType == "mage")
+			{
+				return new EnemyMage();
+			}
+			if (enemyType == "swordsman")
+			{
+				return new EnemySwordsman();
+			}
+			if (enemyType == "archer")
+			{
+				return new EnemyArcher();
+			}
+		    return nullptr;
+	    }
     }
 
 }

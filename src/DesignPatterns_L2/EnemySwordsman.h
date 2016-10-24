@@ -1,6 +1,7 @@
 #pragma once
 
-#include "EnemyNPC.h"
+#include "Enemy.h"
+#include "Logger.h"
 
 namespace l2r = l2::rendering;
 
@@ -9,14 +10,18 @@ namespace l2
 
     namespace gameobjects
     {
-
-        class EnemySwordsman : public EnemyNPC
+		static const std::string DEFAULT_SWORDSMAN_NAME = "Swordsman";
+        class EnemySwordsman : public Enemy
         {
-        protected:
-
         public:
-            virtual void Attack(Character & target) { }
-            virtual void TakeDamage(const uint64_t damage) { }
+			EnemySwordsman() : Enemy(DEFAULT_SWORDSMAN_NAME)
+			{
+				LOG_INFO("Enemy swordsman created");
+			}
+
+			void Attack(Character & target) override;
+			void TakeDamage(const uint64_t damage) override;
+			void Die();
         };
 
     }
