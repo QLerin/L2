@@ -38,6 +38,7 @@
     <ClInclude Include="Armor.h" />
     <ClInclude Include="Bow.h" />
     <ClInclude Include="ClothArmor.h" />
+    <ClInclude Include="CommonFactory.h" />
     <ClInclude Include="Enchantment.h" />
     <ClInclude Include="EnemyArcher.h" />
     <ClInclude Include="ArrayStorage.h" />
@@ -51,21 +52,27 @@
     <ClInclude Include="EnemyMageFactory.h" />
     <ClInclude Include="EnemyNPC.h" />
     <ClInclude Include="EnemySwordsmanFactory.h" />
+    <ClInclude Include="EpicFactory.h" />
     <ClInclude Include="EquippableFactory.h" />
     <ClInclude Include="EquippableItem.h" />
+    <ClInclude Include="FireEnchantment.h" />
     <ClInclude Include="Frame.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Gem.h" />
+    <ClInclude Include="GlitteringGem.h" />
     <ClInclude Include="IDrawable.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Inventory.h" />
+    <ClInclude Include="LargePotion.h" />
     <ClInclude Include="LeatherArmor.h" />
     <ClInclude Include="LifeStatistics.h" />
     <ClInclude Include="LifeUsable.h" />
+    <ClInclude Include="LightningEnchantment.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="MapStorage.h" />
+    <ClInclude Include="MediumPotion.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuInputHandler.h" />
     <ClInclude Include="MenuItem.h" />
@@ -74,6 +81,9 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerInputHandler.h" />
     <ClInclude Include="Potion.h" />
+    <ClInclude Include="PotionFactory.h" />
+    <ClInclude Include="RadiantGem.h" />
+    <ClInclude Include="RareFactory.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="Receiver.h" />
     <ClInclude Include="Register.h" />
@@ -81,8 +91,10 @@
     <ClInclude Include="ResourceStorage.h" />
     <ClInclude Include="Sender.h" />
     <ClInclude Include="SharedResources.h" />
+    <ClInclude Include="ShiningGem.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="SmallPotion.h" />
     <ClInclude Include="Staff.h" />
     <ClInclude Include="StartMenu.h" />
     <ClInclude Include="TertiaryStatistics.h" />
@@ -91,6 +103,7 @@
     <ClInclude Include="TertiaryUsable.h" />
     <ClInclude Include="UsableFactory.h" />
     <ClInclude Include="UsableItem.h" />
+    <ClInclude Include="WaterEnchantment.h" />
     <ClInclude Include="Weapon.h" />
     <ClInclude Include="EnemyMage.h" />
   </ItemGroup>

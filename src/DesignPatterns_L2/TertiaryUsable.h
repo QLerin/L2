@@ -20,6 +20,11 @@ namespace l2
             TertiaryUsable(const std::string & name, const TertiaryStatistics & stats) : UsableItem(name), statistics_(stats) {}
         public:
             const TertiaryStatistics & GetUsableStatistics() { return statistics_; }
+
+            virtual void UseItem(CharacterStatistics & stats)
+            {
+                stats.ApplyTertiary(statistics_);
+            }
         };
 
     }

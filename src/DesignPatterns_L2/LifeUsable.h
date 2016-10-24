@@ -20,6 +20,11 @@ namespace l2
             LifeUsable(const std::string & name, const LifeStatistics & stats) : UsableItem(name), statistics_(stats) {}
         public:
             const LifeStatistics & GetUsableStatistics() { return statistics_; }
+
+            virtual void UseItem(CharacterStatistics & stats)
+            {
+                stats.ApplyLife(statistics_);
+            }
         };
 
     }
