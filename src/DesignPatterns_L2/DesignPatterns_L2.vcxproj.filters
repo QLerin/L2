@@ -57,6 +57,9 @@
     <Filter Include="Source Files\ConsoleUI">
       <UniqueIdentifier>{8fb484d8-a537-4a3f-81ff-f93d9daa8e8d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameObjects\Characters\Enemy Factory">
+      <UniqueIdentifier>{b22f9c72-2923-4405-9c5d-4d2824411a81}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Header Files\GameObjects\Inventory">
       <UniqueIdentifier>{52428ce1-d767-413b-8e8a-8906b68f8387}</UniqueIdentifier>
     </Filter>
@@ -81,17 +84,32 @@
     <Filter Include="Header Files\GameObjects\Items\Usables\UsableFactory">
       <UniqueIdentifier>{3f48faea-c25e-40a8-a4eb-9fe9eb5a5257}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\GameObjects\Characters">
-      <UniqueIdentifier>{19119c48-c941-4e2f-9c7b-f7e4e9ff3274}</UniqueIdentifier>
+    <Filter Include="Header Files\GameObjects\Items\Usables\TertiaryUsables">
+      <UniqueIdentifier>{c256f982-86b5-4162-8e41-088c2820e1d5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\GameObjects\Characters\Enemies">
-      <UniqueIdentifier>{5216b1c5-b441-4422-b96a-643dfdef1494}</UniqueIdentifier>
+    <Filter Include="Header Files\GameObjects\Items\Usables\LifeUsables">
+      <UniqueIdentifier>{262ff997-9909-495f-9823-f10717f2b379}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\GameObjects\Characters\Medkits">
-      <UniqueIdentifier>{e97a54a0-4ac5-43ca-815b-ff82f8334374}</UniqueIdentifier>
+    <Filter Include="Header Files\GameObjects\Items\Usables\TertiaryUsables\Gems">
+      <UniqueIdentifier>{7a557a11-5020-4552-8a49-5090f065aef9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\GameObjects\Medkit">
-      <UniqueIdentifier>{5bbad050-53ec-4797-bc73-b3843a28cb88}</UniqueIdentifier>
+    <Filter Include="Header Files\GameObjects\Items\Usables\TertiaryUsables\Enchants">
+      <UniqueIdentifier>{8c251f10-9add-47cf-ba80-e948e55a4c85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Items\Usables\LifeUsables\Potions">
+      <UniqueIdentifier>{046b45ed-a80b-43d6-ae3b-92d0a2a71ba5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Sys\StorageClasses">
+      <UniqueIdentifier>{25ecba88-09ba-48c5-913e-c3ff54091ca9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Sys\XEQTR">
+      <UniqueIdentifier>{0957ec23-930d-4c30-a4dc-104e6b83ecf6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Sys\Handlers">
+      <UniqueIdentifier>{a01d8c0c-af5d-4c71-9fc5-1083a0053f7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Items\Usables\LifeUsables\Factories">
+      <UniqueIdentifier>{f3c1c10b-8800-4acb-a8be-28d7d92fb272}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -137,21 +155,6 @@
     <ClCompile Include="Menu.cpp">
       <Filter>Source Files\ConsoleUI</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyArcher.cpp">
-      <Filter>Source Files\GameObjects\Characters\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyMage.cpp">
-      <Filter>Source Files\GameObjects\Characters\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemySwordsman.cpp">
-      <Filter>Source Files\GameObjects\Characters\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Medkit.cpp">
-      <Filter>Source Files\GameObjects\Medkit</Filter>
-    </ClCompile>
-    <ClCompile Include="MedkitBuilder.cpp">
-      <Filter>Source Files\GameObjects\Medkit</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Frame.h">
@@ -162,24 +165,6 @@
     </ClInclude>
     <ClInclude Include="RenderDefines.h">
       <Filter>Header Files\ConsoleUI</Filter>
-    </ClInclude>
-    <ClInclude Include="GameManager.h">
-      <Filter>Header Files\Sys</Filter>
-    </ClInclude>
-    <ClInclude Include="Singleton.h">
-      <Filter>Header Files\Sys</Filter>
-    </ClInclude>
-    <ClInclude Include="InputManager.h">
-      <Filter>Header Files\Sys</Filter>
-    </ClInclude>
-    <ClInclude Include="InputHandler.h">
-      <Filter>Header Files\Sys</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuInputHandler.h">
-      <Filter>Header Files\Sys</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerInputHandler.h">
-      <Filter>Header Files\Sys</Filter>
     </ClInclude>
     <ClInclude Include="CharacterStatistics.h">
       <Filter>Header Files\GameObjects\Characters\Fluff</Filter>
@@ -202,38 +187,14 @@
     <ClInclude Include="Character.h">
       <Filter>Header Files\GameObjects\Characters</Filter>
     </ClInclude>
-    <ClInclude Include="Sender.h">
-      <Filter>Header Files\Sys</Filter>
-    </ClInclude>
-    <ClInclude Include="Receiver.h">
-      <Filter>Header Files\Sys</Filter>
-    </ClInclude>
-    <ClInclude Include="Register.h">
-      <Filter>Header Files\Sys</Filter>
-    </ClInclude>
-    <ClInclude Include="SharedResources.h">
-      <Filter>Header Files\Sys</Filter>
-    </ClInclude>
-    <ClInclude Include="ResourceStorage.h">
-      <Filter>Header Files\Sys</Filter>
-    </ClInclude>
-    <ClInclude Include="MapStorage.h">
-      <Filter>Header Files\Sys</Filter>
-    </ClInclude>
-    <ClInclude Include="ArrayStorage.h">
-      <Filter>Header Files\Sys</Filter>
-    </ClInclude>
     <ClInclude Include="StartMenu.h">
       <Filter>Header Files\GameObjects\Menus</Filter>
     </ClInclude>
     <ClInclude Include="Score.h">
       <Filter>Header Files\GameObjects\Characters\Fluff</Filter>
     </ClInclude>
-    <ClInclude Include="MenuLoader.h">
-      <Filter>Header Files\Sys</Filter>
-    </ClInclude>
-    <ClInclude Include="Logger.h">
-      <Filter>Header Files\Sys</Filter>
+    <ClInclude Include="EnemyNPC.h">
+      <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files\GameObjects\Characters\Player</Filter>
@@ -252,6 +213,18 @@
     </ClInclude>
     <ClInclude Include="MenuItem.h">
       <Filter>Header Files\ConsoleUI</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyFactory.h">
+      <Filter>Header Files\GameObjects\Characters\Enemy Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyArcherFactory.h">
+      <Filter>Header Files\GameObjects\Characters\Enemy Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemySwordsmanFactory.h">
+      <Filter>Header Files\GameObjects\Characters\Enemy Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyMageFactory.h">
+      <Filter>Header Files\GameObjects\Characters\Enemy Factory</Filter>
     </ClInclude>
     <ClInclude Include="Inventory.h">
       <Filter>Header Files\GameObjects\Inventory</Filter>
@@ -292,50 +265,110 @@
     <ClInclude Include="UsableItem.h">
       <Filter>Header Files\GameObjects\Items\Usables</Filter>
     </ClInclude>
-    <ClInclude Include="Potion.h">
-      <Filter>Header Files\GameObjects\Items\Usables</Filter>
-    </ClInclude>
-    <ClInclude Include="Enchantment.h">
-      <Filter>Header Files\GameObjects\Items\Usables</Filter>
-    </ClInclude>
-    <ClInclude Include="Gem.h">
-      <Filter>Header Files\GameObjects\Items\Usables</Filter>
-    </ClInclude>
     <ClInclude Include="LifeStatistics.h">
       <Filter>Header Files\GameObjects\Characters\Fluff</Filter>
     </ClInclude>
     <ClInclude Include="TertiaryStatistics.h">
       <Filter>Header Files\GameObjects\Characters\Fluff</Filter>
     </ClInclude>
+    <ClInclude Include="Potion.h">
+      <Filter>Header Files\GameObjects\Items\Usables\LifeUsables\Potions</Filter>
+    </ClInclude>
+    <ClInclude Include="Gem.h">
+      <Filter>Header Files\GameObjects\Items\Usables\TertiaryUsables\Gems</Filter>
+    </ClInclude>
+    <ClInclude Include="Enchantment.h">
+      <Filter>Header Files\GameObjects\Items\Usables\TertiaryUsables\Enchants</Filter>
+    </ClInclude>
     <ClInclude Include="TertiaryUsable.h">
-      <Filter>Header Files\GameObjects\Items\Usables</Filter>
+      <Filter>Header Files\GameObjects\Items\Usables\TertiaryUsables</Filter>
     </ClInclude>
     <ClInclude Include="LifeUsable.h">
-      <Filter>Header Files\GameObjects\Items\Usables</Filter>
+      <Filter>Header Files\GameObjects\Items\Usables\LifeUsables</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
+    <ClInclude Include="SmallPotion.h">
+      <Filter>Header Files\GameObjects\Items\Usables\LifeUsables\Potions</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyFactory.h">
-      <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
+    <ClInclude Include="MediumPotion.h">
+      <Filter>Header Files\GameObjects\Items\Usables\LifeUsables\Potions</Filter>
     </ClInclude>
-    <ClInclude Include="Medkit.h">
-      <Filter>Header Files\GameObjects\Characters\Medkits</Filter>
+    <ClInclude Include="LargePotion.h">
+      <Filter>Header Files\GameObjects\Items\Usables\LifeUsables\Potions</Filter>
     </ClInclude>
-    <ClInclude Include="MedkitBuilder.h">
-      <Filter>Header Files\GameObjects\Characters\Medkits</Filter>
+    <ClInclude Include="FireEnchantment.h">
+      <Filter>Header Files\GameObjects\Items\Usables\TertiaryUsables\Enchants</Filter>
     </ClInclude>
-    <ClInclude Include="SmallMedkitBuilder.h">
-      <Filter>Header Files\GameObjects\Characters\Medkits</Filter>
+    <ClInclude Include="LightningEnchantment.h">
+      <Filter>Header Files\GameObjects\Items\Usables\TertiaryUsables\Enchants</Filter>
     </ClInclude>
-    <ClInclude Include="MediumMedkitBuilder.h">
-      <Filter>Header Files\GameObjects\Characters\Medkits</Filter>
+    <ClInclude Include="WaterEnchantment.h">
+      <Filter>Header Files\GameObjects\Items\Usables\TertiaryUsables\Enchants</Filter>
     </ClInclude>
-    <ClInclude Include="LargeMedkitBuilder.h">
-      <Filter>Header Files\GameObjects\Characters\Medkits</Filter>
+    <ClInclude Include="ArrayStorage.h">
+      <Filter>Header Files\Sys\StorageClasses</Filter>
     </ClInclude>
-    <ClInclude Include="MedkitEngineer.h">
-      <Filter>Header Files\GameObjects\Characters\Medkits</Filter>
+    <ClInclude Include="MapStorage.h">
+      <Filter>Header Files\Sys\StorageClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Sender.h">
+      <Filter>Header Files\Sys\StorageClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>Header Files\Sys\StorageClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Register.h">
+      <Filter>Header Files\Sys\StorageClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Receiver.h">
+      <Filter>Header Files\Sys\StorageClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Header Files\Sys\XEQTR</Filter>
+    </ClInclude>
+    <ClInclude Include="InputHandler.h">
+      <Filter>Header Files\Sys\XEQTR</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Header Files\Sys\XEQTR</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>Header Files\Sys\XEQTR</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuLoader.h">
+      <Filter>Header Files\Sys\XEQTR</Filter>
+    </ClInclude>
+    <ClInclude Include="SharedResources.h">
+      <Filter>Header Files\Sys\XEQTR</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceStorage.h">
+      <Filter>Header Files\Sys\StorageClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerInputHandler.h">
+      <Filter>Header Files\Sys\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuInputHandler.h">
+      <Filter>Header Files\Sys\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="PotionFactory.h">
+      <Filter>Header Files\GameObjects\Items\Usables\LifeUsables\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="GlitteringGem.h">
+      <Filter>Header Files\GameObjects\Items\Usables\TertiaryUsables\Gems</Filter>
+    </ClInclude>
+    <ClInclude Include="ShiningGem.h">
+      <Filter>Header Files\GameObjects\Items\Usables\TertiaryUsables\Gems</Filter>
+    </ClInclude>
+    <ClInclude Include="RadiantGem.h">
+      <Filter>Header Files\GameObjects\Items\Usables\TertiaryUsables\Gems</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonFactory.h">
+      <Filter>Header Files\GameObjects\Items\Usables\UsableFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="RareFactory.h">
+      <Filter>Header Files\GameObjects\Items\Usables\UsableFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="EpicFactory.h">
+      <Filter>Header Files\GameObjects\Items\Usables\UsableFactory</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

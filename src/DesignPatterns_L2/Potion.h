@@ -1,6 +1,7 @@
 #pragma once
 
-#include "UsableItem.h"
+#include "LifeUsable.h"
+#include <string>
 
 namespace l2
 {
@@ -8,24 +9,14 @@ namespace l2
     namespace gameobjects
     {
 
-        namespace l2::sys = l2s;
-
-        const uint64_t ON_USE_MESSAGE = 0x0000000000000001;
-
-        class Potion : public UsableItem
+        class Potion : public LifeUsable
         {
         private:
-            static const std::string POTION_NAME;
-        public:
-            Potion() : UsableItem(POTION_NAME) { }
-            virtual std::shared_ptr<CharacterStatistics> ActivateEffect()
-            {
-
-                return nullptr;
-            }
+            Potion() = delete;
+        protected:
+            Potion(const Potion & other) : LifeUsable(other.objectName_, other.statistics_) { }
+            Potion(const std::string & name, const LifeStatistics & stats) : LifeUsable(name, stats) { }
         };
-
-        const std::string Potion::POTION_NAME = "Potion";
 
     }
 

@@ -1,8 +1,9 @@
 #pragma once
 
-#include "Gem.h"
-#include "Potion.h"
-#include "Enchantment.h"
+#include "UsableFactory.h"
+#include "GlitteringGem.h"
+#include "SmallPotion.h"
+#include "WaterEnchantment.h"
 
 namespace l2
 {
@@ -10,7 +11,7 @@ namespace l2
     namespace gameobjects
     {
 
-        class UsableFactory
+        class CommonFactory : public UsableFactory
         {
         public:
             virtual Gem * CreateGem() = 0;

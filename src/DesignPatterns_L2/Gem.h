@@ -1,6 +1,6 @@
 #pragma once
 
-#include "UsableItem.h"
+#include "TertiaryUsable.h"
 
 namespace l2
 {
@@ -8,20 +8,14 @@ namespace l2
     namespace gameobjects
     {
 
-        class Gem : public UsableItem
+        class Gem : public TertiaryUsable
         {
         private:
-            static const std::string GEM_NAME;
-        public:
-            Gem() : UsableItem(GEM_NAME) {}
-            virtual std::shared_ptr<CharacterStatistics> ActivateEffect()
-            {
-
-                return nullptr;
-            }
+            Gem() = delete;
+        protected:
+            Gem(const Gem & right) : TertiaryUsable(right.objectName_, right.statistics_) { }
+            Gem(const std::string name, const TertiaryStatistics & stats) : TertiaryUsable(name, stats) { }
         };
-
-        const std::string Gem::GEM_NAME = "Gem";
 
     }
 

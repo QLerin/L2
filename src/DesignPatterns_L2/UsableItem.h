@@ -15,6 +15,8 @@ namespace l2
         protected:
             UsableItem(const UsableItem & other) = default;
             UsableItem(const std::string & name) : Item(name, true) { }
+        public:
+            virtual void UseItem(CharacterStatistics & stats) = 0;
         };
 
     }
