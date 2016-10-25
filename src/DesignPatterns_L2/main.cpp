@@ -78,9 +78,53 @@ void PrintTertiary(const TertiaryStatistics & in)
     cout << "Strength is: " << in.GetStrength() << " | Agility is: " << in.GetAgility() << " | Intellect is: " << in.GetIntellect() << endl;
 }
 
+void FunkcijaLinui();
+void FunkcijaLukui();
+
 int main(int argc, char ** argv)
 {
 	Logger::GetInstance()->Initialize("L.log");
+
+    //FunkcijaLinui();
+    //FunkcijaLukui();
+
+	return 0;
+}
+
+void FunkcijaLinui()
+{
+    EnemyFactory fac;
+    Enemy *a = fac.CreateEnemy("archer");
+    Enemy *b = fac.CreateEnemy("swordsman");
+    Enemy *c = fac.CreateEnemy("mage");
+
+    //-----------------------------------------------------------
+
+    Score::getInstance().changePoints(-100);
+    Score::getInstance().saveScore2File("Jonas");
+
+    //-----------------------------------------------------------
+
+    MedkitBuilder *a1 = new LargeMedkitBuilder();
+    MedkitBuilder *a2 = new MediumMedkitBuilder();
+    MedkitBuilder *a3 = new SmallMedkitBuilder();
+    MedkitEngineer me;
+    me.setBuilder(a1);
+    Medkit m1 = me.getKit();
+    me.setBuilder(a2);
+    Medkit m2 = me.getKit();
+    me.setBuilder(a3);
+    Medkit m3 = me.getKit();
+
+
+    Player player("Jonas");
+    m1.Use(player);
+    m2.Use(player);
+    m3.Use(player);
+}
+
+void FunkcijaLukui()
+{
     //Test for input handling ----------------------------------------
 
     //TestInputHandler a;
@@ -98,23 +142,15 @@ int main(int argc, char ** argv)
     //}
 
     //Test for input handling -------------------------------------------
-    
-	if(argc && argv)
-		printf("Hello World!\rTest\n");
-	EnemyFactory fac;
-	Enemy *a = fac.CreateEnemy("archer"); 
-	Enemy *b = fac.CreateEnemy("swordsman");
-	Enemy *c = fac.CreateEnemy("mage");
 
-	Score::getInstance().changePoints(-100);
-	Score::getInstance().saveScore2File("Jonas");
+
 
     // Test for items --------------------------------------------------
 
     CharacterStatistics stats(LifeStatistics(500, 500), TertiaryStatistics(50, 50, 50));
 
     UsableFactory * fac = new CommonFactory();
-    
+
     Gem * s = fac->CreateGem();
     PrintTertiary(s->GetUsableStatistics());
     delete s;
@@ -123,7 +159,7 @@ int main(int argc, char ** argv)
     s = fac->CreateGem();
     PrintTertiary(s->GetUsableStatistics());
     delete fac;
-    
+
     cout << "-----------------Testing statistics application----------------" << endl;
     cout << "Before application:" << endl;
     PrintTertiary(stats.GetTertiary());
@@ -134,78 +170,54 @@ int main(int argc, char ** argv)
 
     // Test for items --------------------------------------------------
 
+    //Sender<char> * snd(new Sender<char>);
+    //TestReceiver * rcv(new TestReceiver);
+    //Register<char> reg;
 
- //   Logger::GetInstance()->Initialize("Linalukage2.log");
+    //reg.RegisterSender(TestType, snd);
+    //reg.RegisterReceiver(TestType, rcv);
 
-	MedkitBuilder *a1 = new LargeMedkitBuilder();
-	MedkitBuilder *a2 = new MediumMedkitBuilder();
-	MedkitBuilder *a3 = new SmallMedkitBuilder();
-	MedkitEngineer me;
-	me.setBuilder(a1);
-	Medkit m1 = me.getKit();
-	me.setBuilder(a2);
-	Medkit m2 = me.getKit();
-	me.setBuilder(a3);
-	Medkit m3 = me.getKit();
+    //shared_ptr<char> msg(new char('X'));
 
+    //shared_ptr<ConsoleWindow> wnd(new ConsoleWindow(false));
+    //   StartMenu menu(wnd);
+    ////ColorizedDrawable drw(wnd);
 
-	Player player("Jonas");
-	m1.Use(player);
-	m2.Use(player);
-	m3.Use(player);
+    ////drw.SetDrawableSpace(0, 0, wh, wh);
+    ////drw.SetDrawableData(testData);
+    ////drw.SetColor(Colorizer::Black, Colorizer::White);
 
-	
+    ////drw.Draw();
 
-	//Sender<char> * snd(new Sender<char>);
-	//TestReceiver * rcv(new TestReceiver);
-	//Register<char> reg;
+    //for (uint16_t i = 0; i < 15; ++i)
+    //{
+    //	snd->BroadcastMessage(msg);
+    //       //menu.Draw();
+    //       //wnd->SwapBuffers();
 
-	//reg.RegisterSender(TestType, snd);
-	//reg.RegisterReceiver(TestType, rcv);
+    //	Sleep(1000);
+    //}
 
-	//shared_ptr<char> msg(new char('X'));
+    //   //reg.UnregisterSender(snd);
+    //   //reg.UnregisterReceiver(rcv);
 
-	//shared_ptr<ConsoleWindow> wnd(new ConsoleWindow(false));
- //   StartMenu menu(wnd);
-	////ColorizedDrawable drw(wnd);
+    //   delete snd;
+    //   delete rcv;
 
-	////drw.SetDrawableSpace(0, 0, wh, wh);
-	////drw.SetDrawableData(testData);
-	////drw.SetColor(Colorizer::Black, Colorizer::White);
+    //   if (!Logger::GetInstance()->IsInitialized())
+    //       return -1;
 
-	////drw.Draw();
+    //   //LOG_ERROR("Test_ERROR");
+    //   //LOG_WARNING("Test_WARNING");
+    //   //LOG_INFO("Test_INFO");
+    //   //LOG_INFO("Something occured...");
+    //   //LOG_WARNING("I have a bad feeling about this...");
+    //   //LOG_ERROR("DEFCON 1");
 
-	//for (uint16_t i = 0; i < 15; ++i)
-	//{
-	//	snd->BroadcastMessage(msg);
- //       //menu.Draw();
- //       //wnd->SwapBuffers();
+    //   //for (uint16_t i = 0; i < 8; ++i)
+    //   //    std::thread(testfun, i).detach();
 
-	//	Sleep(1000);
-	//}
+    //   Sleep(30000);
 
- //   //reg.UnregisterSender(snd);
- //   //reg.UnregisterReceiver(rcv);
-
- //   delete snd;
- //   delete rcv;
-
- //   if (!Logger::GetInstance()->IsInitialized())
- //       return -1;
-
- //   //LOG_ERROR("Test_ERROR");
- //   //LOG_WARNING("Test_WARNING");
- //   //LOG_INFO("Test_INFO");
- //   //LOG_INFO("Something occured...");
- //   //LOG_WARNING("I have a bad feeling about this...");
- //   //LOG_ERROR("DEFCON 1");
-
- //   //for (uint16_t i = 0; i < 8; ++i)
- //   //    std::thread(testfun, i).detach();
-
- //   Sleep(30000);
-
- //   Logger::GetInstance()->Stop();
-
-	return 0;
+    //   Logger::GetInstance()->Stop();
 }
