@@ -85,7 +85,7 @@ int main(int argc, char ** argv)
 {
 	Logger::GetInstance()->Initialize("L.log");
 
-    //FunkcijaLinui();
+    FunkcijaLinui();
     //FunkcijaLukui();
 
 	return 0;
