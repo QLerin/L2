@@ -10,12 +10,9 @@ namespace l2
 
         class Staff : public Weapon
         {
-        private:
-
-        protected:
-
         public:
-
+            Staff() : Weapon("Staff", TertiaryStatistics(0, 0, 10)) { }
+            Staff(const Staff & right) : Weapon(right.objectName_, right.statistics_) { }
         };
 
     }

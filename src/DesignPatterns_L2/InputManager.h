@@ -14,7 +14,6 @@ namespace l2
 		class InputManager : public Singleton<InputManager>
 		{
 		private:
-			InputManager() : isRunning_(false) { }
 			InputManager(const InputManager & right) = delete;
 			std::thread inputThread_;
 
@@ -23,6 +22,7 @@ namespace l2
 			bool isRunning_;
 			void PollInput();
 		public:
+            InputManager() : isRunning_(false) {}
 			enum ConsoleInput
 			{
 				KEY_UP,
@@ -38,7 +38,7 @@ namespace l2
                 KEY_ENTER
 			};
 
-			void StartPolling();
+			void StartPolling(Register<Message> & reg);
 			void StopPolling();
 		};
 

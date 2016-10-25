@@ -10,6 +10,11 @@
 #include "Score.h"
 
 #include "StartMenu.h"
+#include "InputHandler.h"
+
+#include "UsableFactory.h"
+#include "CommonFactory.h"
+#include "RareFactory.h"
 
 
 using namespace std;
@@ -47,12 +52,75 @@ void testfun(const uint16_t threadid)
         LOG_ERROR(("TEST_MESSAGE" + std::to_string(threadid)) + to_string(i));
 }
 
+class TestInputHandler : public InputHandler
+{
+public:
+    void HandleMessage(const std::shared_ptr<Message> & message)
+    {
+        if(message)
+            printf(message.get()->GetMessageString().c_str());
+    }
+};
+
+void PrintLife(const LifeStatistics & in)
+{
+    cout << "Health is: " << in.GetHealth() << " | Energy is: " << in.GetEnergy() << endl;
+}
+
+void PrintTertiary(const TertiaryStatistics & in)
+{
+    cout << "Strength is: " << in.GetStrength() << " | Agility is: " << in.GetAgility() << " | Intellect is: " << in.GetIntellect() << endl;
+}
 
 int main(int argc, char ** argv)
 {
+    //Test for input handling ----------------------------------------
 
+    //TestInputHandler a;
+    //TestInputHandler b;
+    //InputManager a2;
+    //Register<Message> test;
+    //test.RegisterReceiver(1, &a);
+    //test.RegisterReceiver(1, &b);
+
+    //a2.GetInstance()->StartPolling(test);
+
+    //while (1)
+    //{
+    //    Sleep(1000);
+    //}
+
+    //Test for input handling -------------------------------------------
+    
 	if(argc && argv)
 		printf("Hello World!\rTest\n");
+
+
+    // Test for items --------------------------------------------------
+
+    CharacterStatistics stats(LifeStatistics(500, 500), TertiaryStatistics(50, 50, 50));
+
+    UsableFactory * fac = new CommonFactory();
+    
+    Gem * s = fac->CreateGem();
+    PrintTertiary(s->GetUsableStatistics());
+    delete s;
+    delete fac;
+    fac = new RareFactory();
+    s = fac->CreateGem();
+    PrintTertiary(s->GetUsableStatistics());
+    delete fac;
+    
+    cout << "-----------------Testing statistics application----------------" << endl;
+    cout << "Before application:" << endl;
+    PrintTertiary(stats.GetTertiary());
+    s->UseItem(stats);
+    cout << "After application:" << endl;
+    PrintTertiary(stats.GetTertiary());
+    delete s;
+
+    // Test for items --------------------------------------------------
+
 
  //   Logger::GetInstance()->Initialize("Linalukage2.log");
 

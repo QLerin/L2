@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdint.h>
+#include <string>
 
 namespace l2
 {
@@ -10,10 +11,12 @@ namespace l2
 
 		class Message
 		{
-		protected:
-			const uint64_t reason_;
+        protected:
+            std::string messageString_;
 		public:
-
+            Message() : messageString_("") { }
+            Message(const std::string & messageString) : messageString_(messageString) { }
+            const std::string & GetMessageString() { return messageString_; }
 		};
 
 	}

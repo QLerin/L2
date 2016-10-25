@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Item.h"
+#include "Logger.h"
 
 namespace l2
 {
@@ -14,9 +15,12 @@ namespace l2
             UsableItem() = delete;
         protected:
             UsableItem(const UsableItem & other) = default;
-            UsableItem(const std::string & name) : Item(name, true) { }
+            UsableItem(const std::string & name) : Item(name, true, false) { }
         public:
-            virtual void UseItem(CharacterStatistics & stats) = 0;
+#pragma warning (push)
+#pragma warning (disable : 4100) //Warning disabled for unused parameter in base class function
+            virtual void UseItem(CharacterStatistics & stats) { LOG_INFO((this->objectName_ + " was used.").c_str()); }
+#pragma warning (pop)
         };
 
     }

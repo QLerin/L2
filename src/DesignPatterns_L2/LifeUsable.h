@@ -23,6 +23,7 @@ namespace l2
 
             virtual void UseItem(CharacterStatistics & stats)
             {
+                __super::UseItem(stats);
                 stats.ApplyLife(statistics_);
             }
         };

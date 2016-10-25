@@ -10,12 +10,9 @@ namespace l2
 
         class Sword : public Weapon
         {
-        private:
-
-        protected:
-
         public:
-
+            Sword() : Weapon("Sword", TertiaryStatistics(10, 0, 0)) {}
+            Sword(const Sword & right) : Weapon(right.objectName_, right.statistics_) {}
         };
 
     }
