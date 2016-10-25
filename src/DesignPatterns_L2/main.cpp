@@ -127,19 +127,19 @@ void FunkcijaLukui()
 {
     //Test for input handling ----------------------------------------
 
-    //TestInputHandler a;
-    //TestInputHandler b;
-    //InputManager a2;
-    //Register<Message> test;
-    //test.RegisterReceiver(1, &a);
-    //test.RegisterReceiver(1, &b);
+    TestInputHandler a;
+    TestInputHandler b;
+    InputManager a2;
+    Register<Message> test;
+    test.RegisterReceiver(1, &a);
+    test.RegisterReceiver(1, &b);
 
-    //a2.GetInstance()->StartPolling(test);
+    a2.GetInstance()->StartPolling(test);
 
-    //while (1)
-    //{
-    //    Sleep(1000);
-    //}
+    while (1)
+    {
+        Sleep(1000);
+    }
 
     //Test for input handling -------------------------------------------
 
@@ -147,26 +147,26 @@ void FunkcijaLukui()
 
     // Test for items --------------------------------------------------
 
-    CharacterStatistics stats(LifeStatistics(500, 500), TertiaryStatistics(50, 50, 50));
+    //CharacterStatistics stats(LifeStatistics(500, 500), TertiaryStatistics(50, 50, 50));
 
-    UsableFactory * fac = new CommonFactory();
+    //UsableFactory * fac = new CommonFactory();
 
-    Gem * s = fac->CreateGem();
-    PrintTertiary(s->GetUsableStatistics());
-    delete s;
-    delete fac;
-    fac = new RareFactory();
-    s = fac->CreateGem();
-    PrintTertiary(s->GetUsableStatistics());
-    delete fac;
+    //Gem * s = fac->CreateGem();
+    //PrintTertiary(s->GetUsableStatistics());
+    //delete s;
+    //delete fac;
+    //fac = new RareFactory();
+    //s = fac->CreateGem();
+    //PrintTertiary(s->GetUsableStatistics());
+    //delete fac;
 
-    cout << "-----------------Testing statistics application----------------" << endl;
-    cout << "Before application:" << endl;
-    PrintTertiary(stats.GetTertiary());
-    s->UseItem(stats);
-    cout << "After application:" << endl;
-    PrintTertiary(stats.GetTertiary());
-    delete s;
+    //cout << "-----------------Testing statistics application----------------" << endl;
+    //cout << "Before application:" << endl;
+    //PrintTertiary(stats.GetTertiary());
+    //s->UseItem(stats);
+    //cout << "After application:" << endl;
+    //PrintTertiary(stats.GetTertiary());
+    //delete s;
 
     // Test for items --------------------------------------------------
 
