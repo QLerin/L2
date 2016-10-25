@@ -10,6 +10,12 @@
 #include "Score.h"
 
 #include "StartMenu.h"
+#include "EnemyFactory.h"
+#include "Medkit.h"
+#include "LargeMedkitBuilder.h"
+#include "MedkitEngineer.h"
+#include "MediumMedkitBuilder.h"
+#include "SmallMedkitBuilder.h"
 #include "InputHandler.h"
 
 #include "UsableFactory.h"
@@ -74,6 +80,7 @@ void PrintTertiary(const TertiaryStatistics & in)
 
 int main(int argc, char ** argv)
 {
+	Logger::GetInstance()->Initialize("L.log");
     //Test for input handling ----------------------------------------
 
     //TestInputHandler a;
@@ -94,7 +101,13 @@ int main(int argc, char ** argv)
     
 	if(argc && argv)
 		printf("Hello World!\rTest\n");
+	EnemyFactory fac;
+	Enemy *a = fac.CreateEnemy("archer"); 
+	Enemy *b = fac.CreateEnemy("swordsman");
+	Enemy *c = fac.CreateEnemy("mage");
 
+	Score::getInstance().changePoints(-100);
+	Score::getInstance().saveScore2File("Jonas");
 
     // Test for items --------------------------------------------------
 
@@ -123,6 +136,25 @@ int main(int argc, char ** argv)
 
 
  //   Logger::GetInstance()->Initialize("Linalukage2.log");
+
+	MedkitBuilder *a1 = new LargeMedkitBuilder();
+	MedkitBuilder *a2 = new MediumMedkitBuilder();
+	MedkitBuilder *a3 = new SmallMedkitBuilder();
+	MedkitEngineer me;
+	me.setBuilder(a1);
+	Medkit m1 = me.getKit();
+	me.setBuilder(a2);
+	Medkit m2 = me.getKit();
+	me.setBuilder(a3);
+	Medkit m3 = me.getKit();
+
+
+	Player player("Jonas");
+	m1.Use(player);
+	m2.Use(player);
+	m3.Use(player);
+
+	
 
 	//Sender<char> * snd(new Sender<char>);
 	//TestReceiver * rcv(new TestReceiver);
