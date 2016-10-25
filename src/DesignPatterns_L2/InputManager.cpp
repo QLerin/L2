@@ -18,15 +18,17 @@ void InputManager::PollInput()
 		if (!_kbhit())
 		{
 			//Uncomment later, loop is correct
-			//_sleep(10);
+			Sleep(10);
 			continue;
 		}
-		const unsigned ioChar = static_cast<unsigned char>(_getch());
+		const char ioChar = static_cast<char>(_getch());
+        inputSender_.BroadcastMessage(std::shared_ptr<Message>(new Message(string("Key with id - \" " + to_string(ioChar) + " \" was pressed."))));
 	}
 }
 
-void InputManager::StartPolling()
+void InputManager::StartPolling(Register<Message> & reg)
 {
+    reg.RegisterSender(1, &inputSender_);
 	inputThread_ = thread(bind(&InputManager::PollInput, this));
 }
 

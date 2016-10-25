@@ -8,11 +8,11 @@ namespace l2
     namespace gameobjects
     {
 
-        class GlitteringGem : public Gem
+        class RadiantGem : public Gem
         {
         public:
-            GlitteringGem() : Gem("Radiant gem", TertiaryStatistics(10, 10, 10)) {}
-            GlitteringGem(const GlitteringGem & right) : Gem(right.objectName_, right.statistics_) {}
+            RadiantGem() : Gem("Radiant gem", TertiaryStatistics(10, 10, 10)) {}
+            RadiantGem(const RadiantGem & right) : Gem(right.objectName_, right.statistics_) {}
         };
 
     }

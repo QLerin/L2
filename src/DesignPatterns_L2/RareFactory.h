@@ -11,7 +11,7 @@ namespace l2
     namespace gameobjects
     {
 
-        class UsableFactory
+        class RareFactory : public UsableFactory
         {
         public:
             virtual Gem * CreateGem() { return new ShiningGem(); }

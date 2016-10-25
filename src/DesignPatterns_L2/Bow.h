@@ -10,12 +10,8 @@ namespace l2
 
         class Bow : public Weapon
         {
-        private:
-
-        protected:
-
         public:
-
+            Bow() : Weapon("Bow", TertiaryStatistics(0, 10, 0)) { }
         };
 
     }

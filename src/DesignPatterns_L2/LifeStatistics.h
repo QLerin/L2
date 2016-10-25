@@ -29,10 +29,10 @@ namespace l2
                 SetEnergyToMax();
             }
 
-            const int64_t GetHealth() { return health_; }
+            const int64_t GetHealth() const { return health_; }
             void SetHealth(const int64_t health) { health_ = health; }
 
-            const uint64_t GetEnergy() { return energy_; }
+            const uint64_t GetEnergy() const { return energy_; }
             void SetEnergy(const uint64_t energy) { energy_ = energy; }
 
             void SetHealthToMax() { health_ = maxHealth_; }

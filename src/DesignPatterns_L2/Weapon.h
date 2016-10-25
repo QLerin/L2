@@ -11,11 +11,10 @@ namespace l2
         class Weapon : public EquippableItem
         {
         private:
-
+            Weapon() = delete;
+            Weapon(const Weapon & right) = delete;
         protected:
-
-        public:
-
+            Weapon(const std::string & name, const TertiaryStatistics & stats) : EquippableItem(name, stats) { }
         };
 
     }

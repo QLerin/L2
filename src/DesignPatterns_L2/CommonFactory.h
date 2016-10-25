@@ -14,9 +14,9 @@ namespace l2
         class CommonFactory : public UsableFactory
         {
         public:
-            virtual Gem * CreateGem() = 0;
-            virtual Potion * CreatePotion() = 0;
-            virtual Enchantment * CreateEnchantment() = 0;
+            virtual Gem * CreateGem() { return new GlitteringGem(); }
+            virtual Potion * CreatePotion() { return new SmallPotion(); }
+            virtual Enchantment * CreateEnchantment() { return new WaterEnchantment(); }
         };
 
     }

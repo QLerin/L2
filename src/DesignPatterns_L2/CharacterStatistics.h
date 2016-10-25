@@ -31,9 +31,12 @@ namespace l2
             void RemoveTertiary(const TertiaryStatistics & itemStats) { tertiary_ -= itemStats; }
             void RemoveLife(const LifeStatistics & itemStats) { life_ -= itemStats; }
 
-            void SpendEnergy(const int64_t energy) { }
-            void SpendLife(const int64_t life) { }
-		};
+            void SpendEnergy(const int64_t energy) { energy; }
+            void SpendLife(const int64_t life) { life; }
+
+            const LifeStatistics & GetLife() const { return life_; }
+            const TertiaryStatistics & GetTertiary() const { return tertiary_; }
+        };
 
 	}
 

@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Armor.h" />
+    <ClInclude Include="ArmorFactory.h" />
     <ClInclude Include="Bow.h" />
     <ClInclude Include="ClothArmor.h" />
     <ClInclude Include="CommonFactory.h" />
@@ -55,7 +56,6 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyFactory.h" />
     <ClInclude Include="EpicFactory.h" />
-    <ClInclude Include="EquippableFactory.h" />
     <ClInclude Include="EquippableItem.h" />
     <ClInclude Include="FireEnchantment.h" />
     <ClInclude Include="Frame.h" />
@@ -84,6 +84,7 @@
     <ClInclude Include="MenuInputHandler.h" />
     <ClInclude Include="MenuItem.h" />
     <ClInclude Include="MenuLoader.h" />
+    <ClInclude Include="Message.h" />
     <ClInclude Include="PlateArmor.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerInputHandler.h" />
@@ -114,6 +115,7 @@
     <ClInclude Include="WaterEnchantment.h" />
     <ClInclude Include="Weapon.h" />
     <ClInclude Include="EnemyMage.h" />
+    <ClInclude Include="WeaponFactory.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{7D848C96-272B-4B74-B0A9-FD7A498D7D36}</ProjectGuid>

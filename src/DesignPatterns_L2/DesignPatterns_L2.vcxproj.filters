@@ -78,9 +78,6 @@
     <Filter Include="Header Files\GameObjects\Items\Usables">
       <UniqueIdentifier>{b7f8c8bb-9795-494a-9c49-b5ab20a6f7c3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\GameObjects\Items\Equippables\EquippableFactory">
-      <UniqueIdentifier>{50772925-1285-4131-bd39-408aead99f02}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\GameObjects\Items\Usables\UsableFactory">
       <UniqueIdentifier>{3f48faea-c25e-40a8-a4eb-9fe9eb5a5257}</UniqueIdentifier>
     </Filter>
@@ -119,6 +116,12 @@
     </Filter>
     <Filter Include="Source Files\GameObjects\Enemies">
       <UniqueIdentifier>{75236d2d-3036-4a38-804e-0239a139a36f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Items\Equippables\Armor\Factory">
+      <UniqueIdentifier>{c191e651-862f-45da-9859-253f2e290274}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Items\Equippables\Weapons\Factory">
+      <UniqueIdentifier>{6920b78c-5409-4012-a5ce-6113c60e9397}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -241,9 +244,6 @@
     <ClInclude Include="Inventory.h">
       <Filter>Header Files\GameObjects\Inventory</Filter>
     </ClInclude>
-    <ClInclude Include="EquippableFactory.h">
-      <Filter>Header Files\GameObjects\Items\Equippables\EquippableFactory</Filter>
-    </ClInclude>
     <ClInclude Include="UsableFactory.h">
       <Filter>Header Files\GameObjects\Items\Usables\UsableFactory</Filter>
     </ClInclude>
@@ -361,9 +361,6 @@
     <ClInclude Include="MenuInputHandler.h">
       <Filter>Header Files\Sys\Handlers</Filter>
     </ClInclude>
-    <ClInclude Include="PotionFactory.h">
-      <Filter>Header Files\GameObjects\Items\Usables\LifeUsables\Factories</Filter>
-    </ClInclude>
     <ClInclude Include="GlitteringGem.h">
       <Filter>Header Files\GameObjects\Items\Usables\TertiaryUsables\Gems</Filter>
     </ClInclude>
@@ -381,6 +378,18 @@
     </ClInclude>
     <ClInclude Include="EpicFactory.h">
       <Filter>Header Files\GameObjects\Items\Usables\UsableFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="ArmorFactory.h">
+      <Filter>Header Files\GameObjects\Items\Equippables\Armor\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="WeaponFactory.h">
+      <Filter>Header Files\GameObjects\Items\Equippables\Weapons\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="PotionFactory.h">
+      <Filter>Header Files\GameObjects\Items\Usables\LifeUsables\Potions</Filter>
+    </ClInclude>
+    <ClInclude Include="Message.h">
+      <Filter>Header Files\ConsoleUI</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>Header Files\GameObjects\Characters\Enemies</Filter>

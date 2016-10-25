@@ -12,8 +12,7 @@ namespace l2
         class Inventory
         {
         protected:
-
-
+            std::vector<
         public:
             virtual void AddItem();
 
