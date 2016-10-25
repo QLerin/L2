@@ -3,6 +3,8 @@
 #include "Logger.h"
 #include <conio.h>
 
+#include "Inputs.h"
+
 using namespace std;
 using namespace l2::sys;
 
@@ -21,7 +23,14 @@ void InputManager::PollInput()
 			Sleep(10);
 			continue;
 		}
-		const char ioChar = static_cast<char>(_getch());
+        Inputs::KeyCode code;
+		unsigned char ioChar = static_cast<unsigned char>(_getch());
+        if (ioChar == 0xE0 || ioChar == 0) //Arrow key was pressed
+            code = Inputs::GetArrowCode(static_cast<unsigned char>(_getch()));
+        else
+            code = Inputs::GetKeyCode(ioChar);
+        code;
+
         inputSender_.BroadcastMessage(std::shared_ptr<Message>(new Message(string("Key with id - \" " + to_string(ioChar) + " \" was pressed."))));
 	}
 }

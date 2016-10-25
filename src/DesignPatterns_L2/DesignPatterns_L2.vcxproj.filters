@@ -182,6 +182,9 @@
     <ClCompile Include="EnemySwordsman.cpp">
       <Filter>Source Files\GameObjects\Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="Inputs.cpp">
+      <Filter>Source Files\ConsoleUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Frame.h">
@@ -411,6 +414,9 @@
     </ClInclude>
     <ClInclude Include="SmallMedkitBuilder.h">
       <Filter>Header Files\GameObjects\Medkits</Filter>
+    </ClInclude>
+    <ClInclude Include="Inputs.h">
+      <Filter>Header Files\ConsoleUI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
