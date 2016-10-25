@@ -111,6 +111,12 @@
     <Filter Include="Header Files\GameObjects\Medkits">
       <UniqueIdentifier>{f383cc80-d0c0-44c3-b39a-3cad1bfb7375}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\GameObjects\Medkits">
+      <UniqueIdentifier>{294602c4-1e51-478f-ac70-7c246d578995}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\Enemies">
+      <UniqueIdentifier>{75236d2d-3036-4a38-804e-0239a139a36f}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Header Files\GameObjects\Items\Equippables\Armor\Factory">
       <UniqueIdentifier>{c191e651-862f-45da-9859-253f2e290274}</UniqueIdentifier>
     </Filter>
@@ -161,20 +167,20 @@
     <ClCompile Include="Menu.cpp">
       <Filter>Source Files\ConsoleUI</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyArcher.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyMage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemySwordsman.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Medkit.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\GameObjects\Medkits</Filter>
     </ClCompile>
     <ClCompile Include="MedkitBuilder.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\GameObjects\Medkits</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyArcher.cpp">
+      <Filter>Source Files\GameObjects\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyMage.cpp">
+      <Filter>Source Files\GameObjects\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemySwordsman.cpp">
+      <Filter>Source Files\GameObjects\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
