@@ -123,6 +123,9 @@
     <Filter Include="Header Files\GameObjects\Items\Equippables\Weapons\Factory">
       <UniqueIdentifier>{6920b78c-5409-4012-a5ce-6113c60e9397}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameObjects\Menus\MenuCommands">
+      <UniqueIdentifier>{30ac0fd1-85d1-4e35-ad92-c4870ae174a6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Frame.cpp">
@@ -417,6 +420,27 @@
     </ClInclude>
     <ClInclude Include="Inputs.h">
       <Filter>Header Files\ConsoleUI</Filter>
+    </ClInclude>
+    <ClInclude Include="MulticolorDrawable.h">
+      <Filter>Header Files\ConsoleUI</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawableObject.h">
+      <Filter>Header Files\ConsoleUI</Filter>
+    </ClInclude>
+    <ClInclude Include="IMenuAction.h">
+      <Filter>Header Files\GameObjects\Menus\MenuCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuNextAction.h">
+      <Filter>Header Files\GameObjects\Menus\MenuCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuPreviousAction.h">
+      <Filter>Header Files\GameObjects\Menus\MenuCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuUseAction.h">
+      <Filter>Header Files\GameObjects\Menus\MenuCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuExitAction.h">
+      <Filter>Header Files\GameObjects\Menus\MenuCommands</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

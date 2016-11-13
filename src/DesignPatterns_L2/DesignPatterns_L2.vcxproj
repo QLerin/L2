@@ -46,6 +46,7 @@
     <ClInclude Include="Bow.h" />
     <ClInclude Include="ClothArmor.h" />
     <ClInclude Include="CommonFactory.h" />
+    <ClInclude Include="DrawableObject.h" />
     <ClInclude Include="Enchantment.h" />
     <ClInclude Include="EnemyArcher.h" />
     <ClInclude Include="ArrayStorage.h" />
@@ -65,6 +66,7 @@
     <ClInclude Include="Gem.h" />
     <ClInclude Include="GlitteringGem.h" />
     <ClInclude Include="IDrawable.h" />
+    <ClInclude Include="IMenuAction.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Inputs.h" />
@@ -83,10 +85,15 @@
     <ClInclude Include="MedkitBuilder.h" />
     <ClInclude Include="MedkitEngineer.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuExitAction.h" />
     <ClInclude Include="MenuInputHandler.h" />
     <ClInclude Include="MenuItem.h" />
     <ClInclude Include="MenuLoader.h" />
+    <ClInclude Include="MenuNextAction.h" />
+    <ClInclude Include="MenuPreviousAction.h" />
+    <ClInclude Include="MenuUseAction.h" />
     <ClInclude Include="Message.h" />
+    <ClInclude Include="MulticolorDrawable.h" />
     <ClInclude Include="PlateArmor.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerInputHandler.h" />

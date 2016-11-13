@@ -86,7 +86,7 @@ int main(int argc, char ** argv)
 	Logger::GetInstance()->Initialize("L.log");
 
     //FunkcijaLinui();
-    //FunkcijaLukui();
+    FunkcijaLukui();
 
 	return 0;
 }
@@ -127,19 +127,19 @@ void FunkcijaLukui()
 {
     //Test for input handling ----------------------------------------
 
-    TestInputHandler a;
-    TestInputHandler b;
-    InputManager a2;
-    Register<Message> test;
-    test.RegisterReceiver(1, &a);
-    test.RegisterReceiver(1, &b);
+    //TestInputHandler a;
+    //TestInputHandler b;
+    //InputManager a2;
+    //Register<Message> test;
+    //test.RegisterReceiver(1, &a);
+    //test.RegisterReceiver(1, &b);
 
-    a2.GetInstance()->StartPolling(test);
+    //a2.GetInstance()->StartPolling(test);
 
-    while (1)
-    {
-        Sleep(1000);
-    }
+    //while (1)
+    //{
+    //    Sleep(1000);
+    //}
 
     //Test for input handling -------------------------------------------
 
@@ -170,42 +170,42 @@ void FunkcijaLukui()
 
     // Test for items --------------------------------------------------
 
-    //Sender<char> * snd(new Sender<char>);
-    //TestReceiver * rcv(new TestReceiver);
-    //Register<char> reg;
+    Sender<char> * snd(new Sender<char>);
+    TestReceiver * rcv(new TestReceiver);
+    Register<char> reg;
 
-    //reg.RegisterSender(TestType, snd);
-    //reg.RegisterReceiver(TestType, rcv);
+    reg.RegisterSender(TestType, snd);
+    reg.RegisterReceiver(TestType, rcv);
 
-    //shared_ptr<char> msg(new char('X'));
+    shared_ptr<char> msg(new char('X'));
 
-    //shared_ptr<ConsoleWindow> wnd(new ConsoleWindow(false));
-    //   StartMenu menu(wnd);
-    ////ColorizedDrawable drw(wnd);
+    shared_ptr<ConsoleWindow> wnd(new ConsoleWindow(false));
+       StartMenu menu(wnd);
+    ColorizedDrawable drw(wnd);
 
-    ////drw.SetDrawableSpace(0, 0, wh, wh);
-    ////drw.SetDrawableData(testData);
-    ////drw.SetColor(Colorizer::Black, Colorizer::White);
+    drw.SetDrawableSpace(0, 0, wh, wh);
+    drw.SetDrawableData(testData);
+    drw.SetColor(Colorizer::Black, Colorizer::White);
 
-    ////drw.Draw();
+    drw.Draw();
 
-    //for (uint16_t i = 0; i < 15; ++i)
-    //{
-    //	snd->BroadcastMessage(msg);
-    //       //menu.Draw();
-    //       //wnd->SwapBuffers();
+    for (uint16_t i = 0; i < 15; ++i)
+    {
+    	snd->BroadcastMessage(msg);
+           menu.Draw();
+           wnd->SwapBuffers();
 
-    //	Sleep(1000);
-    //}
+    	Sleep(1000);
+    }
 
-    //   //reg.UnregisterSender(snd);
-    //   //reg.UnregisterReceiver(rcv);
+       reg.UnregisterSender(snd);
+       reg.UnregisterReceiver(rcv);
 
-    //   delete snd;
-    //   delete rcv;
+       delete snd;
+       delete rcv;
 
-    //   if (!Logger::GetInstance()->IsInitialized())
-    //       return -1;
+       //if (!Logger::GetInstance()->IsInitialized())
+       //    return -1;
 
     //   //LOG_ERROR("Test_ERROR");
     //   //LOG_WARNING("Test_WARNING");

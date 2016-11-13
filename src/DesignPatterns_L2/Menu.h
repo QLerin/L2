@@ -46,15 +46,28 @@ namespace l2
             uint64_t selectedItem_;
 
             bool isInitialized_;
-
-			void NextSelection();
-			void PreviousSelection();
 		public:
 			Menu(std::shared_ptr<l2r::ConsoleWindow> parentWindow, const std::string & path);
 
             const bool IsInitialized() const { return isInitialized_; }
 
-            void Draw();
+            /// Denotes wether any action should be taken after command execution
+            enum MenuActionReturn
+            {
+                //Take no action upon command execution
+                NoAction = 0,
+                //Should transition forward to next menu in the transition list
+                RequestFwdTransition,
+                //Should transition backward to previous menu in the transition list
+                RequestBwdTransition
+            };
+
+            MenuActionReturn NextSelection();
+            MenuActionReturn PreviousSelection();
+            virtual const MenuActionReturn RequestExitVerification() { return NoAction; }
+            virtual MenuActionReturn ActivateSelected() { }
+
+            virtual void Draw();
 		};
 
 	}
