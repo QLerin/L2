@@ -126,6 +126,9 @@
     <Filter Include="Header Files\GameObjects\Menus\MenuCommands">
       <UniqueIdentifier>{30ac0fd1-85d1-4e35-ad92-c4870ae174a6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ConsoleUI\Composites">
+      <UniqueIdentifier>{f012d67e-0c84-421f-a090-1b5bc0c17d23}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Frame.cpp">
@@ -441,6 +444,18 @@
     </ClInclude>
     <ClInclude Include="MenuExitAction.h">
       <Filter>Header Files\GameObjects\Menus\MenuCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuActionMessage.h">
+      <Filter>Header Files\ConsoleUI</Filter>
+    </ClInclude>
+    <ClInclude Include="UIComponent.h">
+      <Filter>Header Files\ConsoleUI\Composites</Filter>
+    </ClInclude>
+    <ClInclude Include="SUIComponent.h">
+      <Filter>Header Files\ConsoleUI\Composites</Filter>
+    </ClInclude>
+    <ClInclude Include="PUIComponent.h">
+      <Filter>Header Files\ConsoleUI\Composites</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
