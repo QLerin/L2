@@ -6,7 +6,7 @@
 #include "ArrayStorage.h"
 #include <list>
 #include "MenuInputHandler.h"
-#include "UIComponent.h"
+#include "PUIComponent.h"
 
 namespace l2s = l2::sys;
 namespace l2r = l2::rendering;
@@ -29,34 +29,41 @@ namespace l2
 	namespace gameobjects
 	{
 
-		class Menu : public UIComponent
+		class Menu : public PUIComponent
 		{
             friend l2::sys::MenuLoader;
 		private:
             Menu() = delete;
 			Menu(const Menu & right) = delete;
+
 		protected:
             std::shared_ptr<l2r::ConsoleWindow> parentWindow_;
-
 			l2r::ColorizedDrawable menu_;
-			l2r::Colorizer::COLOR_ATTRIBUTES menuBoxColor_;
-            l2r::Colorizer::COLOR_ATTRIBUTES selectedItemColor_;
 
-            l2s::ArrayStorage<MenuItem> menuItems_;
-            uint64_t selectedItem_;
+            l2r::Colorizer::COLOR_ATTRIBUTES selectionColor_;
 
-            bool isInitialized_;
-            virtual const bool ValidationHook() const { return isInitialized_; }
+            virtual const bool ValidationHook() const { return (parentWindow_ != nullptr); }
 
-            virtual void Draw();
 		public:
 			Menu(std::shared_ptr<l2r::ConsoleWindow> parentWindow, const std::string & path);
 
 
-            virtual MenuActionReturn Use() { Draw(); return NoAction; }
+            /// For menu on use
+            ///
+            /// When used with no parent simply draws the menu box + menu items
+            /// When parent != nullptr - set as current active menu and use it for transitions
+            virtual MenuActionReturn Use();
+
+            /// Select next item in menu
             virtual MenuActionReturn Next();
+
+            /// Select previous item in menu
             virtual MenuActionReturn Previous();
+
+            /// Exit the menu if a parent exists (current menu is transitioned to parent)
             virtual MenuActionReturn Exit();
+
+            void Draw();
 		};
 
 	}

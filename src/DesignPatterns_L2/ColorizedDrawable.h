@@ -21,6 +21,8 @@ namespace l2
 
 			void SetColor(const Colorizer::Color foregroundColor, const Colorizer::Color backgroundColor);
 
+            const Colorizer::COLOR_ATTRIBUTES GetDrawableColor() const { return colorInfo_; }
+
 			virtual void Draw();
 		};
 

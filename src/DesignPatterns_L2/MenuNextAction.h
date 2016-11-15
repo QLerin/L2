@@ -18,7 +18,7 @@ namespace l2
                 if (!assignedMenu_)
                     return Menu::NoAction;
 
-                return assignedMenu_->NextSelection();
+                return assignedMenu_->Next();
             }
         };
 

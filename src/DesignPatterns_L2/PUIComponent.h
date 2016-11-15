@@ -16,10 +16,30 @@ namespace l2
 
             uint32_t selectedIndex_;
 
-            void TransitionRight();
-            void TransitionLeft();
+            virtual const bool TransitionRight()
+            {
+                if (++selectedIndex_ >= children_.GetStorageSize())
+                {
+                    selectedIndex_ = children_.GetStorageSize() - 1;
+                    return true;
+                }
+                return false;
+            }
+            virtual const bool TransitionLeft()
+            {
+                if (selectedIndex_ == 0)
+                    return true;
+                --selectedIndex_;
+                return false;
+            }
         public:
+            PUIComponent() : UIComponent(), selectedIndex_(0) { }
             sys::ArrayStorage<UIComponent> & GetChildren() { return children_; }
+
+            virtual void AddChild(UIComponent * component);
+
+            /// Remove from components by way of search
+            virtual void RemoveChild(UIComponent * component);
 
             // Validate UI component if it has required information for functionality
             // For root object parent can be null

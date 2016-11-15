@@ -38,6 +38,7 @@
     <ClCompile Include="MenuInputHandler.cpp" />
     <ClCompile Include="MenuLoader.cpp" />
     <ClCompile Include="PlayerInputHandler.cpp" />
+    <ClCompile Include="PUIComponent.cpp" />
     <ClCompile Include="Score.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -46,7 +47,6 @@
     <ClInclude Include="Bow.h" />
     <ClInclude Include="ClothArmor.h" />
     <ClInclude Include="CommonFactory.h" />
-    <ClInclude Include="DrawableObject.h" />
     <ClInclude Include="Enchantment.h" />
     <ClInclude Include="EnemyArcher.h" />
     <ClInclude Include="ArrayStorage.h" />
@@ -94,7 +94,6 @@
     <ClInclude Include="MenuPreviousAction.h" />
     <ClInclude Include="MenuUseAction.h" />
     <ClInclude Include="Message.h" />
-    <ClInclude Include="MulticolorDrawable.h" />
     <ClInclude Include="PlateArmor.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerInputHandler.h" />
@@ -106,7 +105,6 @@
     <ClInclude Include="Score.h" />
     <ClInclude Include="Receiver.h" />
     <ClInclude Include="Register.h" />
-    <ClInclude Include="RenderDefines.h" />
     <ClInclude Include="ResourceStorage.h" />
     <ClInclude Include="Sender.h" />
     <ClInclude Include="SharedResources.h" />

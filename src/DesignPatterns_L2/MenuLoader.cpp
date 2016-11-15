@@ -58,38 +58,49 @@ const bool MenuLoader::LoadL2Menu(l2g::Menu * const menu, const std::string & pa
         {
             char foreground, background;
             in >> foreground >> background;
-            menu->selectedItemColor_ = Colorizer::COLOR_ATTRIBUTES(GetColorFromChar(foreground), GetColorFromChar(background));
+
+#define dual_retrieve(fg, bg) MenuLoader::GetColorFromChar(fg), MenuLoader::GetColorFromChar(bg)
+            //menu->selectedItemColor_ = Colorizer::COLOR_ATTRIBUTES(GetColorFromChar(foreground), GetColorFromChar(background));
+            menu->menu_.SetColor(dual_retrieve(foreground, background));
         }
         else if (header == "CORNER")
-            in >> corner;
+            in >> corner; //corner ASCII
         else if (header == "UL_BORDER")
-            in >> ulBorder;
+            in >> ulBorder; // upper and lower border ASCII
         else if (header == "LR_BORDER")
-            in >> lrBorder;
+            in >> lrBorder; // left and right border ASCII
         else if (header == "MX")
+            // Menu position x
             in >> x;
         else if (header == "MY")
+            // Menu position y
             in >> y;
         else if (header == "MW")
+            // The width will also count as the button maximum width
             in >> w;
         else if (header == "MH")
+            // Height of the menu
             in >> h;
         else
         {
-
+            // Adding additional menu items
         }
 
     }
 
+    //Setting the border char in corners
     outBuffer.resize(w * h, ' ');
     outBuffer[0] = corner; outBuffer[w - 1] = corner;
     outBuffer[(h-1) * w] = corner; outBuffer[h*w - 1] = corner;
+
+    //Setting the upper and lower border
     for (uint16_t i = 1; i < w-1; ++i)
     {
         outBuffer[i] = ulBorder;
         outBuffer[(h - 1) * w + i] = ulBorder;
     }
 
+    //Setting the left and right border
     for (uint16_t i = 1; i < h - 1; ++i)
     {
         outBuffer[w * i] = lrBorder;
@@ -100,4 +111,12 @@ const bool MenuLoader::LoadL2Menu(l2g::Menu * const menu, const std::string & pa
     menu->menu_.SetDrawableSpace(x, y, w, h);
 
     return true;
+}
+
+const bool MenuLoader::LoadL2MenuItem(l2g::MenuItem * const menu, std::ifstream & istream)
+{
+    if (!istream.is_open())
+        return false;
+
+
 }
