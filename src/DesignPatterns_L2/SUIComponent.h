@@ -19,8 +19,9 @@ namespace l2
         public:
             const std::shared_ptr<UIComponent> & GetChild() { return child_; }
 
-            virtual MenuActionReturn Next() { return UIComponent::NoAction; }
-            virtual MenuActionReturn Previous() { return UIComponent::NoAction; }
+            MenuActionReturn Next() { return UIComponent::NoAction; }
+            MenuActionReturn Previous() { return UIComponent::NoAction; }
+            MenuActionReturn Exit() { if (parent_) return parent_->Exit(); return NoAction; }
 
             virtual void AddChild(UIComponent * component)
             {

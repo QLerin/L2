@@ -11,12 +11,12 @@ namespace l2
         class MenuNextAction : IMenuAction
         {
         public:
-            MenuNextAction(const std::shared_ptr<Menu> menu) : IMenuAction(menu) {}
+            MenuNextAction(const std::shared_ptr<UIComponent> menu) : IMenuAction(menu) {}
 
-            virtual const Menu::MenuActionReturn ExecuteAction()
+            virtual const UIComponent::MenuActionReturn ExecuteAction()
             {
                 if (!assignedMenu_)
-                    return Menu::NoAction;
+                    return UIComponent::NoAction;
 
                 return assignedMenu_->Next();
             }

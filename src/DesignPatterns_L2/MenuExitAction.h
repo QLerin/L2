@@ -11,14 +11,14 @@ namespace l2
         class MenuExitAction : IMenuAction
         {
         public:
-            MenuExitAction(const std::shared_ptr<Menu> menu) : IMenuAction(menu) {}
+            MenuExitAction(const std::shared_ptr<UIComponent> menu) : IMenuAction(menu) {}
 
-            virtual const MenuActionReturn ExecuteAction()
+            virtual const UIComponent::MenuActionReturn ExecuteAction()
             {
-                if (assignedMenu_ && assignedMenu_->RequestExitVerification())
-                    return RequestBwdTransition;
+                if (assignedMenu_ && assignedMenu_->UIComponent::RequestExitVerification())
+                    return UIComponent::RequestBwdTransition;
 
-                return NoAction;
+                return UIComponent::NoAction;
             }
         };
 

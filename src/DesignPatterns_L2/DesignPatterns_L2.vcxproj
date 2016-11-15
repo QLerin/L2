@@ -42,10 +42,12 @@
     <ClCompile Include="Score.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActionsMenu.h" />
     <ClInclude Include="Armor.h" />
     <ClInclude Include="ArmorFactory.h" />
     <ClInclude Include="Bow.h" />
     <ClInclude Include="ClothArmor.h" />
+    <ClInclude Include="CombatLogMenu.h" />
     <ClInclude Include="CommonFactory.h" />
     <ClInclude Include="Enchantment.h" />
     <ClInclude Include="EnemyArcher.h" />
@@ -71,6 +73,7 @@
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Inputs.h" />
     <ClInclude Include="Inventory.h" />
+    <ClInclude Include="InventoryMenu.h" />
     <ClInclude Include="LargePotion.h" />
     <ClInclude Include="LargeMedkitBuilder.h" />
     <ClInclude Include="LeatherArmor.h" />
@@ -94,6 +97,7 @@
     <ClInclude Include="MenuPreviousAction.h" />
     <ClInclude Include="MenuUseAction.h" />
     <ClInclude Include="Message.h" />
+    <ClInclude Include="CharacterMenu.h" />
     <ClInclude Include="PlateArmor.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerInputHandler.h" />
@@ -115,6 +119,7 @@
     <ClInclude Include="SmallMedkitBuilder.h" />
     <ClInclude Include="Staff.h" />
     <ClInclude Include="StartMenu.h" />
+    <ClInclude Include="SUICallbackComponent.h" />
     <ClInclude Include="SUIComponent.h" />
     <ClInclude Include="TertiaryStatistics.h" />
     <ClInclude Include="EnemySwordsman.h" />

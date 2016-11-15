@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Menu.h";
+#include <memory>
+#include "UIComponent.h";
 
 namespace l2
 {
@@ -14,14 +15,14 @@ namespace l2
             IMenuAction(const IMenuAction & right) = delete;
             IMenuAction(const IMenuAction && right) = delete;
         protected:
-            std::shared_ptr<Menu> assignedMenu_;
+            std::shared_ptr<UIComponent> assignedMenu_;
         public:
             IMenuAction() : assignedMenu_(nullptr) { }
-            IMenuAction(const std::shared_ptr<Menu> menu) : assignedMenu_(menu) { }
+            IMenuAction(const std::shared_ptr<UIComponent> menu) : assignedMenu_(menu) { }
 
-            virtual const Menu::MenuActionReturn ExecuteAction() = 0;
+            virtual const UIComponent::MenuActionReturn ExecuteAction() = 0;
 
-            void SetMenu(const std::shared_ptr<Menu> menu) { assignedMenu_ = menu; }
+            void SetMenu(const std::shared_ptr<UIComponent> menu) { assignedMenu_ = menu; }
 
             const bool IsMenuSet() const { return (assignedMenu_ != nullptr); }
         };

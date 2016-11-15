@@ -217,9 +217,6 @@
     <ClInclude Include="Character.h">
       <Filter>Header Files\GameObjects\Characters</Filter>
     </ClInclude>
-    <ClInclude Include="StartMenu.h">
-      <Filter>Header Files\GameObjects\Menus</Filter>
-    </ClInclude>
     <ClInclude Include="Score.h">
       <Filter>Header Files\GameObjects\Characters\Fluff</Filter>
     </ClInclude>
@@ -459,6 +456,24 @@
     </ClInclude>
     <ClInclude Include="Message.h">
       <Filter>Header Files\ConsoleUI\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="InventoryMenu.h">
+      <Filter>Header Files\GameObjects\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="SUICallbackComponent.h">
+      <Filter>Header Files\ConsoleUI\Composites</Filter>
+    </ClInclude>
+    <ClInclude Include="StartMenu.h">
+      <Filter>Header Files\GameObjects\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterMenu.h">
+      <Filter>Header Files\GameObjects\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionsMenu.h">
+      <Filter>Header Files\GameObjects\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="CombatLogMenu.h">
+      <Filter>Header Files\GameObjects\Menus</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

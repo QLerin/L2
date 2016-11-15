@@ -11,14 +11,14 @@ namespace l2
         class MenuUseAction : IMenuAction
         {
         public:
-            MenuUseAction(const std::shared_ptr<Menu> menu) : IMenuAction(menu) {}
+            MenuUseAction(const std::shared_ptr<UIComponent> menu) : IMenuAction(menu) {}
 
-            virtual const Menu::MenuActionReturn ExecuteAction()
+            virtual const UIComponent::MenuActionReturn ExecuteAction()
             {
                 if (!assignedMenu_)
-                    return Menu::NoAction;
+                    return UIComponent::NoAction;
 
-                Menu::MenuActionReturn rc = assignedMenu_->ActivateSelected();
+                UIComponent::MenuActionReturn rc = assignedMenu_->ActivateSelected();
                 assignedMenu_->Draw();
                 return rc;
             }

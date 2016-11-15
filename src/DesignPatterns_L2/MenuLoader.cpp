@@ -1,5 +1,6 @@
 #include "MenuLoader.h"
 #include "Menu.h"
+#include "MenuItem.h"
 #include <fstream>
 
 using namespace std;
@@ -81,10 +82,6 @@ const bool MenuLoader::LoadL2Menu(l2g::Menu * const menu, const std::string & pa
         else if (header == "MH")
             // Height of the menu
             in >> h;
-        else
-        {
-            // Adding additional menu items
-        }
 
     }
 

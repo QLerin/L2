@@ -11,12 +11,12 @@ namespace l2
         class MenuPreviousAction : IMenuAction
         {
         public:
-            MenuPreviousAction(const std::shared_ptr<Menu> menu) : IMenuAction(menu) {}
+            MenuPreviousAction(const std::shared_ptr<UIComponent> menu) : IMenuAction(menu) {}
 
-            virtual const Menu::MenuActionReturn ExecuteAction()
+            virtual const UIComponent::MenuActionReturn ExecuteAction()
             {
                 if (!assignedMenu_)
-                    return Menu::NoAction;
+                    return UIComponent::NoAction;
 
                 return assignedMenu_->Previous();
             }

@@ -35,7 +35,6 @@ namespace l2
 		private:
             Menu() = delete;
 			Menu(const Menu & right) = delete;
-
 		protected:
             std::shared_ptr<l2r::ConsoleWindow> parentWindow_;
 			l2r::ColorizedDrawable menu_;
@@ -44,6 +43,7 @@ namespace l2
 
             virtual const bool ValidationHook() const { return (parentWindow_ != nullptr); }
 
+            std::shared_ptr<l2r::ConsoleWindow> GetParentWindow() { return parentWindow_; }
 		public:
 			Menu(std::shared_ptr<l2r::ConsoleWindow> parentWindow, const std::string & path);
 
