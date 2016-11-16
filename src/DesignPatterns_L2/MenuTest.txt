@@ -3,7 +3,7 @@ CSEL			Y			B
 
 MX				0
 MY				0
-MW 				30
+MW 				60
 MH				10
 
 CORNER 			+

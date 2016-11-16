@@ -187,7 +187,10 @@ void FunkcijaLukui()
     drw.SetDrawableData(testData);
     drw.SetColor(Colorizer::Black, Colorizer::White);
 
-    drw.Draw();
+    //drw.Draw();
+
+    //StartMenu men(wnd);
+    //men.Draw();
 
     for (uint16_t i = 0; i < 15; ++i)
     {

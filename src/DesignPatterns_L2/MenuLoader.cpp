@@ -42,6 +42,7 @@ const bool MenuLoader::LoadL2Menu(l2g::Menu * const menu, const std::string & pa
     uint16_t x(0), y(0), w(0), h(0);
     char corner(' '), ulBorder(' '), lrBorder(' ');
     std::string outBuffer;
+    ColorizedDrawable drawable;
 
     std::string header("");
     while (in.good())
@@ -53,7 +54,7 @@ const bool MenuLoader::LoadL2Menu(l2g::Menu * const menu, const std::string & pa
         {
             char foreground, background;
             in >> foreground >> background;
-            menu->menu_.SetColor(GetColorFromChar(foreground), GetColorFromChar(background));
+            drawable.SetColor(GetColorFromChar(foreground), GetColorFromChar(background));
         }
         else if (header == "CSEL")
         {
@@ -62,7 +63,7 @@ const bool MenuLoader::LoadL2Menu(l2g::Menu * const menu, const std::string & pa
 
 #define dual_retrieve(fg, bg) MenuLoader::GetColorFromChar(fg), MenuLoader::GetColorFromChar(bg)
             //menu->selectedItemColor_ = Colorizer::COLOR_ATTRIBUTES(GetColorFromChar(foreground), GetColorFromChar(background));
-            menu->menu_.SetColor(dual_retrieve(foreground, background));
+            drawable.SetColor(dual_retrieve(foreground, background));
         }
         else if (header == "CORNER")
             in >> corner; //corner ASCII
@@ -104,16 +105,56 @@ const bool MenuLoader::LoadL2Menu(l2g::Menu * const menu, const std::string & pa
         outBuffer[w * i + w - 1] = lrBorder;
     }
 
-    menu->menu_.SetDrawableData(outBuffer);
-    menu->menu_.SetDrawableSpace(x, y, w, h);
+    drawable.SetDrawableData(outBuffer);
+    drawable.SetDrawableSpace(x, y, w, h);
+
+    menu->SetDrawable(drawable);
+
+    in.close();
 
     return true;
 }
 
-const bool MenuLoader::LoadL2MenuItem(l2g::MenuItem * const menu, std::ifstream & istream)
+const bool MenuLoader::LoadL2MenuItem(l2g::MenuItem * const menu, const std::string & path)
 {
-    if (!istream.is_open())
+    ifstream in;
+    in.open(path.c_str());
+    if (!in.is_open())
         return false;
 
+    string header("");
+    in >> header;
+    if (header != "BUTTON_DATA")
+        return false;
 
+    uint16_t w(0), h(0);
+    in >> header;
+    if (header != "WIDTH")
+        return false;
+    in >> w;
+    in >> header;
+    if (header != "HEIGHT")
+        return false;
+    in >> h;
+
+    string data;
+    char * line = new char[w+1];
+
+    in.seekg(2, ios::cur);
+    for (uint16_t i = 0; i < h && !in.eof(); ++i)
+    {
+        ZeroMemory(line, sizeof(char)*(w + 1));
+        in.getline(line, w+1);
+        int lineSize = strlen(line);
+        memset(&line[lineSize], static_cast<int>(' '),sizeof(char)*(w - lineSize));
+        data.append(line);
+    }
+
+    menu->drawable_.SetDrawableSpace(0, 0, w, h);
+    menu->drawable_.SetDrawableData(data);
+    delete line;
+
+    in.close();
+
+    return true;
 }

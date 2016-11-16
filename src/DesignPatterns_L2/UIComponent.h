@@ -1,5 +1,7 @@
 #pragma once
 
+#include "ColorizedDrawable.h"
+
 namespace l2
 {
 
@@ -14,8 +16,12 @@ namespace l2
             UIComponent(const UIComponent && right) = delete;
 
         protected:
+            std::shared_ptr<rendering::ConsoleWindow> window_;
+
             std::string componentName_;
             UIComponent * parent_;
+
+            rendering::ColorizedDrawable drawable_;
 
             UIComponent() : parent_(nullptr), componentName_("") {}
             virtual const bool ValidationHook() const { return true; }
@@ -59,6 +65,22 @@ namespace l2
             { return ( ValidationHook() && ((parent_ != nullptr || checkParent))); }
 
             virtual void Draw() = 0;
+
+            void SetComponentName(const std::string & name) 
+            { 
+                componentName_ = name;
+                UpdateData();
+            }
+
+            const std::string & GetComponentName() { return componentName_; }
+
+            virtual void UpdateData() { }
+
+            void SetDrawable(const rendering::ColorizedDrawable & drawable) { drawable_ = drawable; }
+            const rendering::ColorizedDrawable & GetDrawable() { return drawable_; }
+
+            void SetParentWindow(const std::shared_ptr<rendering::ConsoleWindow> & window) { window_ = window; drawable_.SetParentWindow(window); }
+            const std::shared_ptr<rendering::ConsoleWindow> GetParentWindow() { return window_; }
         };
 
     }

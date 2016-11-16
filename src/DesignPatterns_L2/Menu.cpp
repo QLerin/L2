@@ -8,9 +8,9 @@ using namespace l2::sys;
 using namespace l2::rendering;
 using namespace l2::gameobjects;
 
-Menu::Menu(std::shared_ptr<l2r::ConsoleWindow> parentWindow, const std::string & path) : parentWindow_(parentWindow), menu_(parentWindow)
+Menu::Menu(const std::string & path) : PUIComponent()
 {
-    assert(MenuLoader().LoadL2Menu(this, path));
+    MenuLoader().LoadL2Menu(this, path);
 }
 
 UIComponent::MenuActionReturn Menu::Next()
@@ -58,8 +58,8 @@ void Menu::Draw()
 {
     if (!ValidationHook())
         return;
-    parentWindow_->SetColor(menu_.GetDrawableColor());
-    menu_.Draw();
+    //parentWindow_->SetColor(menu_.GetDrawableColor());
+    drawable_.Draw();
     for (uint16_t i = 0; i < children_.GetStorageSize(); ++i)
     {
         if (!children_[i])
@@ -68,9 +68,9 @@ void Menu::Draw()
             continue;
         }
         if (i == selectedIndex_)
-            parentWindow_->SetColor(selectionColor_);
+            window_->SetColor(selectionColor_);
         else
-            parentWindow_->SetColor(Colorizer::COLOR_ATTRIBUTES(menu_.GetDrawableColor()));
+            window_->SetColor(Colorizer::COLOR_ATTRIBUTES(drawable_.GetDrawableColor()));
 
         children_[i]->Draw();
     }

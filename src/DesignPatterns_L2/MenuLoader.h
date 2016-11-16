@@ -27,9 +27,9 @@ namespace l2
         private:
             static const l2r::Colorizer::Color GetColorFromChar(const char id);
 
-            const bool LoadL2MenuItem(l2g::MenuItem * const menu, std::ifstream & istream);
         public:
             const bool LoadL2Menu(l2g::Menu * const menu, const std::string & path);
+            const bool LoadL2MenuItem(l2g::MenuItem * const menu, const std::string & path);
         };
 
     }

@@ -1,0 +1,13 @@
+BUTTON_DATA
+
+WIDTH
+34
+HEIGHT
+7
+PPPPPP   LL      AAAAAAA  YY    YY
+PP   PP  LL      AA   AA   YY  YY
+PP   PP  LL      AA   AA    YYYY
+PPPPPP   LL      AAAAAAA     YY
+PP       LL      AA   AA     YY
+PP       LL      AA   AA     YY
+PP       LLLLLL  AA   AA     YY

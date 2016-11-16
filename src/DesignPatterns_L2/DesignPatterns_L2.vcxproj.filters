@@ -203,6 +203,9 @@
     <ClCompile Include="PUIComponent.cpp">
       <Filter>Source Files\ConsoleUI\Composites</Filter>
     </ClCompile>
+    <ClCompile Include="StartMenu.cpp">
+      <Filter>Source Files\GameObjects\Menus</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CharacterStatistics.h">

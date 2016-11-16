@@ -15,9 +15,9 @@ namespace l2
         class SUIComponent : public UIComponent
         {
         protected:
-            std::shared_ptr<UIComponent> child_;
+            UIComponent * child_;
         public:
-            const std::shared_ptr<UIComponent> & GetChild() { return child_; }
+            const UIComponent * GetChild() { return child_; }
 
             MenuActionReturn Next() { return UIComponent::NoAction; }
             MenuActionReturn Previous() { return UIComponent::NoAction; }
@@ -34,7 +34,7 @@ namespace l2
                 if (child_)
                     LOG_WARNING("Replacing children in " + componentName_);
 
-                child_ = std::make_shared<UIComponent>(component);
+                child_ = component;
             }
 
             /// Removing child from a single component simply nulls the child

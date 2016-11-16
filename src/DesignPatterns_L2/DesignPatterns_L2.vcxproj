@@ -40,6 +40,7 @@
     <ClCompile Include="PlayerInputHandler.cpp" />
     <ClCompile Include="PUIComponent.cpp" />
     <ClCompile Include="Score.cpp" />
+    <ClCompile Include="StartMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionsMenu.h" />

@@ -15,14 +15,14 @@ namespace l2
             IMenuAction(const IMenuAction & right) = delete;
             IMenuAction(const IMenuAction && right) = delete;
         protected:
-            std::shared_ptr<UIComponent> assignedMenu_;
+            UIComponent * assignedMenu_;
         public:
             IMenuAction() : assignedMenu_(nullptr) { }
-            IMenuAction(const std::shared_ptr<UIComponent> menu) : assignedMenu_(menu) { }
+            IMenuAction(UIComponent * menu) : assignedMenu_(menu) { }
 
             virtual const UIComponent::MenuActionReturn ExecuteAction() = 0;
 
-            void SetMenu(const std::shared_ptr<UIComponent> menu) { assignedMenu_ = menu; }
+            void SetMenu(UIComponent * menu) { assignedMenu_ = menu; }
 
             const bool IsMenuSet() const { return (assignedMenu_ != nullptr); }
         };
