@@ -46,11 +46,10 @@ StartMenu::StartMenu(std::shared_ptr<l2r::ConsoleWindow> parentWindow) : Menu(RE
 
 UIComponent::MenuActionReturn StartMenu::PlayCallback()
 {
-    return RequestFwdTransition;
+    return RequestBwdTransition;
 }
 
 UIComponent::MenuActionReturn StartMenu::ExitCallback()
 {
-
     return RequestBwdTransition;
 }

@@ -19,7 +19,7 @@ namespace l2
         protected:
 			virtual T * const GetResource(const uint32_t & identifier);
 		public:
-			ArrayStorage() = default;
+            ArrayStorage() : IResourceStorage<uint32_t, T>() {}
 			ArrayStorage(const ArrayStorage & right);
             ~ArrayStorage();
 

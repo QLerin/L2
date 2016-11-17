@@ -20,6 +20,8 @@ namespace l2
 		{
             friend class Singleton<GameManager>;
 			friend class std::shared_ptr<GameManager>;
+        private:
+            bool shouldExit_;
 		protected:
             GameManager();
 			GameManager(const GameManager & right) = delete;
@@ -43,6 +45,8 @@ namespace l2
             void SetMainWindow(std::shared_ptr<rendering::ConsoleWindow> pWindow) { mainWindow_ = pWindow; sm.SetParentWindow(pWindow); }
 
             void HandleMessage(const std::shared_ptr<Message> & message);
+
+            const bool ShouldAppExit() { return shouldExit_; }
 
             void ExecuteDrawProcedure()
             {

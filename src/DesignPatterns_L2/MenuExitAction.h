@@ -16,8 +16,8 @@ namespace l2
 
             virtual const UIComponent::MenuActionReturn ExecuteAction()
             {
-                if (assignedMenu_)
-                    return assignedMenu_->Exit();
+                if (assignedMenu_ && assignedMenu_->GetActiveComponent())
+                    return assignedMenu_->GetActiveComponent()->Exit();
 
                 return UIComponent::NoAction;
             }

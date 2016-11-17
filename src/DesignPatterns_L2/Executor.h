@@ -13,11 +13,12 @@ private:
 public:
     Executor() : window_(new l2::rendering::ConsoleWindow(false))
     {
-
+        
     }
 
     void Run()
     {
+        LOG_INFO("Application starting...");
         std::shared_ptr<l2::sys::GameManager> temp = l2::sys::GameManager::GetInstance();
         temp->SetMainWindow(window_);
 
@@ -28,11 +29,14 @@ public:
         reg_.RegisterReceiver(l2::sys::MenuActionMessage::MENU_ACTION_MESSAGE, temp.get());
         inputs->StartPolling(reg_);
 
-
-
-        while (1)
+        while (!temp->ShouldAppExit())
         {
-            Sleep(1000);
+            Sleep(50);
         }
+
+        LOG_INFO("Application exiting...");
+        inputs->StopPolling();
+    
+        reg_.UnregisterReceiver(temp.get());
     }
 };

@@ -11,15 +11,15 @@ namespace l2
         class MenuUseAction : public IMenuAction
         {
         public:
-            MenuUseAction() { }
+            MenuUseAction() : IMenuAction() { }
             MenuUseAction(UIComponent * menu) : IMenuAction(menu) {}
 
             virtual const UIComponent::MenuActionReturn ExecuteAction()
             {
-                if (!assignedMenu_)
+                if (!assignedMenu_ || !assignedMenu_->GetActiveComponent())
                     return UIComponent::NoAction;
 
-                return assignedMenu_->Use();
+                return assignedMenu_->GetActiveComponent()->Use();
             }
         };
 

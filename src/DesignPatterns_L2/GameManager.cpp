@@ -9,7 +9,7 @@ static const uint16_t DEFAULT_FRAME_HEIGHT = 75;
 static const std::string SCENE_CONTENTS_PATH_DEBUG = "Contents.dat";
 static const std::string SCENE_CONTENTS_PATH_RELEASE = "/res/Contents.dat";
 
-GameManager::GameManager() : mainWindow_(new ConsoleWindow(true)), sm(mainWindow_)
+GameManager::GameManager() : mainWindow_(new ConsoleWindow(true)), sm(mainWindow_), shouldExit_(false)
 {
 //#ifdef _DEBUG
 //	Initialize(SCENE_CONTENTS_PATH_DEBUG);
@@ -31,7 +31,8 @@ void GameManager::HandleMessage(const std::shared_ptr<Message> & message)
         return;
     shared_ptr<MenuActionMessage> messageCopy = static_pointer_cast<MenuActionMessage, Message>(message);
     messageCopy->GetMenuAction()->SetMenu(&sm);
-    messageCopy->GetMenuAction()->ExecuteAction();
-
-    ExecuteDrawProcedure();
+    if (messageCopy->GetMenuAction()->ExecuteAction() == l2::gameobjects::UIComponent::RequestBwdTransition)
+        shouldExit_ = true;
+    else
+        ExecuteDrawProcedure();
 }

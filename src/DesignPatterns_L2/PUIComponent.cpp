@@ -74,6 +74,7 @@ void PUIComponent::SetParentWindow(const shared_ptr<ConsoleWindow> & window)
 UIComponent * PUIComponent::GetActiveComponent() { 
     if (children_.GetStorageSize() > 0 && children_[selectedIndex_] != nullptr)
         return children_[selectedIndex_];
-    else return this;
+    else 
+        return this;
 }
 

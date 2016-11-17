@@ -17,6 +17,7 @@ namespace l2
         protected:
             UIComponent * child_;
         public:
+            SUIComponent() : UIComponent(), child_(nullptr) { }
             virtual ~SUIComponent();
 
             virtual UIComponent * GetActiveComponent();

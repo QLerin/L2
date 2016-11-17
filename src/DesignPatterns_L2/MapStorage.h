@@ -20,7 +20,7 @@ namespace l2
 		protected:
 			virtual T * const GetResource(const K & identifier);
 		public:
-			MapStorage() = default;
+			MapStorage() : IResourceStorage<K, T>() { }
 			MapStorage(const MapStorage & right);
             ~MapStorage();
 
@@ -50,6 +50,8 @@ namespace l2
 		template <typename K, typename T>
 		T * const MapStorage<K, T>::GetResource(const K & identifier)
 		{
+            if (!identifier)
+                return nullptr;
 			std::lock_guard<std::recursive_mutex> lock(containerLock_);
 			return container_[identifier];
 		}

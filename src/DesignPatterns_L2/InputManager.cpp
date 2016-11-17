@@ -40,7 +40,7 @@ void InputManager::PollInput()
             LOG_WARNING("Invalid keycode read (unable to generate message)");
             continue;
         }
-        inputSender_.BroadcastMessage(msg);
+        inputSender_->BroadcastMessage(msg);
 	}
 }
 
@@ -65,7 +65,7 @@ MenuActionMessage * const InputManager::CreateActionMessage(const Inputs::KeyCod
 
 void InputManager::StartPolling(Register<Message> & reg)
 {
-    reg.RegisterSender(MenuActionMessage::MENU_ACTION_MESSAGE, &inputSender_);
+    reg.RegisterSender(MenuActionMessage::MENU_ACTION_MESSAGE, (inputSender_ = new Sender<Message>()));
 	inputThread_ = thread(bind(&InputManager::PollInput, this));
 }
 
@@ -75,4 +75,6 @@ void InputManager::StopPolling()
 	isRunning_ = false;
     inputThread_.join();
     LOG_INFO("Polling operation stopped");
+    delete inputSender_;
+    inputSender_ = nullptr;
 }
