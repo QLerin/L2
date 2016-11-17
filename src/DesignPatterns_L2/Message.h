@@ -11,12 +11,15 @@ namespace l2
 
 		class Message
 		{
+        private:
+            Message() = delete;
         protected:
-            std::string messageString_;
+            uint64_t messageType_;
 		public:
-            Message() : messageString_("") { }
-            Message(const std::string & messageString) : messageString_(messageString) { }
-            const std::string & GetMessageString() { return messageString_; }
+            Message(const uint64_t messageType) : messageType_(messageType) { }
+            Message(const Message & right) : messageType_(right.messageType_) { }
+
+            const uint64_t GetMessageType() { return messageType_; }
 		};
 
 	}

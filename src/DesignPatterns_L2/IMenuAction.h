@@ -12,8 +12,8 @@ namespace l2
         class IMenuAction
         {
         private:
-            IMenuAction(const IMenuAction & right) = delete;
-            IMenuAction(const IMenuAction && right) = delete;
+            //IMenuAction(const IMenuAction & right) = delete;
+            //IMenuAction(const IMenuAction && right) = delete;
         protected:
             UIComponent * assignedMenu_;
         public:

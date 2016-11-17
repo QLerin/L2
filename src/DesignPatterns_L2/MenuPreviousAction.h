@@ -8,10 +8,11 @@ namespace l2
     namespace gameobjects
     {
 
-        class MenuPreviousAction : IMenuAction
+        class MenuPreviousAction : public IMenuAction
         {
         public:
-            MenuPreviousAction(const std::shared_ptr<UIComponent> menu) : IMenuAction(menu) {}
+            MenuPreviousAction() : IMenuAction() { }
+            MenuPreviousAction(UIComponent * menu) : IMenuAction(menu) {}
 
             virtual const UIComponent::MenuActionReturn ExecuteAction()
             {

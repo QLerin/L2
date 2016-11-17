@@ -8,24 +8,25 @@
 #include <memory>
 #include <list>
 
+#include "StartMenu.h"
+
 namespace l2
 {
 
 	namespace sys
 	{
 
-		class GameManager : public Singleton<GameManager>
+		class GameManager : public Singleton<GameManager>, public MenuInputHandler
 		{
+            friend class Singleton<GameManager>;
 			friend class std::shared_ptr<GameManager>;
-		private:
-			GameManager();
+		protected:
+            GameManager();
 			GameManager(const GameManager & right) = delete;
 
-			/// The main console window frame (single buffered)
-			l2::rendering::ConsoleWindow mainFrame_;
+            std::shared_ptr<l2::rendering::ConsoleWindow> mainWindow_;
 
-			/// Holds all objects to be drawn on screen
-			std::list<l2::rendering::IDrawable> screenObjects_;
+            gameobjects::StartMenu sm;
 
 			/// Initializes game manager from contents file
 			///
@@ -36,10 +37,19 @@ namespace l2
 			///
 			/// \note					Defaults for debug and release configurations defined in impl file
 			bool Initialize(const std::string & contentsPath);
+
 		public:
 
-			/// Starts runnning the main loop until an interrupt is requested
-			void RunMainLoop();
+            void SetMainWindow(std::shared_ptr<rendering::ConsoleWindow> pWindow) { mainWindow_ = pWindow; sm.SetParentWindow(pWindow); }
+
+            void HandleMessage(const std::shared_ptr<Message> & message);
+
+            void ExecuteDrawProcedure()
+            {
+                sm.Draw();
+
+                mainWindow_->SwapBuffers();
+            }
 		};
 
 	}

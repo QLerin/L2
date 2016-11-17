@@ -1,6 +1,8 @@
 #pragma once
 
 #include "InputHandler.h"
+#include "MenuActionMessage.h"
+
 
 namespace l2
 {
@@ -8,18 +10,15 @@ namespace l2
 	{
 		class MenuInputHandler : public InputHandler
 		{
-		private:
-			MenuInputHandler(const MenuInputHandler & right) = delete;
-		protected:
-			void (*OnKeyUp)();
-			void (*OnKeyDown)();
-			void (*OnKeyLeft)();
-			void (*OnKeyRight)();
-			void (*OnKeyEnter)();
-			void (*OnKeyEsc)();
-		public:
-			MenuInputHandler() = default;
-			void HandleInput(const InputManager::ConsoleInput inputEvent);
+        protected:
+            const bool ValidateMessage(const std::shared_ptr<Message> & message) const
+            {
+                if (message && message->GetMessageType() == MenuActionMessage::MENU_ACTION_MESSAGE)
+                    return true;
+                return false;
+            }
+        public:
+            MenuInputHandler() { }
 		};
 	}
 }

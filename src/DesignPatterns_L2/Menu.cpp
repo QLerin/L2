@@ -68,9 +68,19 @@ void Menu::Draw()
             continue;
         }
         if (i == selectedIndex_)
-            window_->SetColor(selectionColor_);
+        {
+            ColorizedDrawable temp = children_[i]->GetDrawable();
+            temp.SetColor(selectionColor_.foregroundColor, selectionColor_.backgroundColor);
+            children_[i]->SetDrawable(temp);
+            //window_->SetColor(selectionColor_);
+        }
         else
-            window_->SetColor(Colorizer::COLOR_ATTRIBUTES(drawable_.GetDrawableColor()));
+        {
+            ColorizedDrawable temp = children_[i]->GetDrawable();
+            temp.SetColor(drawable_.GetDrawableColor().foregroundColor, drawable_.GetDrawableColor().backgroundColor);
+            children_[i]->SetDrawable(temp);
+            //window_->SetColor(Colorizer::COLOR_ATTRIBUTES(drawable_.GetDrawableColor()));
+        }
 
         children_[i]->Draw();
     }

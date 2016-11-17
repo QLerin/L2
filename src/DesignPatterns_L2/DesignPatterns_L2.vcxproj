@@ -41,6 +41,7 @@
     <ClCompile Include="PUIComponent.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="StartMenu.cpp" />
+    <ClCompile Include="UIComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionsMenu.h" />
@@ -62,6 +63,7 @@
     <ClInclude Include="EnemyFactory.h" />
     <ClInclude Include="EpicFactory.h" />
     <ClInclude Include="EquippableItem.h" />
+    <ClInclude Include="Executor.h" />
     <ClInclude Include="FireEnchantment.h" />
     <ClInclude Include="Frame.h" />
     <ClInclude Include="GameManager.h" />

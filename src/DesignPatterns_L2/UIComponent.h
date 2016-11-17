@@ -15,6 +15,8 @@ namespace l2
         private:
             UIComponent(const UIComponent && right) = delete;
 
+            uint16_t yOffset_;
+            uint16_t xOffset_;
         protected:
             std::shared_ptr<rendering::ConsoleWindow> window_;
 
@@ -23,12 +25,11 @@ namespace l2
 
             rendering::ColorizedDrawable drawable_;
 
-            UIComponent() : parent_(nullptr), componentName_("") {}
+            UIComponent() : parent_(nullptr), componentName_(""), yOffset_(0), xOffset_(0) {}
             virtual const bool ValidationHook() const { return true; }
-
         public:
-            UIComponent(UIComponent * parent, const std::string & name) : parent_(parent), componentName_(name) { }
-            UIComponent(const UIComponent & right) : parent_(right.parent_), componentName_(right.componentName_) { }
+            UIComponent(UIComponent * parent, const std::string & name) : parent_(parent), componentName_(name), yOffset_(0), xOffset_(0) { }
+            UIComponent(const UIComponent & right) : parent_(right.parent_), componentName_(right.componentName_), yOffset_(0), xOffset_(0) { }
             
             /// Denotes wether any action should be taken after command execution
             enum MenuActionReturn
@@ -57,6 +58,7 @@ namespace l2
             virtual void RemoveChild(UIComponent * component) = 0;
 
             const UIComponent * const GetParent() const { return parent_; }
+            void SetParent(UIComponent * const parent) { parent_ = parent; }
 
             // Validate UI component if it has required information for functionality
             // For root object parent can be null
@@ -79,8 +81,18 @@ namespace l2
             void SetDrawable(const rendering::ColorizedDrawable & drawable) { drawable_ = drawable; }
             const rendering::ColorizedDrawable & GetDrawable() { return drawable_; }
 
-            void SetParentWindow(const std::shared_ptr<rendering::ConsoleWindow> & window) { window_ = window; drawable_.SetParentWindow(window); }
+            virtual void SetParentWindow(const std::shared_ptr<rendering::ConsoleWindow> & window) { window_ = window; drawable_.SetParentWindow(window); }
             const std::shared_ptr<rendering::ConsoleWindow> GetParentWindow() { return window_; }
+
+            void SetOffsetX(const uint16_t offset);
+            const uint16_t GetOffsetX() const { return xOffset_; }
+
+            void SetOffsetY(const uint16_t offset);
+            const uint16_t GetOffsetY() { return yOffset_; }
+
+            void SetOffsets(const uint16_t xOffset, const uint16_t yOffset);
+
+            virtual UIComponent * GetActiveComponent() = 0;
         };
 
     }

@@ -8,6 +8,7 @@ void PUIComponent::AddChild(UIComponent * component)
     if (!component)
         return;
     children_.AddResource(component, 0);
+    component->SetParent(this);
 }
 
 void PUIComponent::RemoveChild(UIComponent * component)

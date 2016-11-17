@@ -102,9 +102,6 @@
     <Filter Include="Header Files\Sys\XEQTR">
       <UniqueIdentifier>{0957ec23-930d-4c30-a4dc-104e6b83ecf6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Sys\Handlers">
-      <UniqueIdentifier>{a01d8c0c-af5d-4c71-9fc5-1083a0053f7a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\GameObjects\Items\Usables\LifeUsables\Factories">
       <UniqueIdentifier>{f3c1c10b-8800-4acb-a8be-28d7d92fb272}</UniqueIdentifier>
     </Filter>
@@ -137,6 +134,9 @@
     </Filter>
     <Filter Include="Header Files\ConsoleUI\Menus">
       <UniqueIdentifier>{7d6fc473-589c-4bb6-9b38-2f1494f77d2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Sys\XEQTR\Handlers">
+      <UniqueIdentifier>{a01d8c0c-af5d-4c71-9fc5-1083a0053f7a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -205,6 +205,9 @@
     </ClCompile>
     <ClCompile Include="StartMenu.cpp">
       <Filter>Source Files\GameObjects\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="UIComponent.cpp">
+      <Filter>Source Files\ConsoleUI\Composites</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -353,10 +356,10 @@
       <Filter>Header Files\Sys\StorageClasses</Filter>
     </ClInclude>
     <ClInclude Include="PlayerInputHandler.h">
-      <Filter>Header Files\Sys\Handlers</Filter>
+      <Filter>Header Files\Sys\XEQTR\Handlers</Filter>
     </ClInclude>
     <ClInclude Include="MenuInputHandler.h">
-      <Filter>Header Files\Sys\Handlers</Filter>
+      <Filter>Header Files\Sys\XEQTR\Handlers</Filter>
     </ClInclude>
     <ClInclude Include="GlitteringGem.h">
       <Filter>Header Files\GameObjects\Items\Usables\TertiaryUsables\Gems</Filter>
@@ -477,6 +480,9 @@
     </ClInclude>
     <ClInclude Include="CombatLogMenu.h">
       <Filter>Header Files\GameObjects\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="Executor.h">
+      <Filter>Header Files\Sys\XEQTR</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

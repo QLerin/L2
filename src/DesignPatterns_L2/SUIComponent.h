@@ -45,7 +45,16 @@ namespace l2
             // For child object children count can be 0
             virtual const bool Validate(const bool checkParent = false) const
             {
-                return ( __super::Validate(checkParent) && (child_ != nullptr || !checkParent));
+                return (__super::Validate(checkParent) && (child_ != nullptr || !checkParent));
+            }
+
+            virtual UIComponent * GetActiveComponent() { if (child_) return child_->GetActiveComponent(); else return this; }
+
+            virtual void SetParentWindow(const std::shared_ptr<rendering::ConsoleWindow> & window)
+            {
+                __super::SetParentWindow(window);
+                if (child_)
+                    child_->SetParentWindow(window);
             }
         };
 

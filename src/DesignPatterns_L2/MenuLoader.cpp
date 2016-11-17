@@ -61,9 +61,9 @@ const bool MenuLoader::LoadL2Menu(l2g::Menu * const menu, const std::string & pa
             char foreground, background;
             in >> foreground >> background;
 
-#define dual_retrieve(fg, bg) MenuLoader::GetColorFromChar(fg), MenuLoader::GetColorFromChar(bg)
+#define dual_retrieve(fg, bg) GetColorFromChar(fg), GetColorFromChar(bg)
             //menu->selectedItemColor_ = Colorizer::COLOR_ATTRIBUTES(GetColorFromChar(foreground), GetColorFromChar(background));
-            drawable.SetColor(dual_retrieve(foreground, background));
+            menu->selectionColor_ = Colorizer::COLOR_ATTRIBUTES(dual_retrieve(foreground, background));
         }
         else if (header == "CORNER")
             in >> corner; //corner ASCII

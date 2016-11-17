@@ -8,15 +8,16 @@ namespace l2
     namespace gameobjects
     {
 
-        class MenuExitAction : IMenuAction
+        class MenuExitAction : public IMenuAction
         {
         public:
-            MenuExitAction(const std::shared_ptr<UIComponent> menu) : IMenuAction(menu) {}
+            MenuExitAction() : IMenuAction() { }
+            MenuExitAction(UIComponent * menu) : IMenuAction(menu) {}
 
             virtual const UIComponent::MenuActionReturn ExecuteAction()
             {
-                if (assignedMenu_ && assignedMenu_->UIComponent::RequestExitVerification())
-                    return UIComponent::RequestBwdTransition;
+                if (assignedMenu_)
+                    return assignedMenu_->Exit();
 
                 return UIComponent::NoAction;
             }

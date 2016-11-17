@@ -1,0 +1,13 @@
+BUTTON_DATA
+
+WIDTH
+33
+HEIGHT
+7
+EEEEEEE  XX    XX  III  TTTTTTTT
+EE        XX  XX           TT
+EE         XXXX    III     TT
+EEEEEEE     XX     III     TT
+EE         XXXX    III     TT
+EE        XX  XX   III     TT
+EEEEEEE  XX    XX  III     TT

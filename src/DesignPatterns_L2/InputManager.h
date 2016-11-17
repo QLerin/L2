@@ -3,7 +3,8 @@
 #include <thread>
 #include "Singleton.h"
 #include "Sender.h"
-#include "Message.h"
+#include "Inputs.h"
+#include "MenuActionMessage.h"
 
 namespace l2
 {
@@ -21,6 +22,8 @@ namespace l2
 
 			bool isRunning_;
 			void PollInput();
+
+            MenuActionMessage * const CreateActionMessage(const Inputs::KeyCode input);
 		public:
             InputManager() : isRunning_(false) {}
 			enum ConsoleInput
