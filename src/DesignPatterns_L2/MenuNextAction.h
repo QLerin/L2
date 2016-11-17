@@ -1,6 +1,6 @@
 #pragma once
 
-#include "IMenuAction.h";
+#include "IMenuAction.h"
 
 namespace l2
 {

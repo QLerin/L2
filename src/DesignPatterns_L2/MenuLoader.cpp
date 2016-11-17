@@ -145,7 +145,7 @@ const bool MenuLoader::LoadL2MenuItem(l2g::MenuItem * const menu, const std::str
     {
         ZeroMemory(line, sizeof(char)*(w + 1));
         in.getline(line, w+1);
-        int lineSize = strlen(line);
+        size_t lineSize = strlen(line);
         memset(&line[lineSize], static_cast<int>(' '),sizeof(char)*(w - lineSize));
         data.append(line);
     }

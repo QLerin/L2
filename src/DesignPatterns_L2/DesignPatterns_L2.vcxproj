@@ -41,6 +41,7 @@
     <ClCompile Include="PUIComponent.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="StartMenu.cpp" />
+    <ClCompile Include="SUIComponent.cpp" />
     <ClCompile Include="UIComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -253,7 +254,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>true</WholeProgramOptimization>
-      <TreatWarningAsError>false</TreatWarningAsError>
+      <TreatWarningAsError>true</TreatWarningAsError>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
       <CompileAs>CompileAsCpp</CompileAs>
       <UseFullPaths>true</UseFullPaths>

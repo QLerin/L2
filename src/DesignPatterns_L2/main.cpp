@@ -83,16 +83,20 @@ void testfun(const uint16_t threadid)
 void FunkcijaLinui();
 void FunkcijaLukui();
 
-int main(int argc, char ** argv)
+#pragma warning (push)
+#pragma warning (disable : 4702) // While still in development disable warning for unreachable code
+                                 // MUST REMOVE ON RELEASE!
+int main()
 {
-	Logger::GetInstance()->Initialize("L.log");
-
     //FunkcijaLinui();
     FunkcijaLukui();
 
 	return 0;
 }
+#pragma warning (pop)
 
+#pragma warning (push)
+#pragma warning (disable : 4101 4189) // Lino funkcija (nuff said)
 void FunkcijaLinui()
 {
     EnemyFactory fac;
@@ -124,6 +128,7 @@ void FunkcijaLinui()
     m2.Use(player);
     m3.Use(player);
 }
+#pragma warning (pop)
 
 void FunkcijaLukui()
 {

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <memory>
-#include "UIComponent.h";
+#include "UIComponent.h"
 
 namespace l2
 {
@@ -12,8 +12,8 @@ namespace l2
         class IMenuAction
         {
         private:
-            //IMenuAction(const IMenuAction & right) = delete;
-            //IMenuAction(const IMenuAction && right) = delete;
+            IMenuAction(const IMenuAction & right) = delete;
+            IMenuAction(const IMenuAction && right) = delete;
         protected:
             UIComponent * assignedMenu_;
         public:

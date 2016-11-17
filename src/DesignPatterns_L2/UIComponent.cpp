@@ -1,5 +1,7 @@
 #include "UIComponent.h"
 
+using namespace std;
+using namespace l2::rendering;
 using namespace l2::gameobjects;
 
 void UIComponent::SetOffsetX(const uint16_t offset)
@@ -44,4 +46,15 @@ void UIComponent::SetOffsets(const uint16_t xOffset, const uint16_t yOffset)
     x += xOffset;
     
     drawable_.SetDrawableSpace(x, y, w, h);
+}
+
+void UIComponent::SetParentWindow(const shared_ptr<ConsoleWindow> & window)
+{
+    window_ = window; 
+    drawable_.SetParentWindow(window);
+}
+
+const bool UIComponent::Validate(const bool checkParent) const
+{
+    return (ValidationHook() && ((parent_ != nullptr || checkParent)));
 }

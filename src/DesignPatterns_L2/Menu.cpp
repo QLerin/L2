@@ -31,7 +31,7 @@ UIComponent::MenuActionReturn Menu::Previous()
 
 UIComponent::MenuActionReturn Menu::Use()
 {
-#pragma message ("Enum should be filled with error information");
+#pragma message ("Enum should be filled with error information")
 
     if (!ValidationHook())
         return NoAction;
@@ -44,7 +44,7 @@ UIComponent::MenuActionReturn Menu::Use()
 
 UIComponent::MenuActionReturn Menu::Exit()
 {
-#pragma message ("Enum should be filled with error information");
+#pragma message ("Enum should be filled with error information")
     if (!ValidationHook())
         return NoAction;
 

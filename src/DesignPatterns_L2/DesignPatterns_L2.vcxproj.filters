@@ -209,6 +209,9 @@
     <ClCompile Include="UIComponent.cpp">
       <Filter>Source Files\ConsoleUI\Composites</Filter>
     </ClCompile>
+    <ClCompile Include="SUIComponent.cpp">
+      <Filter>Source Files\ConsoleUI\Composites</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CharacterStatistics.h">
