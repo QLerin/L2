@@ -42,6 +42,7 @@
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="StartMenu.cpp" />
     <ClCompile Include="SUIComponent.cpp" />
+    <ClCompile Include="TransitionTable.cpp" />
     <ClCompile Include="UIComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +130,7 @@
     <ClInclude Include="EnemySwordsman.h" />
     <ClInclude Include="Sword.h" />
     <ClInclude Include="TertiaryUsable.h" />
+    <ClInclude Include="TransitionTable.h" />
     <ClInclude Include="UIComponent.h" />
     <ClInclude Include="UsableFactory.h" />
     <ClInclude Include="UsableItem.h" />

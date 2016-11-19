@@ -212,6 +212,9 @@
     <ClCompile Include="SUIComponent.cpp">
       <Filter>Source Files\ConsoleUI\Composites</Filter>
     </ClCompile>
+    <ClCompile Include="TransitionTable.cpp">
+      <Filter>Source Files\ConsoleUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CharacterStatistics.h">
@@ -486,6 +489,9 @@
     </ClInclude>
     <ClInclude Include="Executor.h">
       <Filter>Header Files\Sys\XEQTR</Filter>
+    </ClInclude>
+    <ClInclude Include="TransitionTable.h">
+      <Filter>Header Files\ConsoleUI\Menus</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
