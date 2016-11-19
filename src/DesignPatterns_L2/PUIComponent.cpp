@@ -15,9 +15,9 @@ PUIComponent::~PUIComponent()
 const bool PUIComponent::TransitionLeft()
 {
     if (selectedIndex_ == 0)
-        return true;
+        return false;
     --selectedIndex_;
-    return false;
+    return true;
 }
 
 const bool PUIComponent::TransitionRight()
@@ -28,9 +28,9 @@ const bool PUIComponent::TransitionRight()
 #pragma warning (disable : 4244) //Operating on ArrayStorage with max capacity of unsigned dword
         selectedIndex_ = children_.GetStorageSize() - 1;
 #pragma warning (pop)
-        return true;
+        return false;
     }
-    return false;
+    return true;
 }
 
 void PUIComponent::AddChild(UIComponent * component)

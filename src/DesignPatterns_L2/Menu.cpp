@@ -16,7 +16,17 @@ Menu::Menu(const std::string & path) : PUIComponent()
 UIComponent::MenuActionReturn Menu::Next()
 {
     if (ValidationHook())
-        TransitionRight();
+    {
+        if (children_[selectedIndex_])
+        {
+            MenuActionReturn rc = children_[selectedIndex_]->Next();
+            if (rc == MenuActionReturn::MenuSwitch)
+                return MenuNoSwitch;
+        }
+        if (TransitionRight())
+            return MenuSwitch;
+        return MenuNoSwitch;
+    }
 
     return NoAction;
 }
@@ -24,7 +34,17 @@ UIComponent::MenuActionReturn Menu::Next()
 UIComponent::MenuActionReturn Menu::Previous()
 {
     if (ValidationHook())
-        TransitionLeft();
+    {
+        if (children_[selectedIndex_])
+        {
+            MenuActionReturn rc = children_[selectedIndex_]->Previous();
+            if (rc == MenuActionReturn::MenuSwitch)
+                return MenuNoSwitch;
+        }
+        if (TransitionLeft())
+            return MenuSwitch;
+        return MenuNoSwitch;
+    }
 
     return NoAction;
 }

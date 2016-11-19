@@ -35,7 +35,7 @@ void GameManager::HandleMessage(const shared_ptr<Message> & message)
     shared_ptr<MenuActionMessage> messageCopy = static_pointer_cast<MenuActionMessage, Message>(message);
     messageCopy->GetMenuAction()->SetMenu(activeMenu_);
     UIComponent::MenuActionReturn rc = messageCopy->GetMenuAction()->ExecuteAction();
-    if (rc != UIComponent::NoAction)
+    if (rc == UIComponent::RequestFwdTransition || rc == UIComponent::RequestBwdTransition)
     {
         uicmp * nextComponent = transitions_.Retrieve(rc, activeMenu_);
         if (nextComponent == nullptr && activeMenu_ == transitions_.GetFrontElement())
@@ -45,6 +45,8 @@ void GameManager::HandleMessage(const shared_ptr<Message> & message)
         }
         activeMenu_ = nextComponent;
     }
+    else if (rc == UIComponent::NoAction)
+        LOG_WARNING("Returning no action. Be wary: menus might contain structural error!");
     ExecuteDrawProcedure();
 
 }

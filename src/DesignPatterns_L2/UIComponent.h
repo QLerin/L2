@@ -32,12 +32,16 @@ namespace l2
             /// Denotes wether any action should be taken after command execution
             enum MenuActionReturn
             {
-                //Take no action upon command execution
+                // Take no action upon command execution
                 NoAction = 0,
-                //Should transition forward to next menu in the transition list
+                // Should transition forward to next menu in the transition list
                 RequestFwdTransition,
-                //Should transition backward to previous menu in the transition list
-                RequestBwdTransition
+                // Should transition backward to previous menu in the transition list
+                RequestBwdTransition,
+                // Child UI component has items inside it, show that transition still possible inside a nested menu
+                MenuSwitch,
+                // Child UI component can no longer use nested internals (use self or parent)
+                MenuNoSwitch
             };
         public:
             UIComponent(UIComponent * parent, const std::string & name) : parent_(parent), componentName_(name), yOffset_(0), xOffset_(0) { }
