@@ -30,7 +30,7 @@ uicmp * const TransitionTable::Retrieve(const uicmp::MenuActionReturn code, cons
 
 void TransitionTable::Assign(uicmp * component, const TRANSITION transitions)
 {
-    if (!component || (!transitions.forward && !transitions.backward))
+    if (!component)
         return;
 
     itemTransition_.push_back(pair<uicmp *, TRANSITION>(component, transitions));
@@ -49,7 +49,10 @@ void TransitionTable::Remove(const uicmp * const component)
 
 void TransitionTable::ClearTable()
 {
+#pragma warning (push)
+#pragma warning (disable : 4239) //Swap triggering warning
     itemTransition_.swap(vector<pair<uicmp *, TRANSITION>>());
+#pragma warning (pop)
 }
 
 const uicmp * const TransitionTable::GetFrontElement() const
