@@ -7,6 +7,9 @@
 #include "Singleton.h"
 #include <memory>
 #include <list>
+#include "TransitionTable.h"
+
+#include "StartMenu.h"
 
 namespace l2
 {
@@ -14,18 +17,23 @@ namespace l2
 	namespace sys
 	{
 
-		class GameManager : public Singleton<GameManager>
+		class GameManager : public Singleton<GameManager>, public MenuInputHandler
 		{
+            friend class Singleton<GameManager>;
 			friend class std::shared_ptr<GameManager>;
-		private:
-			GameManager();
+        private:
+            std::list<uicmp *> activeMenus_;
+            TransitionTable transitions_;
+
+            void SetupTransitionTable();
+            bool shouldExit_;
+
+            uicmp * activeMenu_;
+		protected:
+            GameManager();
 			GameManager(const GameManager & right) = delete;
 
-			/// The main console window frame (single buffered)
-			l2::rendering::ConsoleWindow mainFrame_;
-
-			/// Holds all objects to be drawn on screen
-			std::list<l2::rendering::IDrawable> screenObjects_;
+            std::shared_ptr<l2::rendering::ConsoleWindow> mainWindow_;
 
 			/// Initializes game manager from contents file
 			///
@@ -37,9 +45,15 @@ namespace l2
 			/// \note					Defaults for debug and release configurations defined in impl file
 			bool Initialize(const std::string & contentsPath);
 		public:
+            ~GameManager();
 
-			/// Starts runnning the main loop until an interrupt is requested
-			void RunMainLoop();
+            void SetMainWindow(std::shared_ptr<rendering::ConsoleWindow> pWindow);
+
+            void HandleMessage(const std::shared_ptr<Message> & message);
+
+            const bool ShouldAppExit() { return shouldExit_; }
+
+            void ExecuteDrawProcedure();
 		};
 
 	}

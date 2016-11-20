@@ -25,25 +25,36 @@ WORD Colorizer::GetConsoleColor(const COLOR_ATTRIBUTES attributes)
 
 WORD Colorizer::GetForegroundColor(const COLOR_ATTRIBUTES attributes)
 {
+#define intensify(arg) (FOREGROUND_INTENSITY | (arg))
+
+    WORD rc = 0;
+
 	switch (attributes.foregroundColor)
 	{
 	case White:
-		return FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED;
+		rc = FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED;
+        break;
 	case Red:
 		return FOREGROUND_RED;
+        break;
 	case Green:
-		return FOREGROUND_GREEN;
+        rc = FOREGROUND_GREEN;
+        break;
 	case Blue:
-		return FOREGROUND_BLUE;
+        rc = FOREGROUND_BLUE;
+        break;
 	case Yellow:
-		return FOREGROUND_BLUE | FOREGROUND_GREEN;
+        rc = FOREGROUND_BLUE | FOREGROUND_GREEN;
+        break;
 	case Brown:
-		return FOREGROUND_GREEN | FOREGROUND_RED;
+        rc = FOREGROUND_GREEN | FOREGROUND_RED;
+        break;
 	case Purple:
-		return FOREGROUND_BLUE | FOREGROUND_RED;
+        rc = FOREGROUND_BLUE | FOREGROUND_RED;
+        break;
 	}
-
-	return 0;
+    
+	return intensify(rc);
 }
 
 WORD Colorizer::GetBackgroundColor(const COLOR_ATTRIBUTES attributes)

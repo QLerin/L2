@@ -22,6 +22,8 @@
 #include "CommonFactory.h"
 #include "RareFactory.h"
 
+#include "Executor.h"
+
 
 using namespace std;
 using namespace l2::sys;
@@ -58,39 +60,43 @@ void testfun(const uint16_t threadid)
         LOG_ERROR(("TEST_MESSAGE" + std::to_string(threadid)) + to_string(i));
 }
 
-class TestInputHandler : public InputHandler
-{
-public:
-    void HandleMessage(const std::shared_ptr<Message> & message)
-    {
-        if(message)
-            printf(message.get()->GetMessageString().c_str());
-    }
-};
-
-void PrintLife(const LifeStatistics & in)
-{
-    cout << "Health is: " << in.GetHealth() << " | Energy is: " << in.GetEnergy() << endl;
-}
-
-void PrintTertiary(const TertiaryStatistics & in)
-{
-    cout << "Strength is: " << in.GetStrength() << " | Agility is: " << in.GetAgility() << " | Intellect is: " << in.GetIntellect() << endl;
-}
+//class TestInputHandler : public InputHandler
+//{
+//public:
+//    void HandleMessage(const std::shared_ptr<Message> & message)
+//    {
+//        if(message)
+//            printf(message.get()->GetMessageString().c_str());
+//    }
+//};
+//
+//void PrintLife(const LifeStatistics & in)
+//{
+//    cout << "Health is: " << in.GetHealth() << " | Energy is: " << in.GetEnergy() << endl;
+//}
+//
+//void PrintTertiary(const TertiaryStatistics & in)
+//{
+//    cout << "Strength is: " << in.GetStrength() << " | Agility is: " << in.GetAgility() << " | Intellect is: " << in.GetIntellect() << endl;
+//}
 
 void FunkcijaLinui();
 void FunkcijaLukui();
 
-int main(int argc, char ** argv)
+#pragma warning (push)
+#pragma warning (disable : 4702) // While still in development disable warning for unreachable code
+                                 // MUST REMOVE ON RELEASE!
+int main()
 {
-	Logger::GetInstance()->Initialize("L.log");
-
-    FunkcijaLinui();
-    //FunkcijaLukui();
+    //FunkcijaLinui();
+    FunkcijaLukui();
 
 	return 0;
 }
+#pragma warning (pop)
 
+#pragma warning (push)
+#pragma warning (disable : 4101 4189) // Lino funkcija (nuff said)
 void FunkcijaLinui()
 {
     EnemyFactory fac;
@@ -122,24 +128,25 @@ void FunkcijaLinui()
     m2.Use(player);
     m3.Use(player);
 }
+#pragma warning (pop)
 
 void FunkcijaLukui()
 {
     //Test for input handling ----------------------------------------
 
-    TestInputHandler a;
-    TestInputHandler b;
-    InputManager a2;
-    Register<Message> test;
-    test.RegisterReceiver(1, &a);
-    test.RegisterReceiver(1, &b);
+    //TestInputHandler a;
+    //TestInputHandler b;
+    //InputManager a2;
+    //Register<Message> test;
+    //test.RegisterReceiver(1, &a);
+    //test.RegisterReceiver(1, &b);
 
-    a2.GetInstance()->StartPolling(test);
+    //a2.GetInstance()->StartPolling(test);
 
-    while (1)
-    {
-        Sleep(1000);
-    }
+    //while (1)
+    //{
+    //    Sleep(1000);
+    //}
 
     //Test for input handling -------------------------------------------
 
@@ -170,42 +177,50 @@ void FunkcijaLukui()
 
     // Test for items --------------------------------------------------
 
-    //Sender<char> * snd(new Sender<char>);
-    //TestReceiver * rcv(new TestReceiver);
-    //Register<char> reg;
+    ////////Sender<char> * snd(new Sender<char>);
+    ////////TestReceiver * rcv(new TestReceiver);
+    ////////Register<char> reg;
 
-    //reg.RegisterSender(TestType, snd);
-    //reg.RegisterReceiver(TestType, rcv);
+    ////////reg.RegisterSender(TestType, snd);
+    ////////reg.RegisterReceiver(TestType, rcv);
 
-    //shared_ptr<char> msg(new char('X'));
+    ////////shared_ptr<char> msg(new char('X'));
 
-    //shared_ptr<ConsoleWindow> wnd(new ConsoleWindow(false));
-    //   StartMenu menu(wnd);
-    ////ColorizedDrawable drw(wnd);
+    ////////shared_ptr<ConsoleWindow> wnd(new ConsoleWindow(false));
+    ////////   StartMenu menu(wnd);
+    ////////ColorizedDrawable drw(wnd);
 
-    ////drw.SetDrawableSpace(0, 0, wh, wh);
-    ////drw.SetDrawableData(testData);
-    ////drw.SetColor(Colorizer::Black, Colorizer::White);
+    ////////drw.SetDrawableSpace(0, 0, wh, wh);
+    ////////drw.SetDrawableData(testData);
+    ////////drw.SetColor(Colorizer::Black, Colorizer::White);
 
-    ////drw.Draw();
+    //drw.Draw();
 
-    //for (uint16_t i = 0; i < 15; ++i)
-    //{
-    //	snd->BroadcastMessage(msg);
-    //       //menu.Draw();
-    //       //wnd->SwapBuffers();
+    //StartMenu men(wnd);
+    //men.Draw();
 
-    //	Sleep(1000);
-    //}
+    //////////for (uint16_t i = 0; i < 15; ++i)
+    //////////{
+    //////////	snd->BroadcastMessage(msg);
+    //////////    menu.Draw();
+    //////////    wnd->SwapBuffers();
 
-    //   //reg.UnregisterSender(snd);
-    //   //reg.UnregisterReceiver(rcv);
+    //////////    if (i % 2 == 0)
+    //////////        menu.Next();
+    //////////    else
+    //////////        menu.Previous();
 
-    //   delete snd;
-    //   delete rcv;
+    //////////	Sleep(1000);
+    //////////}
 
-    //   if (!Logger::GetInstance()->IsInitialized())
-    //       return -1;
+    //////////   reg.UnregisterSender(snd);
+    //////////   reg.UnregisterReceiver(rcv);
+
+    //////////   delete snd;
+    //////////   delete rcv;
+
+       //if (!Logger::GetInstance()->IsInitialized())
+       //    return -1;
 
     //   //LOG_ERROR("Test_ERROR");
     //   //LOG_WARNING("Test_WARNING");
@@ -220,4 +235,9 @@ void FunkcijaLukui()
     //   Sleep(30000);
 
     //   Logger::GetInstance()->Stop();
+
+    Logger::GetInstance()->Initialize("ExecutorTest.log");
+    if (!Logger::GetInstance()->IsInitialized())
+        MessageBoxA(NULL, "Logger not initialized", "ERROR", MB_ICONEXCLAMATION);
+    Executor().Run();
 }

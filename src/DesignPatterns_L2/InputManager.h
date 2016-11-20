@@ -3,7 +3,8 @@
 #include <thread>
 #include "Singleton.h"
 #include "Sender.h"
-#include "Message.h"
+#include "Inputs.h"
+#include "MenuActionMessage.h"
 
 namespace l2
 {
@@ -17,12 +18,14 @@ namespace l2
 			InputManager(const InputManager & right) = delete;
 			std::thread inputThread_;
 
-			Sender<Message> inputSender_;
+			Sender<Message> * inputSender_;
 
 			bool isRunning_;
 			void PollInput();
+
+            MenuActionMessage * const CreateActionMessage(const Inputs::KeyCode input);
 		public:
-            InputManager() : isRunning_(false) {}
+            InputManager() : isRunning_(false), inputSender_(nullptr) {}
 			enum ConsoleInput
 			{
 				KEY_UP,

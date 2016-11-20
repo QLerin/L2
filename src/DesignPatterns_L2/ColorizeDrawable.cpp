@@ -11,6 +11,8 @@ ColorizedDrawable::ColorizedDrawable(const ColorizedDrawable & right) : IDrawabl
 	y_ = right.y_;
 	width_ = right.width_;
 	height_ = right.height_;
+    isDataSet_ = right.isDataSet_;
+    isSpaceSet_ = right.isSpaceSet_;
 }
 
 ColorizedDrawable::ColorizedDrawable(std::shared_ptr<ConsoleWindow> parentWindow) : IDrawable(parentWindow)

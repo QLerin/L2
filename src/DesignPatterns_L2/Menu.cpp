@@ -1,48 +1,107 @@
 #include "Menu.h"
 #include "ConsoleWindow.h"
 #include "MenuLoader.h"
+#include <assert.h>
 
 using namespace std;
 using namespace l2::sys;
 using namespace l2::rendering;
 using namespace l2::gameobjects;
 
-Menu::Menu(std::shared_ptr<l2r::ConsoleWindow> parentWindow, const std::string & path) : parentWindow_(parentWindow), menu_(parentWindow), selectedItem_(0)
+Menu::Menu(const std::string & path) : PUIComponent()
 {
-    isInitialized_ = MenuLoader().LoadL2Menu(this, path);
+    MenuLoader().LoadL2Menu(this, path);
 }
 
-void Menu::NextSelection()
+UIComponent::MenuActionReturn Menu::Next()
 {
-    if (isInitialized_)
+    if (ValidationHook())
     {
-        if (++selectedItem_ >= menuItems_.GetStorageSize())
-            selectedItem_ = 0;
+        if (children_[selectedIndex_])
+        {
+            MenuActionReturn rc = children_[selectedIndex_]->Next();
+            if (rc == MenuActionReturn::MenuSwitch)
+                return MenuNoSwitch;
+        }
+        if (TransitionRight())
+            return MenuSwitch;
+        return MenuNoSwitch;
     }
+
+    return NoAction;
 }
 
-void Menu::PreviousSelection()
+UIComponent::MenuActionReturn Menu::Previous()
 {
-    if (isInitialized_)
+    if (ValidationHook())
     {
-        if (--selectedItem_ >= menuItems_.GetStorageSize())
-            selectedItem_ = menuItems_.GetStorageSize() - 1;
+        if (children_[selectedIndex_])
+        {
+            MenuActionReturn rc = children_[selectedIndex_]->Previous();
+            if (rc == MenuActionReturn::MenuSwitch)
+                return MenuNoSwitch;
+        }
+        if (TransitionLeft())
+            return MenuSwitch;
+        return MenuNoSwitch;
     }
+
+    return NoAction;
+}
+
+UIComponent::MenuActionReturn Menu::Use()
+{
+#pragma message ("Enum should be filled with error information")
+
+    if (!ValidationHook())
+        return NoAction;
+
+    if (!parent_) // If USE is called on a menu with no parent, do nothing, else - transition forward
+        return NoAction;
+
+    return RequestFwdTransition;
+}
+
+UIComponent::MenuActionReturn Menu::Exit()
+{
+#pragma message ("Enum should be filled with error information")
+    if (!ValidationHook())
+        return NoAction;
+
+    if (!parent_) // If USE is called on a menu with no parent, do nothing, else - transition forward
+        return NoAction;
+
+    return RequestBwdTransition;
 }
 
 void Menu::Draw()
 {
-    if (!isInitialized_)
+    if (!ValidationHook())
         return;
-    //parentWindow_->SetColor(menuBoxColor_);
-    menu_.Draw();
-    for (uint16_t i = 0; i < menuItems_.GetStorageSize(); ++i)
+    //parentWindow_->SetColor(menu_.GetDrawableColor());
+    drawable_.Draw();
+    for (uint16_t i = 0; i < children_.GetStorageSize(); ++i)
     {
-        if (i == selectedItem_)
-            parentWindow_->SetColor(selectedItemColor_);
+        if (!children_[i])
+        {
+            LOG_WARNING("A CHILD IN MENU " + componentName_ + " is inactive yet still in list!");
+            continue;
+        }
+        if (i == selectedIndex_)
+        {
+            ColorizedDrawable temp = children_[i]->GetDrawable();
+            temp.SetColor(selectionColor_.foregroundColor, selectionColor_.backgroundColor);
+            children_[i]->SetDrawable(temp);
+            //window_->SetColor(selectionColor_);
+        }
         else
-            parentWindow_->SetColor(Colorizer::COLOR_ATTRIBUTES(Colorizer::White, menuBoxColor_.backgroundColor));
+        {
+            ColorizedDrawable temp = children_[i]->GetDrawable();
+            temp.SetColor(drawable_.GetDrawableColor().foregroundColor, drawable_.GetDrawableColor().backgroundColor);
+            children_[i]->SetDrawable(temp);
+            //window_->SetColor(Colorizer::COLOR_ATTRIBUTES(drawable_.GetDrawableColor()));
+        }
 
-        menuItems_[i]->Draw();
+        children_[i]->Draw();
     }
 }

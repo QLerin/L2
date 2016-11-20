@@ -1,6 +1,8 @@
 #pragma once
 
+#include "SUICallbackComponent.h"
 #include "ColorizedDrawable.h"
+#include "MenuLoader.h"
 
 namespace l2
 {
@@ -16,16 +18,16 @@ namespace l2
 	namespace gameobjects
 	{
 
-		class MenuItem
+		class MenuItem : public SUICallbackComponent
 		{
+            friend sys::MenuLoader;
 		private:
-            l2::rendering:: ColorizedDrawable item_;
-		public:
             MenuItem() = delete;
             MenuItem(const MenuItem & right) = delete;
-            MenuItem(std::shared_ptr<l2::rendering::ConsoleWindow> parentWindow) : item_(parentWindow) { }
+		public:
+            MenuItem(std::shared_ptr<l2::rendering::ConsoleWindow> parentWindow, const std::string & path) : SUICallbackComponent() { sys::MenuLoader().LoadL2MenuItem(this, path); SetParentWindow(parentWindow); }
 
-            void Draw() { item_.Draw(); }
+            void Draw() { drawable_.Draw(); }
 		};
 
 	}

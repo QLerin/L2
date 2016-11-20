@@ -1,15 +1,11 @@
 CN				W			B		
-CSEL			Y			B
+CSEL			R			B
 
-MX				0
-MY				0
-MW 				30
-MH				10
+MX				10
+MY				10
+MW 				60
+MH				17
 
 CORNER 			+
 UL_BORDER 		-
 LR_BORDER		|
-
-1 Play			0			0
-2 Exit			1			0
-3 Options		2			0

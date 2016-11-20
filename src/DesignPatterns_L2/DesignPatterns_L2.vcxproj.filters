@@ -102,9 +102,6 @@
     <Filter Include="Header Files\Sys\XEQTR">
       <UniqueIdentifier>{0957ec23-930d-4c30-a4dc-104e6b83ecf6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Sys\Handlers">
-      <UniqueIdentifier>{a01d8c0c-af5d-4c71-9fc5-1083a0053f7a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\GameObjects\Items\Usables\LifeUsables\Factories">
       <UniqueIdentifier>{f3c1c10b-8800-4acb-a8be-28d7d92fb272}</UniqueIdentifier>
     </Filter>
@@ -122,6 +119,24 @@
     </Filter>
     <Filter Include="Header Files\GameObjects\Items\Equippables\Weapons\Factory">
       <UniqueIdentifier>{6920b78c-5409-4012-a5ce-6113c60e9397}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Menus\MenuCommands">
+      <UniqueIdentifier>{30ac0fd1-85d1-4e35-ad92-c4870ae174a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ConsoleUI\Composites">
+      <UniqueIdentifier>{f012d67e-0c84-421f-a090-1b5bc0c17d23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ConsoleUI\Composites">
+      <UniqueIdentifier>{76d57c57-7db9-4936-9910-e4b1a9dbc328}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ConsoleUI\DrawableBase">
+      <UniqueIdentifier>{dfc1dd8f-6fe2-499c-81e6-f96e5a5f1058}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ConsoleUI\Menus">
+      <UniqueIdentifier>{7d6fc473-589c-4bb6-9b38-2f1494f77d2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Sys\XEQTR\Handlers">
+      <UniqueIdentifier>{a01d8c0c-af5d-4c71-9fc5-1083a0053f7a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -185,40 +200,34 @@
     <ClCompile Include="Inputs.cpp">
       <Filter>Source Files\ConsoleUI</Filter>
     </ClCompile>
+    <ClCompile Include="PUIComponent.cpp">
+      <Filter>Source Files\ConsoleUI\Composites</Filter>
+    </ClCompile>
+    <ClCompile Include="StartMenu.cpp">
+      <Filter>Source Files\GameObjects\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="UIComponent.cpp">
+      <Filter>Source Files\ConsoleUI\Composites</Filter>
+    </ClCompile>
+    <ClCompile Include="SUIComponent.cpp">
+      <Filter>Source Files\ConsoleUI\Composites</Filter>
+    </ClCompile>
+    <ClCompile Include="TransitionTable.cpp">
+      <Filter>Source Files\ConsoleUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Frame.h">
-      <Filter>Header Files\ConsoleUI</Filter>
-    </ClInclude>
-    <ClInclude Include="IDrawable.h">
-      <Filter>Header Files\ConsoleUI</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderDefines.h">
-      <Filter>Header Files\ConsoleUI</Filter>
-    </ClInclude>
     <ClInclude Include="CharacterStatistics.h">
       <Filter>Header Files\GameObjects\Characters\Fluff</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Header Files\GameObjects\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="Colorizer.h">
-      <Filter>Header Files\ConsoleUI</Filter>
-    </ClInclude>
-    <ClInclude Include="ConsoleWindow.h">
-      <Filter>Header Files\ConsoleUI</Filter>
-    </ClInclude>
-    <ClInclude Include="ColorizedDrawable.h">
-      <Filter>Header Files\ConsoleUI</Filter>
-    </ClInclude>
     <ClInclude Include="Item.h">
       <Filter>Header Files\GameObjects\Items</Filter>
     </ClInclude>
     <ClInclude Include="Character.h">
       <Filter>Header Files\GameObjects\Characters</Filter>
-    </ClInclude>
-    <ClInclude Include="StartMenu.h">
-      <Filter>Header Files\GameObjects\Menus</Filter>
     </ClInclude>
     <ClInclude Include="Score.h">
       <Filter>Header Files\GameObjects\Characters\Fluff</Filter>
@@ -234,12 +243,6 @@
     </ClInclude>
     <ClInclude Include="EnemyMage.h">
       <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Header Files\ConsoleUI</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuItem.h">
-      <Filter>Header Files\ConsoleUI</Filter>
     </ClInclude>
     <ClInclude Include="EnemyFactory.h">
       <Filter>Header Files\GameObjects\Characters\Enemy Factory</Filter>
@@ -359,10 +362,10 @@
       <Filter>Header Files\Sys\StorageClasses</Filter>
     </ClInclude>
     <ClInclude Include="PlayerInputHandler.h">
-      <Filter>Header Files\Sys\Handlers</Filter>
+      <Filter>Header Files\Sys\XEQTR\Handlers</Filter>
     </ClInclude>
     <ClInclude Include="MenuInputHandler.h">
-      <Filter>Header Files\Sys\Handlers</Filter>
+      <Filter>Header Files\Sys\XEQTR\Handlers</Filter>
     </ClInclude>
     <ClInclude Include="GlitteringGem.h">
       <Filter>Header Files\GameObjects\Items\Usables\TertiaryUsables\Gems</Filter>
@@ -391,9 +394,6 @@
     <ClInclude Include="PotionFactory.h">
       <Filter>Header Files\GameObjects\Items\Usables\LifeUsables\Potions</Filter>
     </ClInclude>
-    <ClInclude Include="Message.h">
-      <Filter>Header Files\ConsoleUI</Filter>
-    </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
     </ClInclude>
@@ -417,6 +417,81 @@
     </ClInclude>
     <ClInclude Include="Inputs.h">
       <Filter>Header Files\ConsoleUI</Filter>
+    </ClInclude>
+    <ClInclude Include="IMenuAction.h">
+      <Filter>Header Files\GameObjects\Menus\MenuCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuNextAction.h">
+      <Filter>Header Files\GameObjects\Menus\MenuCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuPreviousAction.h">
+      <Filter>Header Files\GameObjects\Menus\MenuCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuUseAction.h">
+      <Filter>Header Files\GameObjects\Menus\MenuCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuExitAction.h">
+      <Filter>Header Files\GameObjects\Menus\MenuCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="UIComponent.h">
+      <Filter>Header Files\ConsoleUI\Composites</Filter>
+    </ClInclude>
+    <ClInclude Include="SUIComponent.h">
+      <Filter>Header Files\ConsoleUI\Composites</Filter>
+    </ClInclude>
+    <ClInclude Include="PUIComponent.h">
+      <Filter>Header Files\ConsoleUI\Composites</Filter>
+    </ClInclude>
+    <ClInclude Include="Frame.h">
+      <Filter>Header Files\ConsoleUI\DrawableBase</Filter>
+    </ClInclude>
+    <ClInclude Include="IDrawable.h">
+      <Filter>Header Files\ConsoleUI\DrawableBase</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorizedDrawable.h">
+      <Filter>Header Files\ConsoleUI\DrawableBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Colorizer.h">
+      <Filter>Header Files\ConsoleUI\DrawableBase</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleWindow.h">
+      <Filter>Header Files\ConsoleUI\DrawableBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Header Files\ConsoleUI\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuActionMessage.h">
+      <Filter>Header Files\ConsoleUI\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuItem.h">
+      <Filter>Header Files\ConsoleUI\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="Message.h">
+      <Filter>Header Files\ConsoleUI\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="InventoryMenu.h">
+      <Filter>Header Files\GameObjects\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="SUICallbackComponent.h">
+      <Filter>Header Files\ConsoleUI\Composites</Filter>
+    </ClInclude>
+    <ClInclude Include="StartMenu.h">
+      <Filter>Header Files\GameObjects\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterMenu.h">
+      <Filter>Header Files\GameObjects\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionsMenu.h">
+      <Filter>Header Files\GameObjects\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="CombatLogMenu.h">
+      <Filter>Header Files\GameObjects\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="Executor.h">
+      <Filter>Header Files\Sys\XEQTR</Filter>
+    </ClInclude>
+    <ClInclude Include="TransitionTable.h">
+      <Filter>Header Files\ConsoleUI\Menus</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -9,22 +9,22 @@ namespace l2
 	{
 		
 		template < typename T>
-		class ArrayStorage : public IResourceStorage<uint16_t, T>
+		class ArrayStorage : public IResourceStorage<uint32_t, T>
 		{
 		private:
-			static const uint16_t RESOURCE_LIMIT = 0xFFFF;
+			static const uint32_t RESOURCE_LIMIT = 0xFFFFFFFF;
 			std::vector<T *> container_;
 
             void PerformCleanup();
         protected:
-			virtual T * const GetResource(const uint16_t & identifier);
+			virtual T * const GetResource(const uint32_t & identifier);
 		public:
-			ArrayStorage() = default;
+            ArrayStorage() : IResourceStorage<uint32_t, T>() {}
 			ArrayStorage(const ArrayStorage & right);
             ~ArrayStorage();
 
-			void AddResource(T * const resource, const uint16_t & identifier);
-			void RemoveResource(const uint16_t & identifier);
+			void AddResource(T * const resource, const uint32_t & identifier);
+			void RemoveResource(const uint32_t & identifier);
 			const uint64_t GetStorageSize() const { return container_.size(); }
 		};
 
@@ -46,7 +46,7 @@ namespace l2
         }
 
 		template <typename T>
-		T * const ArrayStorage<T>::GetResource(const uint16_t & identifier)
+		T * const ArrayStorage<T>::GetResource(const uint32_t & identifier)
 		{
 			{
 				std::lock_guard<std::recursive_mutex> lock(containerLock_);
@@ -57,7 +57,7 @@ namespace l2
 		}
 
 		template <typename T>
-		void ArrayStorage<T>::RemoveResource(const uint16_t & identifier)
+		void ArrayStorage<T>::RemoveResource(const uint32_t & identifier)
 		{
 			if (identifier >= RESOURCE_LIMIT)
 				return;
@@ -67,7 +67,7 @@ namespace l2
 
 
 		template <typename T>
-		void ArrayStorage<T>::AddResource(T * const resource, const uint16_t & identifier)
+		void ArrayStorage<T>::AddResource(T * const resource, const uint32_t & identifier)
 		{
 			std::lock_guard<std::recursive_mutex> lock(containerLock_);
 			if (identifier && (identifier + container_.begin()) != container_.end())

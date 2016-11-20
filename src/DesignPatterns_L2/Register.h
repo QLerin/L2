@@ -39,7 +39,7 @@ namespace l2
         private:
             MapStorage<uint64_t, unit_t> container_;
         public:
-            Register() = default;
+            Register() : container_() { }
             Register(const Register & right) = delete;
 
             bool RegisterSender(const uint64_t messageType, Sender<T> * sender);

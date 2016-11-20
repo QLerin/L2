@@ -15,14 +15,14 @@ namespace l2
             StartMenu(const StartMenu & right) = delete;
 
             static const std::string RESPATH_START_MENU;
+
+            MenuActionReturn PlayCallback();
+            MenuActionReturn ExitCallback();
+
         public:
-            StartMenu(std::shared_ptr<l2r::ConsoleWindow> parentWindow) : Menu(parentWindow, RESPATH_START_MENU)
-            {
-            }
+            StartMenu(std::shared_ptr<l2r::ConsoleWindow> parentWindow);
 
         };
-
-        const std::string StartMenu::RESPATH_START_MENU = "MenuTest.txt";
 
     }
 

@@ -38,13 +38,20 @@
     <ClCompile Include="MenuInputHandler.cpp" />
     <ClCompile Include="MenuLoader.cpp" />
     <ClCompile Include="PlayerInputHandler.cpp" />
+    <ClCompile Include="PUIComponent.cpp" />
     <ClCompile Include="Score.cpp" />
+    <ClCompile Include="StartMenu.cpp" />
+    <ClCompile Include="SUIComponent.cpp" />
+    <ClCompile Include="TransitionTable.cpp" />
+    <ClCompile Include="UIComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActionsMenu.h" />
     <ClInclude Include="Armor.h" />
     <ClInclude Include="ArmorFactory.h" />
     <ClInclude Include="Bow.h" />
     <ClInclude Include="ClothArmor.h" />
+    <ClInclude Include="CombatLogMenu.h" />
     <ClInclude Include="CommonFactory.h" />
     <ClInclude Include="Enchantment.h" />
     <ClInclude Include="EnemyArcher.h" />
@@ -58,6 +65,7 @@
     <ClInclude Include="EnemyFactory.h" />
     <ClInclude Include="EpicFactory.h" />
     <ClInclude Include="EquippableItem.h" />
+    <ClInclude Include="Executor.h" />
     <ClInclude Include="FireEnchantment.h" />
     <ClInclude Include="Frame.h" />
     <ClInclude Include="GameManager.h" />
@@ -65,10 +73,12 @@
     <ClInclude Include="Gem.h" />
     <ClInclude Include="GlitteringGem.h" />
     <ClInclude Include="IDrawable.h" />
+    <ClInclude Include="IMenuAction.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Inputs.h" />
     <ClInclude Include="Inventory.h" />
+    <ClInclude Include="InventoryMenu.h" />
     <ClInclude Include="LargePotion.h" />
     <ClInclude Include="LargeMedkitBuilder.h" />
     <ClInclude Include="LeatherArmor.h" />
@@ -83,21 +93,27 @@
     <ClInclude Include="MedkitBuilder.h" />
     <ClInclude Include="MedkitEngineer.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuActionMessage.h" />
+    <ClInclude Include="MenuExitAction.h" />
     <ClInclude Include="MenuInputHandler.h" />
     <ClInclude Include="MenuItem.h" />
     <ClInclude Include="MenuLoader.h" />
+    <ClInclude Include="MenuNextAction.h" />
+    <ClInclude Include="MenuPreviousAction.h" />
+    <ClInclude Include="MenuUseAction.h" />
     <ClInclude Include="Message.h" />
+    <ClInclude Include="CharacterMenu.h" />
     <ClInclude Include="PlateArmor.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerInputHandler.h" />
     <ClInclude Include="Potion.h" />
     <ClInclude Include="PotionFactory.h" />
+    <ClInclude Include="PUIComponent.h" />
     <ClInclude Include="RadiantGem.h" />
     <ClInclude Include="RareFactory.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="Receiver.h" />
     <ClInclude Include="Register.h" />
-    <ClInclude Include="RenderDefines.h" />
     <ClInclude Include="ResourceStorage.h" />
     <ClInclude Include="Sender.h" />
     <ClInclude Include="SharedResources.h" />
@@ -108,10 +124,14 @@
     <ClInclude Include="SmallMedkitBuilder.h" />
     <ClInclude Include="Staff.h" />
     <ClInclude Include="StartMenu.h" />
+    <ClInclude Include="SUICallbackComponent.h" />
+    <ClInclude Include="SUIComponent.h" />
     <ClInclude Include="TertiaryStatistics.h" />
     <ClInclude Include="EnemySwordsman.h" />
     <ClInclude Include="Sword.h" />
     <ClInclude Include="TertiaryUsable.h" />
+    <ClInclude Include="TransitionTable.h" />
+    <ClInclude Include="UIComponent.h" />
     <ClInclude Include="UsableFactory.h" />
     <ClInclude Include="UsableItem.h" />
     <ClInclude Include="WaterEnchantment.h" />
@@ -236,7 +256,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>true</WholeProgramOptimization>
-      <TreatWarningAsError>false</TreatWarningAsError>
+      <TreatWarningAsError>true</TreatWarningAsError>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
       <CompileAs>CompileAsCpp</CompileAs>
       <UseFullPaths>true</UseFullPaths>

@@ -19,7 +19,6 @@ namespace l2
 
 	    inline Enemy* EnemyFactory::CreateEnemy(std::string enemyType)
 	    {
-			Enemy * temp;
 			if (enemyType == "mage")
 			{
 				return new EnemyMage();
