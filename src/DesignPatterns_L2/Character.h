@@ -23,6 +23,11 @@ namespace l2
 
             virtual void Attack(Character * target) = 0;
             virtual void TakeDamage(const uint64_t damage) = 0;
+
+			std::shared_ptr<CharacterStatistics> getCharacterStatistics()
+			{
+				return stats_;
+			}
 		};
 
 	}

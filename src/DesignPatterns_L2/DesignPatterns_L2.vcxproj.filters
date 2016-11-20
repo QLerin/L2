@@ -138,6 +138,9 @@
     <Filter Include="Header Files\Sys\XEQTR\Handlers">
       <UniqueIdentifier>{a01d8c0c-af5d-4c71-9fc5-1083a0053f7a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\GameObjects\Player">
+      <UniqueIdentifier>{2db1534c-4305-44a0-8f0f-c9e32102a666}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Frame.cpp">
@@ -214,6 +217,24 @@
     </ClCompile>
     <ClCompile Include="TransitionTable.cpp">
       <Filter>Source Files\ConsoleUI</Filter>
+    </ClCompile>
+    <ClCompile Include="RegularAttackState.cpp">
+      <Filter>Source Files\GameObjects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="FirstAttackState.cpp">
+      <Filter>Source Files\GameObjects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\GameObjects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerState.cpp">
+      <Filter>Source Files\GameObjects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="InjuredAttackState.cpp">
+      <Filter>Source Files\GameObjects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="TiredAttackState.cpp">
+      <Filter>Source Files\GameObjects\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -507,6 +528,21 @@
     </ClInclude>
     <ClInclude Include="NormalAttack.h">
       <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerState.h">
+      <Filter>Header Files\GameObjects\Characters\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="FirstAttackState.h">
+      <Filter>Header Files\GameObjects\Characters\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="RegularAttackState.h">
+      <Filter>Header Files\GameObjects\Characters\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="InjuredAttackState.h">
+      <Filter>Header Files\GameObjects\Characters\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="TiredAttackState.h">
+      <Filter>Header Files\GameObjects\Characters\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

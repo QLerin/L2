@@ -8,7 +8,8 @@ namespace l2
 
     namespace gameobjects
     {
-
+#pragma warning (push)
+#pragma warning (disable : 4244)
         class LifeStatistics 
         {
         private:
@@ -30,7 +31,10 @@ namespace l2
             }
 
             const int64_t GetHealth() const { return health_; }
-            void SetHealth(const int64_t health) { health_ = health; }
+            void SetHealth(const int64_t health) { health_ = health; } 
+
+			void ChangeHealth(int64_t diff) { health_ += diff;  }
+			int GetMaxHealth() { return maxHealth_; }
 
             const uint64_t GetEnergy() const { return energy_; }
             void SetEnergy(const uint64_t energy) { energy_ = energy; }
@@ -58,5 +62,6 @@ namespace l2
         };
 
     }
+#pragma warning (pop)
 
 }

@@ -34,7 +34,7 @@ namespace l2
             void SpendEnergy(const int64_t energy) { energy; }
             void SpendLife(const int64_t life) { life; }
 
-            const LifeStatistics & GetLife() const { return life_; }
+            LifeStatistics & GetLife() { return life_; }
             const TertiaryStatistics & GetTertiary() const { return tertiary_; }
         };
 

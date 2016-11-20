@@ -88,8 +88,8 @@ void FunkcijaLukui();
                                  // MUST REMOVE ON RELEASE!
 int main()
 {
-    //FunkcijaLinui();
-    FunkcijaLukui();
+    FunkcijaLinui();
+    //FunkcijaLukui();
 
 	return 0;
 }
@@ -99,34 +99,26 @@ int main()
 #pragma warning (disable : 4101 4189) // Lino funkcija (nuff said)
 void FunkcijaLinui()
 {
+	Logger::GetInstance()->Initialize("L2.log");
+	LOG_INFO("Test start");
     EnemyFactory fac;
     Enemy *a = fac.CreateEnemy("archer");
     Enemy *b = fac.CreateEnemy("swordsman");
     Enemy *c = fac.CreateEnemy("mage");
-
-    //-----------------------------------------------------------
-
-    Score::getInstance().changePoints(-100);
-    Score::getInstance().saveScore2File("Jonas");
-
-    //-----------------------------------------------------------
-
-    MedkitBuilder *a1 = new LargeMedkitBuilder();
-    MedkitBuilder *a2 = new MediumMedkitBuilder();
-    MedkitBuilder *a3 = new SmallMedkitBuilder();
-    MedkitEngineer me;
-    me.setBuilder(a1);
-    Medkit m1 = me.getKit();
-    me.setBuilder(a2);
-    Medkit m2 = me.getKit();
-    me.setBuilder(a3);
-    Medkit m3 = me.getKit();
+	Player *Stanislovas = new Player("Stanislovas");
+	c->Attack(static_cast <Player*>(Stanislovas));
+	Stanislovas->Attack(c);
+	c->Attack(static_cast <Player*>(Stanislovas));
+	Stanislovas->Attack(c);
+	c->Attack(static_cast <Player*>(Stanislovas));
+	Stanislovas->Attack(c);
+	c->Attack(static_cast <Player*>(Stanislovas));
+	Stanislovas->Attack(c);
+	c->Attack(static_cast <Player*>(Stanislovas));
+	Stanislovas->Attack(c);
 
 
-    Player player("Jonas");
-    m1.Use(player);
-    m2.Use(player);
-    m3.Use(player);
+	
 }
 #pragma warning (pop)
 

@@ -25,9 +25,11 @@
     <ClCompile Include="EnemyArcher.cpp" />
     <ClCompile Include="EnemyMage.cpp" />
     <ClCompile Include="EnemySwordsman.cpp" />
+    <ClCompile Include="FirstAttackState.cpp" />
     <ClCompile Include="Frame.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="IDrawable.cpp" />
+    <ClCompile Include="InjuredAttackState.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Inputs.cpp" />
     <ClCompile Include="Logger.cpp" />
@@ -37,11 +39,15 @@
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuInputHandler.cpp" />
     <ClCompile Include="MenuLoader.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerInputHandler.cpp" />
+    <ClCompile Include="PlayerState.cpp" />
     <ClCompile Include="PUIComponent.cpp" />
+    <ClCompile Include="RegularAttackState.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="StartMenu.cpp" />
     <ClCompile Include="SUIComponent.cpp" />
+    <ClCompile Include="TiredAttackState.cpp" />
     <ClCompile Include="TransitionTable.cpp" />
     <ClCompile Include="UIComponent.cpp" />
   </ItemGroup>
@@ -69,6 +75,7 @@
     <ClInclude Include="EquippableItem.h" />
     <ClInclude Include="Executor.h" />
     <ClInclude Include="FireEnchantment.h" />
+    <ClInclude Include="FirstAttackState.h" />
     <ClInclude Include="Frame.h" />
     <ClInclude Include="FuriousAttack.h" />
     <ClInclude Include="GameManager.h" />
@@ -77,6 +84,7 @@
     <ClInclude Include="GlitteringGem.h" />
     <ClInclude Include="IDrawable.h" />
     <ClInclude Include="IMenuAction.h" />
+    <ClInclude Include="InjuredAttackState.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Inputs.h" />
@@ -110,11 +118,13 @@
     <ClInclude Include="PlateArmor.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerInputHandler.h" />
+    <ClInclude Include="PlayerState.h" />
     <ClInclude Include="Potion.h" />
     <ClInclude Include="PotionFactory.h" />
     <ClInclude Include="PUIComponent.h" />
     <ClInclude Include="RadiantGem.h" />
     <ClInclude Include="RareFactory.h" />
+    <ClInclude Include="RegularAttackState.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="Receiver.h" />
     <ClInclude Include="Register.h" />
@@ -135,6 +145,7 @@
     <ClInclude Include="Sword.h" />
     <ClInclude Include="TertiaryUsable.h" />
     <ClInclude Include="TiredAttack.h" />
+    <ClInclude Include="TiredAttackState.h" />
     <ClInclude Include="TransitionTable.h" />
     <ClInclude Include="UIComponent.h" />
     <ClInclude Include="UsableFactory.h" />

@@ -10,7 +10,7 @@ namespace l2
 
     namespace gameobjects
     {
-
+		class EnemyAttackPattern;
         class Enemy : public Character
         {
         protected:
