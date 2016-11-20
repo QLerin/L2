@@ -6,10 +6,18 @@ using namespace std;
 using namespace l2::sys;
 using namespace l2::rendering;
 
+static const std::string WINDOW_TITLE = "Placeholder Title";
+
 ConsoleWindow::ConsoleWindow(const bool isConsoleApp) : currentBuffer_(FRONT_BUFFER),
 														frontBuffer_(new Frame(isConsoleApp)),
 														backBuffer_(new Frame(isConsoleApp))
 {
+    //ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
+    SetConsoleTitle(WINDOW_TITLE.c_str());
+    SetWindowLong(GetConsoleWindow(), GWL_STYLE, WS_CAPTION | DS_MODALFRAME | WS_OVERLAPPED);
+    SetWindowPos(GetConsoleWindow(), NULL, 0, 0, 0, 0, SWP_NOSIZE | SWP_SHOWWINDOW);
+
+    SetActiveWindow(GetConsoleWindow());
 }
 
 void ConsoleWindow::SwapBuffers()

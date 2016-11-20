@@ -27,7 +27,7 @@ namespace l2
 		public:
             MenuItem(std::shared_ptr<l2::rendering::ConsoleWindow> parentWindow, const std::string & path) : SUICallbackComponent() { sys::MenuLoader().LoadL2MenuItem(this, path); SetParentWindow(parentWindow); }
 
-            void Draw() { drawable_.Draw(); }
+            virtual void Draw() { drawable_.Draw(); }
 		};
 
 	}
