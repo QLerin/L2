@@ -10,7 +10,7 @@ static const uint16_t DEFAULT_FRAME_HEIGHT = 75;
 static const std::string SCENE_CONTENTS_PATH_DEBUG = "Contents.dat";
 static const std::string SCENE_CONTENTS_PATH_RELEASE = "/res/Contents.dat";
 
-GameManager::GameManager() : mainWindow_(new ConsoleWindow(true)), shouldExit_(false), activeMenu_(nullptr)
+GameManager::GameManager() : mainWindow_(nullptr), shouldExit_(false), activeMenu_(nullptr)
 {
     SetupTransitionTable();
 }
@@ -90,6 +90,8 @@ void GameManager::SetMainWindow(shared_ptr<ConsoleWindow> pWindow)
 
 void GameManager::ExecuteDrawProcedure()
 {
+    mainWindow_->ClearActiveBuffer();
+
     for (auto a : activeMenus_)
         if (a)
             a->Draw();

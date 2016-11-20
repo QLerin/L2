@@ -45,6 +45,37 @@ Frame::Frame(const bool isConsoleApp)
             exit(-1);
         }
 	}
+    
+    // Make cursor invisible and set to full-screen (maximized) mode
+    if (frameBuffer_ != 0)
+    {
+        CONSOLE_CURSOR_INFO cursor;
+        ZeroMemory(&cursor, sizeof(cursor));
+        cursor.bVisible = FALSE;
+        cursor.dwSize = 100;
+        SetConsoleCursorInfo(frameBuffer_, &cursor);
+
+        COORD size = GetLargestConsoleWindowSize(frameBuffer_);
+        SetConsoleScreenBufferSize(frameBuffer_, size);
+
+        SMALL_RECT windowSize;
+        ZeroMemory(&windowSize, sizeof(windowSize));
+
+        // Set to (N-1) because function fails if param is GEQ N
+        windowSize.Bottom = size.Y-1;
+        windowSize.Right = size.X-1;
+
+        width_ = size.X;
+        height_ = size.Y;
+
+        BOOL result = SetConsoleWindowInfo(frameBuffer_, TRUE, &windowSize);
+        if (result == 0)
+        {
+            DWORD error = GetLastError();
+            LOG_ERROR("Failed to set console window to full-screen. Error code: " + to_string(error));
+        }
+    }
+    
 	++numActiveBuffers_;
 }
 
@@ -70,7 +101,7 @@ void Frame::WriteBuffer(const IDrawable & drawable)
 			BOOL rc = WriteConsole(frameBuffer_, &(drawable.drawableData_.c_str()[drawable.width_*i]), drawable.width_, &actualCharsWritten, nullptr);
             if (!rc)
                 LOG_ERROR("Error while attempting to write console output buffer. \n DATA DUMP: " + drawable.drawableData_);
-		}
+        }
 	}
 }
 
@@ -94,7 +125,7 @@ void Frame::Clear(const uint16_t x, const uint16_t y, uint16_t width, uint16_t h
 	Colorizer::GetInstance()->Colorize(*this, attributes);
 
 	shared_ptr<char> clearBuffer(new char[width], default_delete<char[]>());
-	memset(clearBuffer.get(), '*', sizeof(char) * width);
+	memset(clearBuffer.get(), ' ', sizeof(char) * width);
 
 	COORD cursorPosition;
 	ZeroMemory(&cursorPosition, sizeof(cursorPosition));

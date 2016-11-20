@@ -11,7 +11,7 @@ private:
     l2::sys::Register<l2::sys::Message> reg_;
     std::shared_ptr<l2::rendering::ConsoleWindow> window_;
 public:
-    Executor() : window_(new l2::rendering::ConsoleWindow(false))
+    Executor() : window_(new l2::rendering::ConsoleWindow(true))
     {
         
     }
