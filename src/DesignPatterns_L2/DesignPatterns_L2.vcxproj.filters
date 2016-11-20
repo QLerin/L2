@@ -493,5 +493,20 @@
     <ClInclude Include="TransitionTable.h">
       <Filter>Header Files\ConsoleUI\Menus</Filter>
     </ClInclude>
+    <ClInclude Include="TiredAttack.h">
+      <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyAttackPattern.h">
+      <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="EnragedAttack.h">
+      <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="FuriousAttack.h">
+      <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalAttack.h">
+      <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

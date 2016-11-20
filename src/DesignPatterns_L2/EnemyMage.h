@@ -2,6 +2,8 @@
 
 #include "Enemy.h"
 #include "Logger.h"
+#include "NormalAttack.h"
+#include "TiredAttack.h"
 
 namespace l2r = l2::rendering;
 
@@ -19,9 +21,34 @@ namespace l2
 			{
 				LOG_INFO("Enemy mage created");
 				powerfulCasts = 10;
+				damage_ = 12;
+				health_ = 40;
+				maxHealth_ = health_;
+				acc_ = 70;
+				eat = new NormalAttack();
 			}
-
-			void Attack(Character & target) override;
+			void checkState() override
+			{
+				double hL = health_ / maxHealth_ * 100;
+				if (hL > 90)
+				{
+					state_ = 'n';
+					eat = new NormalAttack();
+				}
+				else
+				{
+					if (hL > 0)
+					{
+						state_ = 't';
+						eat = new TiredAttack();
+					}
+					else 
+						state_ = 'd';
+						alive_ = false;
+				}
+			}
+			void Attack(Character * target) override;
+		
 			void TakeDamage(const uint64_t damage) override;
 			void Die();
 

@@ -62,12 +62,15 @@
     <ClInclude Include="Colorizer.h" />
     <ClInclude Include="ConsoleWindow.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyAttackPattern.h" />
     <ClInclude Include="EnemyFactory.h" />
+    <ClInclude Include="EnragedAttack.h" />
     <ClInclude Include="EpicFactory.h" />
     <ClInclude Include="EquippableItem.h" />
     <ClInclude Include="Executor.h" />
     <ClInclude Include="FireEnchantment.h" />
     <ClInclude Include="Frame.h" />
+    <ClInclude Include="FuriousAttack.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Gem.h" />
@@ -103,6 +106,7 @@
     <ClInclude Include="MenuUseAction.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="CharacterMenu.h" />
+    <ClInclude Include="NormalAttack.h" />
     <ClInclude Include="PlateArmor.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerInputHandler.h" />
@@ -130,6 +134,7 @@
     <ClInclude Include="EnemySwordsman.h" />
     <ClInclude Include="Sword.h" />
     <ClInclude Include="TertiaryUsable.h" />
+    <ClInclude Include="TiredAttack.h" />
     <ClInclude Include="TransitionTable.h" />
     <ClInclude Include="UIComponent.h" />
     <ClInclude Include="UsableFactory.h" />

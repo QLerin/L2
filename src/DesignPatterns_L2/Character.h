@@ -21,7 +21,7 @@ namespace l2
 		public:
             Character(const std::string & name) : IGameObject(name), model_(nullptr) { }
 
-            virtual void Attack(Character & target) = 0;
+            virtual void Attack(Character * target) = 0;
             virtual void TakeDamage(const uint64_t damage) = 0;
 		};
 

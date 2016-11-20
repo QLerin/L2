@@ -2,10 +2,9 @@
 
 #pragma warning (push)
 #pragma warning (disable : 4100) // NEVER AGAIIIIIIIN
-void l2::gameobjects::EnemyMage::Attack(l2::gameobjects::Character & target)
+void l2::gameobjects::EnemyMage::Attack(l2::gameobjects::Character * target)
 {
-	target.TakeDamage(15);
-	LOG_INFO("Enemy mage attacks");
+	eat->AttackPlayer(target, this);
 }
 void  l2::gameobjects::EnemyMage::TakeDamage(const uint64_t damage)
 {

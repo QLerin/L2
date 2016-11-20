@@ -2,10 +2,9 @@
 
 #pragma warning (push)
 #pragma warning (disable : 4100) // I'm on the highway to hell
-void l2::gameobjects::EnemySwordsman::Attack(l2::gameobjects::Character & target)
+void l2::gameobjects::EnemySwordsman::Attack(l2::gameobjects::Character * target)
 {
-	target.TakeDamage(15);
-	LOG_INFO("Enemy swordsman hits");
+	eat->AttackPlayer(target, this);
 }
 void  l2::gameobjects::EnemySwordsman::TakeDamage(const uint64_t damage)
 {
