@@ -14,7 +14,7 @@ namespace l2
 			Memento beforeBeforeLastTurn_;
 		
 		public:
-			Caretaker(Player * p);
+			Caretaker(std::shared_ptr<Player> p);
 
 
 			void add(Memento mem) {

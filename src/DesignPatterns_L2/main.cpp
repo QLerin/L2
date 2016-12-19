@@ -117,12 +117,14 @@ void FunkcijaLinui()
 	{
 		LOG_INFO("Null enemy created in main");
 	}
-	Player *Stanislovas = new Player("Stanislovas");
-
-	Caretaker *care = new Caretaker(Stanislovas);
+	shared_ptr<Player>Stanislovas = make_shared<Player>("Stanislovas");
+	shared_ptr < Player> cpy = Stanislovas;
+	//Caretaker *care = new Caretaker(Stanislovas);
+	
+	shared_ptr<Caretaker>care = make_shared<Caretaker>(Stanislovas);
 	Stanislovas->saveStateToMemento(*care);
 	
-	b->Attack(static_cast <Player*>(Stanislovas));
+	b->Attack(cpy.get());
 	LOG_INFO(std::to_string(b->getEnemyHealth()));
 	Stanislovas->Attack(b);
 	Stanislovas->setAcc(30);
@@ -130,13 +132,13 @@ void FunkcijaLinui()
 	
 
 	Stanislovas->Attack(ga);
-	ga->Attack(static_cast <Player*>(Stanislovas));
+	ga->Attack(cpy.get());
 	LOG_INFO(std::to_string(ga->getEnemyHealth()));
 	LOG_INFO(std::to_string(Stanislovas->getCharacterStatistics()->GetLife().GetHealth()));
 	Stanislovas->saveStateToMemento(*care);
 
 	Stanislovas->Attack(ga);
-	ga->Attack(static_cast <Player*>(Stanislovas));
+	ga->Attack(cpy.get());
 	LOG_INFO(std::to_string(ga->getEnemyHealth()));
 	LOG_INFO(std::to_string(Stanislovas->getCharacterStatistics()->GetLife().GetHealth()));
 	Stanislovas->restoreStateFromMemento(*care);

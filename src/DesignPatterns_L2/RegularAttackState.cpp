@@ -27,7 +27,7 @@ namespace l2
 				if (fabs(player_->getAcc() * 1 - chance) > 0)
 				{
 					LOG_INFO("Player attacked in RegularAttackState state");
-					enemy->changeHP(-10 * 1); //-10 should be changed to damage from playerstats
+					enemy->changeHP(-20 * 1); //-10 should be changed to damage from playerstats
 					if (enemy->isEnemyAlive()) {
 						if (times < 3) {
 							times++;

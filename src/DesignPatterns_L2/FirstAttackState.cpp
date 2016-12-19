@@ -28,7 +28,7 @@ namespace l2
 				if (fabs(player_->getAcc()*1.1 - chance) > 0)
 				{
 					LOG_INFO("Player attacked in FirstAttack state");
-					enemy->changeHP(-10 * 1.2); 
+					enemy->changeHP(-20 * 1.2); 
 					if (enemy->isEnemyAlive()) {
 						player_->setState(new RegularAttackState(player_)); //RegularAttack
 

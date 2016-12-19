@@ -16,7 +16,8 @@ namespace l2
 			PlayerState * state_;
 			std::shared_ptr<CharacterStatistics> stats_;
 		public:
-			Memento(Player * p);
+			Memento(double acc, PlayerState * state, std::shared_ptr<CharacterStatistics> stats);
+			Memento(std::shared_ptr<Player> p);
 			Memento() = default;
 			Memento(const Memento &) = default;
 			

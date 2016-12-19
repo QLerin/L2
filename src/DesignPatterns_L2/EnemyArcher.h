@@ -34,7 +34,6 @@ namespace l2
 			}
 			void checkState() override
 			{
-				LOG_INFO("I WORK");
 				double hL = health_ / maxHealth_ * 100;
 				if (hL > 90)
 				{

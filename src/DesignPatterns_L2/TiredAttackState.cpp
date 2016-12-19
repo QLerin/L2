@@ -28,7 +28,7 @@ namespace l2
 				if (fabs(player_->getAcc() * 0.8 - chance) > 0)
 				{
 					LOG_INFO("Player attacked in TiredAttackState state");
-					enemy->changeHP(-10 * 0.7); //-10 should be changed to damage from playerstats
+					enemy->changeHP(-20 * 0.7); //-10 should be changed to damage from playerstats
 					if (enemy->isEnemyAlive()) {
 						if (times < 2) {
 							times++;
