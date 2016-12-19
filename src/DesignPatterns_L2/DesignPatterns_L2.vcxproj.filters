@@ -260,6 +260,9 @@
     <ClCompile Include="ColoredProgressBar.cpp">
       <Filter>Source Files\ConsoleUI\SpecialComponents</Filter>
     </ClCompile>
+    <ClCompile Include="CharacterLoader.cpp">
+      <Filter>Source Files\Sys</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CharacterStatistics.h">
@@ -591,6 +594,9 @@
     </ClInclude>
     <ClInclude Include="ColoredProgressBar.h">
       <Filter>Header Files\ConsoleUI\SpecialComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterLoader.h">
+      <Filter>Header Files\Sys\XEQTR</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

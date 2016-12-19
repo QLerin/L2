@@ -5,6 +5,30 @@
 using namespace std;
 using namespace l2::rendering;
 
+const Colorizer::Color Colorizer::GetColorFromChar(const char id)
+{
+	switch (id)
+	{
+	case 'W': //White
+		return Colorizer::White;
+	case 'O': //Black (O for Onyx)
+		return Colorizer::Black;
+	case 'R': //Red
+		return Colorizer::Red;
+	case 'G': //Green
+		return Colorizer::Green;
+	case 'B': //Blue
+		return Colorizer::Blue;
+	case 'Y': //Yellow
+		return Colorizer::Yellow;
+	case 'P': //Purple
+		return Colorizer::Purple;
+	case 'M': //Brown (M for Maroon)
+		return Colorizer::Brown;
+	}
+	return Colorizer::White;
+}
+
 void Colorizer::Colorize(const Frame & frame, const WORD attributes)
 {
 	SetConsoleTextAttribute(frame.GetBufferHandle(), attributes);

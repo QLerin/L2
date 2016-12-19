@@ -14,7 +14,6 @@ namespace l2
 		public:
 			void SetColor(const l2::rendering::Colorizer::Color color);
 
-
 			virtual const bool UseMenuColorScheme() const { return false; }
 		};
 

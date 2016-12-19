@@ -6,6 +6,7 @@
 #include "EnragedAttack.h"
 #include "FuriousAttack.h"
 #include "TiredAttack.h"
+#include "CharacterLoader.h"
 
 namespace l2r = l2::rendering;
 
@@ -17,9 +18,12 @@ namespace l2
 		static const std::string DEFAULT_SWORDSMAN_NAME = "Swordsman";
         class EnemySwordsman : public Enemy
         {
+		private:
+			static const std::string RESPATH_SWORDSMAN;
         public:
 			EnemySwordsman() : Enemy(DEFAULT_SWORDSMAN_NAME)
 			{
+				sys::CharacterLoader().LoadL2CharacterImage(this, RESPATH_SWORDSMAN);
 				LOG_INFO("Enemy swordsman created");
 				damage_ = 6;
 				health_ = 100;

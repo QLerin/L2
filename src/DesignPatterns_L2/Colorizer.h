@@ -49,8 +49,9 @@ namespace l2
 		public:
 			void Colorize(const Frame & frame, const WORD attributes);
 			void Colorize(const Frame & frame, const COLOR_ATTRIBUTES attributes);
+
+			static const Color GetColorFromChar(const char id);
 		};
-
+#define dual_retrieve(fg, bg) Colorizer::GetInstance()->GetColorFromChar(fg), Colorizer::GetInstance()->GetColorFromChar(bg)
 	}
-
 }

@@ -6,6 +6,7 @@
 #include "EnragedAttack.h"
 #include "FuriousAttack.h"
 #include "TiredAttack.h"
+#include "CharacterLoader.h"
 
 namespace l2r = l2::rendering;
 
@@ -16,11 +17,13 @@ namespace l2
         static const std::string DEFAULT_ARCHER_NAME = "Archer";
         class EnemyArcher : public Enemy
         {
+		private:
 			int arrowAmount;
-			
+			static const std::string RESPATH_ARCHER;
         public:
 			EnemyArcher() : Enemy(DEFAULT_ARCHER_NAME)
 			{
+				sys::CharacterLoader().LoadL2CharacterImage(this, RESPATH_ARCHER);
 				LOG_INFO("Enemy mage created");
 				arrowAmount = 10;
 				damage_ = 8;

@@ -24,9 +24,6 @@ namespace l2
 
         class MenuLoader
         {
-        private:
-            static const l2r::Colorizer::Color GetColorFromChar(const char id);
-
         public:
             const bool LoadL2Menu(l2g::Menu * const menu, const std::string & path);
             const bool LoadL2MenuItem(l2g::MenuItem * const menu, const std::string & path);

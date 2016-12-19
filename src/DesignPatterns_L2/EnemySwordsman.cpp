@@ -1,5 +1,7 @@
 #include "EnemySwordsman.h"
 
+using namespace std;
+
 #pragma warning (push)
 #pragma warning (disable : 4100) 
 void l2::gameobjects::EnemySwordsman::Attack(l2::gameobjects::Character * target)
@@ -43,3 +45,5 @@ void  l2::gameobjects::EnemySwordsman::Die()
 	LOG_INFO("Enemy swordsman dies");
 }
 #pragma warning (pop)
+
+const string l2::gameobjects::EnemySwordsman::RESPATH_SWORDSMAN = "EnemySwordsman.txt";

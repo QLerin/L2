@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Caretaker.cpp" />
     <ClCompile Include="ActionsMenu.cpp" />
+    <ClCompile Include="CharacterLoader.cpp" />
     <ClCompile Include="CharacterMenu.cpp" />
     <ClCompile Include="ColoredProgressBar.cpp" />
     <ClCompile Include="ColorizeDrawable.cpp" />
@@ -64,6 +65,7 @@
     <ClInclude Include="BossAdapter.h" />
     <ClInclude Include="Bow.h" />
     <ClInclude Include="Caretaker.h" />
+    <ClInclude Include="CharacterLoader.h" />
     <ClInclude Include="ClothArmor.h" />
     <ClInclude Include="ColoredProgressBar.h" />
     <ClInclude Include="CombatLogMenu.h" />

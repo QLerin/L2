@@ -8,30 +8,6 @@ using namespace l2::sys;
 using namespace l2::gameobjects;
 using namespace l2::rendering;
 
-const Colorizer::Color MenuLoader::GetColorFromChar(const char id)
-{
-    switch (id)
-    {
-    case 'W': //White
-        return Colorizer::White;
-    case 'O': //Black (O for Onyx)
-        return Colorizer::Black;
-    case 'R': //Red
-        return Colorizer::Red;
-    case 'G': //Green
-        return Colorizer::Green;
-    case 'B': //Blue
-        return Colorizer::Blue;
-    case 'Y': //Yellow
-        return Colorizer::Yellow;
-    case 'P': //Purple
-        return Colorizer::Purple;
-    case 'M': //Brown (M for Maroon)
-        return Colorizer::Brown;
-    }
-    return Colorizer::White;
-}
-
 const bool MenuLoader::LoadL2Menu(l2g::Menu * const menu, const std::string & path)
 {
     ifstream in(path.c_str());
@@ -44,6 +20,7 @@ const bool MenuLoader::LoadL2Menu(l2g::Menu * const menu, const std::string & pa
     std::string outBuffer;
     ColorizedDrawable drawable;
 
+
     std::string header("");
     while (in.good())
     {
@@ -54,15 +31,13 @@ const bool MenuLoader::LoadL2Menu(l2g::Menu * const menu, const std::string & pa
         {
             char foreground, background;
             in >> foreground >> background;
-            drawable.SetColor(GetColorFromChar(foreground), GetColorFromChar(background));
+            drawable.SetColor(dual_retrieve(foreground, background));
         }
         else if (header == "CSEL")
         {
             char foreground, background;
             in >> foreground >> background;
 
-#define dual_retrieve(fg, bg) GetColorFromChar(fg), GetColorFromChar(bg)
-            //menu->selectedItemColor_ = Colorizer::COLOR_ATTRIBUTES(GetColorFromChar(foreground), GetColorFromChar(background));
             menu->selectionColor_ = Colorizer::COLOR_ATTRIBUTES(dual_retrieve(foreground, background));
         }
         else if (header == "CORNER")

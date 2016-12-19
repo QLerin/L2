@@ -1,5 +1,6 @@
 #include "EnemyArcher.h"
 
+using namespace std;
 
 #pragma warning (push)
 #pragma warning (disable : 4100) // Lino funkcijos (save me from this hell)
@@ -46,3 +47,5 @@ void  l2::gameobjects::EnemyArcher::Die()
 	alive_ = false;
 }
 #pragma warning (pop)
+
+const string l2::gameobjects::EnemyArcher::RESPATH_ARCHER = "EnemyArcher.txt";

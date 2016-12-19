@@ -10,11 +10,17 @@ namespace l2r = l2::rendering;
 namespace l2
 {
 
+	namespace sys
+	{
+		class CharacterLoader;
+	}
+
 	namespace gameobjects
 	{
 
 		class Character : public IGameObject
 		{
+			friend sys::CharacterLoader;
 		protected:
 			std::shared_ptr<CharacterStatistics> stats_;
             l2r::ColorizedDrawable model_;

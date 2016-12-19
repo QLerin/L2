@@ -1,5 +1,7 @@
 #include "EnemyMage.h"
 
+using namespace std;
+
 #pragma warning (push)
 #pragma warning (disable : 4100) // NEVER AGAIIIIIIIN
 void l2::gameobjects::EnemyMage::Attack(l2::gameobjects::Character * target)
@@ -43,3 +45,5 @@ void  l2::gameobjects::EnemyMage::Die()
 	alive_ = false;
 }
 #pragma warning (pop)
+
+const string l2::gameobjects::EnemyMage::RESPATH_MAGE = "EnemyMage.txt";
