@@ -1,17 +1,45 @@
 #include "EnemySwordsman.h"
 
 #pragma warning (push)
-#pragma warning (disable : 4100) // I'm on the highway to hell
+#pragma warning (disable : 4100) 
 void l2::gameobjects::EnemySwordsman::Attack(l2::gameobjects::Character * target)
 {
-	eat->AttackPlayer(target, this);
+	if (alive_) {
+		eat->AttackPlayer(target, this);
+	}
 }
-void  l2::gameobjects::EnemySwordsman::TakeDamage(const uint64_t damage)
+void  l2::gameobjects::EnemySwordsman::TakeDamage(double damage)
 {
-	LOG_INFO("Enemy swordsman got hit");
+	if (damage > 0)
+	{
+
+		if (health_ + damage < maxHealth_)
+		{
+			health_ += damage;
+		}
+		else
+		{
+			health_ = maxHealth_;
+		}
+	}
+	if (damage < 0)
+	{
+		LOG_INFO("Enemy swordsman got hit");
+		if ((health_ + damage) > 0)
+		{
+			health_ += damage;
+		}
+		else
+		{
+			LOG_INFO("Enemy swordsman dies");
+			alive_ = false;
+		}
+	}
+	checkState();
 }
 void  l2::gameobjects::EnemySwordsman::Die()
 {
+	alive_ = false;
 	LOG_INFO("Enemy swordsman dies");
 }
 #pragma warning (pop)

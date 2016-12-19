@@ -10,6 +10,8 @@ namespace l2
 		{
 		public:
 			FirstAttackState(Player * p) : PlayerState(p) {}
+			PlayerState * clone() override;
+
 			void PlayerAttack(Enemy * enemy) override;
 			void ChangePlayerHealth(double diff) override;
 

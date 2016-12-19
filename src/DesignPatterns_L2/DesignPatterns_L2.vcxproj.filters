@@ -239,6 +239,12 @@
     <ClCompile Include="ActionsMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Memento.cpp">
+      <Filter>Source Files\GameObjects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Caretaker.cpp">
+      <Filter>Source Files\GameObjects\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CharacterStatistics.h">
@@ -545,6 +551,21 @@
       <Filter>Header Files\GameObjects\Characters\Player</Filter>
     </ClInclude>
     <ClInclude Include="TiredAttackState.h">
+      <Filter>Header Files\GameObjects\Characters\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="NullEnemy.h">
+      <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBoss.h">
+      <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="BossAdapter.h">
+      <Filter>Header Files\GameObjects\Characters\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Memento.h">
+      <Filter>Header Files\GameObjects\Characters\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Caretaker.h">
       <Filter>Header Files\GameObjects\Characters\Player</Filter>
     </ClInclude>
   </ItemGroup>

@@ -31,6 +31,7 @@ namespace l2
 			}
 			void checkState() override
 			{
+				LOG_INFO("I WORK");
 				double hL = health_ / maxHealth_ * 100;
 				if (hL > 90)
 				{
@@ -70,8 +71,11 @@ namespace l2
 			}
 
 			void Attack(Character * target) override;
-			void TakeDamage(const uint64_t damage) override;
+			void TakeDamage(double damage) override;
 			void Die();
+			bool isNull() override {
+				return false;
+			}
         };
 
     }

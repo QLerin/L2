@@ -23,6 +23,9 @@
 #include "RareFactory.h"
 
 #include "Executor.h"
+#include "EnemyBoss.h"
+#include "BossAdapter.h"
+#include "Caretaker.h"
 
 
 using namespace std;
@@ -105,17 +108,40 @@ void FunkcijaLinui()
     Enemy *a = fac.CreateEnemy("archer");
     Enemy *b = fac.CreateEnemy("swordsman");
     Enemy *c = fac.CreateEnemy("mage");
+	Enemy *d = fac.CreateEnemy("error2000");
+	EnemyBoss *g = new EnemyBoss("Lukas");
+	Enemy *ga = new BossAdapter(g);
+	
+	//ga.setBoss(g);
+	if(d->isNull())
+	{
+		LOG_INFO("Null enemy created in main");
+	}
 	Player *Stanislovas = new Player("Stanislovas");
-	c->Attack(static_cast <Player*>(Stanislovas));
-	Stanislovas->Attack(c);
-	c->Attack(static_cast <Player*>(Stanislovas));
-	Stanislovas->Attack(c);
-	c->Attack(static_cast <Player*>(Stanislovas));
-	Stanislovas->Attack(c);
-	c->Attack(static_cast <Player*>(Stanislovas));
-	Stanislovas->Attack(c);
-	c->Attack(static_cast <Player*>(Stanislovas));
-	Stanislovas->Attack(c);
+
+	Caretaker *care = new Caretaker(Stanislovas);
+	Stanislovas->saveStateToMemento(*care);
+	
+	b->Attack(static_cast <Player*>(Stanislovas));
+	LOG_INFO(std::to_string(b->getEnemyHealth()));
+	Stanislovas->Attack(b);
+	Stanislovas->setAcc(30);
+	Stanislovas->saveStateToMemento(*care);
+	
+
+	Stanislovas->Attack(ga);
+	ga->Attack(static_cast <Player*>(Stanislovas));
+	LOG_INFO(std::to_string(ga->getEnemyHealth()));
+	LOG_INFO(std::to_string(Stanislovas->getCharacterStatistics()->GetLife().GetHealth()));
+	Stanislovas->saveStateToMemento(*care);
+
+	Stanislovas->Attack(ga);
+	ga->Attack(static_cast <Player*>(Stanislovas));
+	LOG_INFO(std::to_string(ga->getEnemyHealth()));
+	LOG_INFO(std::to_string(Stanislovas->getCharacterStatistics()->GetLife().GetHealth()));
+	Stanislovas->restoreStateFromMemento(*care);
+	LOG_INFO(std::to_string(Stanislovas->getCharacterStatistics()->GetLife().GetHealth()));
+
 
 
 	

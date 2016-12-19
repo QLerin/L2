@@ -19,10 +19,13 @@ namespace l2
 			std::shared_ptr<CharacterStatistics> stats_;
             l2r::ColorizedDrawable model_;
 		public:
-            Character(const std::string & name) : IGameObject(name), model_(nullptr) { }
+            Character(const std::string & name) : IGameObject(name), model_(nullptr)
+            {
+				
+            }
 
             virtual void Attack(Character * target) = 0;
-            virtual void TakeDamage(const uint64_t damage) = 0;
+            virtual void TakeDamage(double damage) = 0;
 
 			std::shared_ptr<CharacterStatistics> getCharacterStatistics()
 			{
