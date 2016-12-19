@@ -9,7 +9,6 @@ namespace l2
 		class Player;
 		class Caretaker
 		{
-			int turns = 0;
 			Memento lastTurn_;
 			Memento beforeLastTurn_;
 			Memento beforeBeforeLastTurn_;

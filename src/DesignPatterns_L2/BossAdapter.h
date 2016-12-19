@@ -9,7 +9,6 @@ namespace l2
 		class BossAdapter : public Enemy
 		{
 			EnemyBoss *boss;
-			int arrowAmount;
 
 		public:
 			BossAdapter(EnemyBoss *b) : Enemy("BossAdapter")
