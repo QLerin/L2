@@ -16,7 +16,14 @@ const bool PUIComponent::TransitionLeft()
 {
     if (selectedIndex_ == 0)
         return false;
-    --selectedIndex_;
+	if (!children_[--selectedIndex_]->CanBeSelected())
+	{
+		if (!TransitionLeft())
+		{
+			++selectedIndex_;
+			return false;
+		}
+	}
     return true;
 }
 
@@ -25,11 +32,21 @@ const bool PUIComponent::TransitionRight()
     if (++selectedIndex_ >= children_.GetStorageSize())
     {
 #pragma warning (push)
-#pragma warning (disable : 4244) //Operating on ArrayStorage with max capacity of unsigned dword
+#pragma warning (disable : 4244) //Operating on ArrayStorage with max capacity of unsigned qword
         selectedIndex_ = children_.GetStorageSize() - 1;
 #pragma warning (pop)
         return false;
     }
+	else if (!children_[selectedIndex_]->CanBeSelected())
+	{
+		if (selectedIndex_ + 1 < children_.GetStorageSize())
+			return TransitionRight();
+		else
+		{
+			selectedIndex_--;
+			return false;
+		}
+	}
     return true;
 }
 

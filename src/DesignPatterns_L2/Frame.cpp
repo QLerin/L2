@@ -12,6 +12,13 @@ uint16_t Frame::numActiveBuffers_ = 0;
 
 static const uint16_t ASCII_CP = 20127;
 
+static const uint16_t SYSTEM_CWND_WIDTH  = 320;
+static const uint16_t SYSTEM_CWND_HEIGHT = 84;
+static const string	  SYSTEM_FONT_NAME   = "Consolas";
+static const uint16_t SYSTEM_FONT_SIZE   = 12;
+static const uint16_t SYSTEM_FONT_WEIGHT = 400;
+static const uint16_t SYSTEM_FONT_INDEX  = 0;
+
 Frame::Frame(const bool isConsoleApp)
 {
     if (isConsoleApp && !numActiveBuffers_)

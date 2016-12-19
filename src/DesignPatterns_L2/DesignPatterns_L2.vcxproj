@@ -46,6 +46,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerInputHandler.cpp" />
     <ClCompile Include="PlayerState.cpp" />
+    <ClCompile Include="ProgressBar.cpp" />
     <ClCompile Include="PUIComponent.cpp" />
     <ClCompile Include="RegularAttackState.cpp" />
     <ClCompile Include="Score.cpp" />
@@ -130,6 +131,7 @@
     <ClInclude Include="PlayerState.h" />
     <ClInclude Include="Potion.h" />
     <ClInclude Include="PotionFactory.h" />
+    <ClInclude Include="ProgressBar.h" />
     <ClInclude Include="PUIComponent.h" />
     <ClInclude Include="RadiantGem.h" />
     <ClInclude Include="RareFactory.h" />
@@ -157,6 +159,7 @@
     <ClInclude Include="TiredAttackState.h" />
     <ClInclude Include="TransitionTable.h" />
     <ClInclude Include="UIComponent.h" />
+    <ClInclude Include="UnselectableSUIComponent.h" />
     <ClInclude Include="UsableFactory.h" />
     <ClInclude Include="UsableItem.h" />
     <ClInclude Include="WaterEnchantment.h" />

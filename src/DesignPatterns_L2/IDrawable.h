@@ -32,6 +32,7 @@ namespace l2
 			IDrawable(std::shared_ptr<ConsoleWindow> parentWindow);
 
 			void SetDrawableData(const std::string & data);
+			std::string & GetDrawableData() { return drawableData_; }
 
 			void SetDrawableSpace(const uint16_t x, const uint16_t y, const uint16_t width, const uint16_t height);
             const bool GetDrawableSpace(uint16_t & x, uint16_t & y, uint16_t & width, uint16_t & height) const

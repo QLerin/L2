@@ -94,6 +94,8 @@ namespace l2
             virtual MenuActionReturn Exit() = 0;
 
             virtual void Draw() = 0;
+
+			virtual const bool CanBeSelected() const { return true; }
         };
 
     }

@@ -141,6 +141,12 @@
     <Filter Include="Source Files\GameObjects\Player">
       <UniqueIdentifier>{2db1534c-4305-44a0-8f0f-c9e32102a666}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ConsoleUI\SpecialComponents">
+      <UniqueIdentifier>{21c69776-d5ab-4d49-b0f9-1c72648395d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ConsoleUI\SpecialComponents">
+      <UniqueIdentifier>{2268d17e-5c88-42b3-903f-650c9505342d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Frame.cpp">
@@ -247,6 +253,9 @@
     </ClCompile>
     <ClCompile Include="CharacterMenu.cpp">
       <Filter>Source Files\GameObjects\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgressBar.cpp">
+      <Filter>Source Files\ConsoleUI\SpecialComponents</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -570,6 +579,12 @@
     </ClInclude>
     <ClInclude Include="Caretaker.h">
       <Filter>Header Files\GameObjects\Characters\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="UnselectableSUIComponent.h">
+      <Filter>Header Files\ConsoleUI\SpecialComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgressBar.h">
+      <Filter>Header Files\ConsoleUI\SpecialComponents</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
