@@ -23,7 +23,7 @@ namespace l2
 				if (fabs(attacker->getEnemyAcc()*1.2 - chance ))
 				{
 					double damage = attacker->getEnemyDamage() * 1;
-					player->TakeDamage(damage);
+					player->TakeDamage(-damage);
 					LOG_INFO("Enemy attacks with normal state, dealt " + std::to_string(damage));
 				}
 				else

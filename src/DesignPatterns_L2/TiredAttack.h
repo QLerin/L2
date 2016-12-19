@@ -23,7 +23,7 @@ namespace l2
 				if (fabs(attacker->getEnemyAcc()*0.3 - chance))
 				{
 					double damage = attacker->getEnemyDamage() * 0.7;
-					player->TakeDamage(damage);
+					player->TakeDamage(-damage);
 					LOG_INFO("Enemy attacks with tired state, dealt " + std::to_string(damage));
 				} else
 				{

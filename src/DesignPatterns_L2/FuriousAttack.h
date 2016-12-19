@@ -22,7 +22,7 @@ namespace l2
 				if (fabs(attacker->getEnemyAcc()*0.5 - chance))
 				{
 					double damage = attacker->getEnemyDamage() * 1.3;
-					player->TakeDamage(damage);
+					player->TakeDamage(-damage);
 					LOG_INFO("Enemy attacks with furious state, dealt " + std::to_string(damage));
 				}
 				else

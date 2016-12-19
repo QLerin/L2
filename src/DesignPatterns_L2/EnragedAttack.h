@@ -23,7 +23,7 @@ namespace l2
 				if (fabs(attacker->getEnemyAcc()*0.7 - chance))
 				{
 					double damage = attacker->getEnemyDamage() * 1.2;
-					player->TakeDamage(damage);
+					player->TakeDamage(-damage);
 					LOG_INFO("Enemy attacks with enraged state, dealt " + std::to_string(damage));
 				}
 				else

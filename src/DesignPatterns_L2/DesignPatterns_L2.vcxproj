@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Caretaker.cpp" />
     <ClCompile Include="ColorizeDrawable.cpp" />
     <ClCompile Include="Colorizer.cpp" />
     <ClCompile Include="ConsoleWindow.cpp" />
@@ -36,6 +37,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Medkit.cpp" />
     <ClCompile Include="MedkitBuilder.cpp" />
+    <ClCompile Include="Memento.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuInputHandler.cpp" />
     <ClCompile Include="MenuLoader.cpp" />
@@ -55,7 +57,9 @@
     <ClInclude Include="ActionsMenu.h" />
     <ClInclude Include="Armor.h" />
     <ClInclude Include="ArmorFactory.h" />
+    <ClInclude Include="BossAdapter.h" />
     <ClInclude Include="Bow.h" />
+    <ClInclude Include="Caretaker.h" />
     <ClInclude Include="ClothArmor.h" />
     <ClInclude Include="CombatLogMenu.h" />
     <ClInclude Include="CommonFactory.h" />
@@ -69,6 +73,7 @@
     <ClInclude Include="ConsoleWindow.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyAttackPattern.h" />
+    <ClInclude Include="EnemyBoss.h" />
     <ClInclude Include="EnemyFactory.h" />
     <ClInclude Include="EnragedAttack.h" />
     <ClInclude Include="EpicFactory.h" />
@@ -103,6 +108,7 @@
     <ClInclude Include="Medkit.h" />
     <ClInclude Include="MedkitBuilder.h" />
     <ClInclude Include="MedkitEngineer.h" />
+    <ClInclude Include="Memento.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuActionMessage.h" />
     <ClInclude Include="MenuExitAction.h" />
@@ -115,6 +121,7 @@
     <ClInclude Include="Message.h" />
     <ClInclude Include="CharacterMenu.h" />
     <ClInclude Include="NormalAttack.h" />
+    <ClInclude Include="NullEnemy.h" />
     <ClInclude Include="PlateArmor.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerInputHandler.h" />

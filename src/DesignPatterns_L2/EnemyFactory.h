@@ -4,6 +4,7 @@
 #include "EnemyMage.h"
 #include "EnemyArcher.h"
 #include "EnemySwordsman.h"
+#include "NullEnemy.h"
 
 namespace l2
 {
@@ -31,7 +32,7 @@ namespace l2
 			{
 				return new EnemyArcher();
 			}
-		    return nullptr;
+			return new NullEnemy();
 	    }
     }
 

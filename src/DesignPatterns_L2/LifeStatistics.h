@@ -13,31 +13,31 @@ namespace l2
         class LifeStatistics 
         {
         private:
-            static const int64_t HEALTH_MULTIPLIER = 20;
-            static const int64_t ENERGY_MULTIPLIER = 10;
+            static const uint64_t HEALTH_MULTIPLIER = 20;
+            static const uint64_t ENERGY_MULTIPLIER = 10;
         protected:
-            int64_t health_;
-            int64_t energy_;
+			double health_;
+			double energy_;
 
-            int64_t maxHealth_;
-            int64_t maxEnergy_;
+			double maxHealth_;
+			double maxEnergy_;
         public:
             LifeStatistics() : health_(0), energy_(0) {}
-            LifeStatistics(const int64_t maxHealth, const int64_t maxEnergy) :
+            LifeStatistics(const double maxHealth, const double maxEnergy) :
                            maxHealth_(maxHealth)  , maxEnergy_(maxEnergy)
             {
                 SetHealthToMax();
                 SetEnergyToMax();
             }
 
-            const int64_t GetHealth() const { return health_; }
-            void SetHealth(const int64_t health) { health_ = health; } 
+            const double GetHealth() const { return health_; }
+            void SetHealth(const double health) { health_ = health; }
 
-			void ChangeHealth(int64_t diff) { health_ += diff;  }
+			void ChangeHealth(double diff) { health_ += diff;  }
 			int GetMaxHealth() { return maxHealth_; }
 
-            const uint64_t GetEnergy() const { return energy_; }
-            void SetEnergy(const uint64_t energy) { energy_ = energy; }
+            const double GetEnergy() const { return energy_; }
+            void SetEnergy(const double energy) { energy_ = energy; }
 
             void SetHealthToMax() { health_ = maxHealth_; }
             void SetEnergyToMax() { energy_ = maxEnergy_; }

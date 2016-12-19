@@ -24,20 +24,21 @@ namespace l2
 			bool alive_ = true;
         public:
 			virtual void Die() {}
-			void setEnemyDamage(double dmg){damage_ = dmg;}
-			void setEnemyHealth(double health) {health_ = health;}
-			void setEnemyMaxHealth(double maxHealth) { maxHealth_ = maxHealth; }
+			virtual void setEnemyDamage(double dmg){damage_ = dmg;}
+			virtual void setEnemyHealth(double health) {health_ = health;}
+			virtual void setEnemyMaxHealth(double maxHealth) { maxHealth_ = maxHealth; }
 			void setEnemAcc(double acc) { acc_ = acc; }
 			void setState(char state) { state_ = state; }
-			double getEnemyDamage() { return damage_; }
-			double getEnemyHealth() { return health_; }
-			double getEnemyMaxHealth() { return maxHealth_; }
+			virtual double getEnemyDamage() { return damage_; }
+			virtual double getEnemyHealth() { return health_; }
+			virtual double getEnemyMaxHealth() { return maxHealth_; }
 			double getEnemyAcc() { return acc_; }
 			char getState() { return state_;  }
-			bool isEnemyAlive() { return alive_; }
+			virtual bool isEnemyAlive() { return alive_; }
+			virtual bool isNull() = 0;
 			virtual void checkState() {}
 
-			void changeHP(double diff)
+			virtual void changeHP(double diff)
 			{
 				if(diff > 0)
 				{
@@ -62,6 +63,7 @@ namespace l2
 						alive_ = false;
 					}
 				}
+				checkState();
 			}
         };
 
