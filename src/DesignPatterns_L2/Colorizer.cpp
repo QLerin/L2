@@ -77,5 +77,6 @@ WORD Colorizer::GetBackgroundColor(const COLOR_ATTRIBUTES attributes)
 		return BACKGROUND_BLUE | BACKGROUND_RED;
 	}
 
+	
 	return 0;
 }

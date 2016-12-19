@@ -14,8 +14,8 @@ ConsoleWindow::ConsoleWindow(const bool isConsoleApp) : currentBuffer_(FRONT_BUF
 {
     //ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
     SetConsoleTitle(WINDOW_TITLE.c_str());
-    //SetWindowLong(GetConsoleWindow(), GWL_STYLE, WS_CAPTION | DS_MODALFRAME | WS_OVERLAPPED);
-    //SetWindowPos(GetConsoleWindow(), NULL, 0, 0, 0, 0, SWP_NOSIZE | SWP_SHOWWINDOW);
+    SetWindowLong(GetConsoleWindow(), GWL_STYLE, WS_CAPTION | DS_MODALFRAME | WS_OVERLAPPED);
+    SetWindowPos(GetConsoleWindow(), NULL, 0, 0, 0, 0, SWP_NOSIZE | SWP_SHOWWINDOW);
 
     SetActiveWindow(GetConsoleWindow());
 }

@@ -96,6 +96,7 @@ namespace l2
             virtual void Draw() = 0;
 
 			virtual const bool CanBeSelected() const { return true; }
+			virtual const bool UseMenuColorScheme() const { return true; }
         };
 
     }

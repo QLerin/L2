@@ -257,6 +257,9 @@
     <ClCompile Include="ProgressBar.cpp">
       <Filter>Source Files\ConsoleUI\SpecialComponents</Filter>
     </ClCompile>
+    <ClCompile Include="ColoredProgressBar.cpp">
+      <Filter>Source Files\ConsoleUI\SpecialComponents</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CharacterStatistics.h">
@@ -584,6 +587,9 @@
       <Filter>Header Files\ConsoleUI\SpecialComponents</Filter>
     </ClInclude>
     <ClInclude Include="ProgressBar.h">
+      <Filter>Header Files\ConsoleUI\SpecialComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="ColoredProgressBar.h">
       <Filter>Header Files\ConsoleUI\SpecialComponents</Filter>
     </ClInclude>
   </ItemGroup>

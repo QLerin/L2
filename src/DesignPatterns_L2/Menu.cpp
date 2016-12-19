@@ -78,7 +78,6 @@ void Menu::Draw()
 {
     if (!ValidationHook())
         return;
-    //parentWindow_->SetColor(menu_.GetDrawableColor());
     drawable_.Draw();
     for (uint16_t i = 0; i < children_.GetStorageSize(); ++i)
     {
@@ -87,19 +86,20 @@ void Menu::Draw()
             LOG_WARNING("A CHILD IN MENU " + componentName_ + " is inactive yet still in list!");
             continue;
         }
-        if (i == selectedIndex_)
+		if (i == selectedIndex_ && children_[i]->CanBeSelected())
         {
             ColorizedDrawable temp = children_[i]->GetDrawable();
             temp.SetColor(selectionColor_.foregroundColor, selectionColor_.backgroundColor);
             children_[i]->SetDrawable(temp);
-            //window_->SetColor(selectionColor_);
         }
         else
         {
-            ColorizedDrawable temp = children_[i]->GetDrawable();
-            temp.SetColor(drawable_.GetDrawableColor().foregroundColor, drawable_.GetDrawableColor().backgroundColor);
-            children_[i]->SetDrawable(temp);
-            //window_->SetColor(Colorizer::COLOR_ATTRIBUTES(drawable_.GetDrawableColor()));
+			if (children_[i]->UseMenuColorScheme())
+			{
+				ColorizedDrawable temp = children_[i]->GetDrawable();
+				temp.SetColor(drawable_.GetDrawableColor().foregroundColor, drawable_.GetDrawableColor().backgroundColor);
+				children_[i]->SetDrawable(temp);
+			}
         }
 
         children_[i]->Draw();
