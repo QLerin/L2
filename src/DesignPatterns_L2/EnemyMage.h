@@ -26,7 +26,7 @@ namespace l2
 				LOG_INFO("Enemy mage created");
 				powerfulCasts = 10;
 				damage_ = 12;
-				health_ = 40;
+				health_ = 80;
 				maxHealth_ = health_;
 				acc_ = 70;
 				eat = new NormalAttack();

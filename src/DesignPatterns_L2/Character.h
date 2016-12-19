@@ -31,8 +31,10 @@ namespace l2
 		public:
             Character(const std::string & name) : IGameObject(name), healthbar_(), model_(nullptr)
             {
-				
+
             }
+
+			virtual void getStaticPosition(uint16_t & x, uint16_t & y) = 0;
 
             virtual void Attack(Character * target) = 0;
             virtual void TakeDamage(double damage) = 0;
@@ -41,9 +43,12 @@ namespace l2
 			{
 				return stats_;
 			}
-			virtual void getStaticPosition(uint16_t & x, uint16_t & y) = 0;
 
-			virtual void Draw() { model_.Draw(); }
+			virtual void Draw()
+			{ 
+				model_.Draw(); 
+				healthbar_.Draw(); 
+			}
 			void SetConsoleWindow(std::shared_ptr<l2::rendering::ConsoleWindow> window) { model_.SetParentWindow(window); healthbar_.SetParentWindow(window); }
 		};
 

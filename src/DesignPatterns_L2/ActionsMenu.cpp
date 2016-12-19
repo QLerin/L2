@@ -78,6 +78,7 @@ UIComponent::MenuActionReturn ActionsMenu::AttackCallback()
 		{
 			LOG_INFO("<<<<<<<<<<<<<<<<<<<<<<<< ENEMY DIED >>>>>>>>>>>>>>>>>>>>>");
 			enemy_ = fac_.CreateRandomEnemy();
+			enemy_->SetConsoleWindow(GetParentWindow());
 		}
 		else {
 			enemy_->Attack(cpy.get());

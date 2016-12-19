@@ -26,7 +26,7 @@ namespace l2
 				sys::CharacterLoader().LoadL2CharacterImage(this, RESPATH_SWORDSMAN);
 				LOG_INFO("Enemy swordsman created");
 				damage_ = 6;
-				health_ = 100;
+				health_ = 160;
 				maxHealth_ = health_;
 				acc_ = 90;
 				eat = new NormalAttack();

@@ -5,14 +5,17 @@ using namespace l2::rendering;
 using namespace l2::gameobjects;
 
 static const uint16_t DEFAULT_MAX		     = 100;
-static const uint16_t DEFAULT_UNITS_PER_CELL = 2;
+static const uint16_t DEFAULT_UNITS_PER_CELL = 4;
 static const uint16_t DEFAULT_HEIGHT		 = 4;
 
 void ProgressBar::CalculateCells()
 {
 	uint16_t ammountToDraw = currentAmmount_ / unitsPerCell_;
 	string & drawableData = drawable_.GetDrawableData();
-	drawableData.resize(cells_ * height_, ' ');
+#pragma warning (push)
+#pragma warning (disable : 4239)
+	drawableData.swap(string(cells_ * height_, ' '));
+#pragma warning (pop)
 	for (auto i = 0; i < height_; ++i)
 		for (auto j = 0; j < ammountToDraw; ++j)
 			drawableData[i * cells_ + j] = '#';
@@ -77,7 +80,7 @@ void ProgressBar::SetProgressAt(const uint16_t ammount)
 
 void ProgressBar::SetMaxAmmount(const uint16_t maxAmmount)
 {
-	if (currentAmmount_ < maxAmmount)
+	if (currentAmmount_ > maxAmmount)
 		currentAmmount_ = maxAmmount;
 	maxAmmount_ = maxAmmount;
 	unitsPerCell_ = maxAmmount / cells_;

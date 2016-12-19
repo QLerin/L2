@@ -15,7 +15,18 @@ namespace l2
         {
         protected:
 			EnemyAttackPattern * eat;
-            Enemy(const std::string & name) : Character(name) { }
+            Enemy(const std::string & name) : Character(name)
+			{ 
+				uint16_t x(0), y(0), w(0), h(0);
+				uint16_t statX(0), statY(0);
+				getStaticPosition(statX, statY);
+
+				healthbar_.GetDrawable().GetDrawableSpace(x, y, w, h);
+				l2r::ColorizedDrawable temp = healthbar_.GetDrawable();
+				temp.SetDrawableSpace(statX, statY - h - 1, w, h);
+				healthbar_.SetDrawable(temp);
+				healthbar_.SetColor(l2r::Colorizer::Color::Green);
+			}
 			double damage_ = 1;
 			double health_ = 1;
 			double maxHealth_ = 1;
@@ -68,6 +79,8 @@ namespace l2
 						health_ = 0;
 						alive_ = false;
 					}
+
+					healthbar_.DecrementBar((uint16_t)abs((int)diff));
 				}
 				checkState();
 			}

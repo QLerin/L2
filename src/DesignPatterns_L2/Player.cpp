@@ -4,6 +4,7 @@
 #include "Logger.h"
 #include "Caretaker.h"
 #include "CharacterLoader.h"
+#include "Colorizer.h"
 
 namespace l2
 {
@@ -15,6 +16,15 @@ namespace l2
 
 		Player::Player(const std::string & name): Character(name) {
 			l2::sys::CharacterLoader().LoadL2CharacterImage(this, RESPATH_PLAYER);
+			uint16_t x(0), y(0), w(0), h(0);
+			uint16_t statX(0), statY(0);
+			getStaticPosition(statX, statY);
+
+			healthbar_.GetDrawable().GetDrawableSpace(x, y, w, h);
+			l2r::ColorizedDrawable temp = healthbar_.GetDrawable();
+			temp.SetDrawableSpace(statX, statY - h - 1, w, h);
+			healthbar_.SetDrawable(temp);
+			healthbar_.SetColor(rendering::Colorizer::Color::Green);
 			state_ = new FirstAttackState(this);
 			stats_ = std::make_shared<CharacterStatistics>(LifeStatistics(100, 100), TertiaryStatistics(10, 10, 10));
 		}
