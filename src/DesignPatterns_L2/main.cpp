@@ -88,8 +88,8 @@ void FunkcijaLukui();
                                  // MUST REMOVE ON RELEASE!
 int main()
 {
-    FunkcijaLinui();
-    //FunkcijaLukui();
+    //FunkcijaLinui();
+    FunkcijaLukui();
 
 	return 0;
 }

@@ -1,5 +1,7 @@
 #include "GameManager.h"
 
+#include "ActionsMenu.h"
+
 using namespace std;
 using namespace l2::rendering;
 using namespace l2::sys;
@@ -56,7 +58,8 @@ void GameManager::SetupTransitionTable()
     /// INITIALIZE MENUS HERE ----------------+
     StartMenu * sm = new StartMenu(mainWindow_);
     activeMenus_.push_back(sm);
-
+	ActionsMenu * am = new ActionsMenu(mainWindow_);
+	activeMenus_.push_back(am);
 
 
     ///---------------------------------------+
@@ -65,12 +68,14 @@ void GameManager::SetupTransitionTable()
 
     ///Start menu
     TransitionTable::TRANSITION smTransitions;
-    smTransitions.forward = nullptr;
+    smTransitions.forward = am;
     smTransitions.backward = nullptr;
 
     transitions_.Assign(sm, smTransitions);
     ///Actions menu
-
+	TransitionTable::TRANSITION amTransitions;
+	smTransitions.backward = sm;
+	smTransitions.forward = nullptr;
     ///Inventory menu
     
     ///Stats menu

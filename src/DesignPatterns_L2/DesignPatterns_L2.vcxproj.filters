@@ -236,6 +236,9 @@
     <ClCompile Include="TiredAttackState.cpp">
       <Filter>Source Files\GameObjects\Player</Filter>
     </ClCompile>
+    <ClCompile Include="ActionsMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CharacterStatistics.h">

@@ -17,7 +17,7 @@ UIComponent::MenuActionReturn Menu::Next()
 {
     if (ValidationHook())
     {
-        if (children_[selectedIndex_])
+		if (children_.GetStorageSize() > 0 && children_[selectedIndex_])
         {
             MenuActionReturn rc = children_[selectedIndex_]->Next();
             if (rc == MenuActionReturn::MenuSwitch)
@@ -35,7 +35,7 @@ UIComponent::MenuActionReturn Menu::Previous()
 {
     if (ValidationHook())
     {
-        if (children_[selectedIndex_])
+        if (children_.GetStorageSize() > 0 && children_[selectedIndex_])
         {
             MenuActionReturn rc = children_[selectedIndex_]->Previous();
             if (rc == MenuActionReturn::MenuSwitch)
