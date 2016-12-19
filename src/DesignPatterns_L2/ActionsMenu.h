@@ -39,11 +39,22 @@ namespace l2
         public:
 			ActionsMenu(const std::shared_ptr<l2r::ConsoleWindow> & parentWindow);
 
-			void SetEnemy(std::shared_ptr<Enemy> enemy) { enemy_ = enemy; }
+			void SetEnemy(std::shared_ptr<Enemy> enemy);
 
-			void SetPlayer(std::shared_ptr<Player> player) { player_ = player; }
+			void SetPlayer(std::shared_ptr<Player> player);
 
 			void SetCaretaker(std::shared_ptr<Caretaker> caretaker) { caretaker_ = caretaker; }
+			
+			virtual void SetParentWindow(const std::shared_ptr<rendering::ConsoleWindow> & window)
+			{
+				__super::SetParentWindow(window);
+				if (enemy_)
+					enemy_->SetConsoleWindow(window);
+				if (player_)
+					player_->SetConsoleWindow(window);
+			}
+
+			virtual void Draw();
         };
 
     }

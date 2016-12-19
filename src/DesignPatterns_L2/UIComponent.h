@@ -76,7 +76,7 @@ namespace l2
 
             // Methods for parent window
             virtual void SetParentWindow(const std::shared_ptr<rendering::ConsoleWindow> & window);
-            const std::shared_ptr<rendering::ConsoleWindow> GetParentWindow() { return window_; }
+            std::shared_ptr<rendering::ConsoleWindow> GetParentWindow() { return window_; }
 
             // Methods to set item offset
             void SetOffsetX(const uint16_t offset);

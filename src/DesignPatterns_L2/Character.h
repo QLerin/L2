@@ -1,5 +1,6 @@
 #pragma once
 
+#include "ConsoleWindow.h"
 #include "CharacterStatistics.h"
 #include "ColorizedDrawable.h"
 #include "GameObject.h"
@@ -37,6 +38,9 @@ namespace l2
 			{
 				return stats_;
 			}
+
+			virtual void Draw() { model_.Draw(); }
+			void SetConsoleWindow(std::shared_ptr<l2::rendering::ConsoleWindow> window) { model_.SetParentWindow(window); }
 		};
 
 	}
