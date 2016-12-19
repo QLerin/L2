@@ -5,8 +5,8 @@ using namespace l2::rendering;
 using namespace l2::gameobjects;
 
 static const uint16_t DEFAULT_MAX		     = 100;
-static const uint16_t DEFAULT_UNITS_PER_CELL = 5;
-static const uint16_t DEFAULT_HEIGHT		 = 3;
+static const uint16_t DEFAULT_UNITS_PER_CELL = 2;
+static const uint16_t DEFAULT_HEIGHT		 = 4;
 
 void ProgressBar::CalculateCells()
 {

@@ -31,6 +31,7 @@ namespace l2
 				maxHealth_ = health_;
 				acc_ = 50;
 				eat = new NormalAttack();
+				healthbar_.SetMaxAmmount((uint16_t)maxHealth_);
 			}
 			void checkState() override
 			{

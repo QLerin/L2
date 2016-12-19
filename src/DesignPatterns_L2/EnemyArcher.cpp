@@ -36,6 +36,8 @@ void  l2::gameobjects::EnemyArcher::TakeDamage(double damage)
 			LOG_INFO("Enemy archer dies");
 			alive_ = false;
 		}
+
+		healthbar_.DecrementBar((uint16_t)damage);
 	}
 	checkState();
 	
