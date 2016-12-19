@@ -45,14 +45,7 @@ namespace l2
 
 			void SetCaretaker(std::shared_ptr<Caretaker> caretaker) { caretaker_ = caretaker; }
 			
-			virtual void SetParentWindow(const std::shared_ptr<rendering::ConsoleWindow> & window)
-			{
-				__super::SetParentWindow(window);
-				if (enemy_)
-					enemy_->SetConsoleWindow(window);
-				if (player_)
-					player_->SetConsoleWindow(window);
-			}
+			virtual void SetParentWindow(const std::shared_ptr<rendering::ConsoleWindow> & window);
 
 			virtual void Draw();
         };

@@ -19,9 +19,11 @@ namespace l2
 		class FirstAttackState;
         class Player : public Character
         {
+		private:
 			double acc_ = 90;
 			PlayerState * state_;
 			bool alive = true;
+			static const std::string RESPATH_PLAYER;
         public:
 			Player(const std::string & name);
 

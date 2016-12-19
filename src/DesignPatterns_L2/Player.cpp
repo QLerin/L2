@@ -3,6 +3,7 @@
 #include "FirstAttackState.h"
 #include "Logger.h"
 #include "Caretaker.h"
+#include "CharacterLoader.h"
 
 namespace l2
 {
@@ -13,6 +14,7 @@ namespace l2
 #pragma warning (disable : 4244)
 
 		Player::Player(const std::string & name): Character(name) {
+			l2::sys::CharacterLoader().LoadL2CharacterImage(this, RESPATH_PLAYER);
 			state_ = new FirstAttackState(this);
 			stats_ = std::make_shared<CharacterStatistics>(LifeStatistics(100, 100), TertiaryStatistics(10, 10, 10));
 		}
@@ -41,6 +43,9 @@ namespace l2
 			stats_ = temp.getStats();
 			acc_ = temp.getAcc();
 		}
+
+		const std::string Player::RESPATH_PLAYER = "PlayerImage.txt";
+
 	}
 #pragma warning (pop)
 }

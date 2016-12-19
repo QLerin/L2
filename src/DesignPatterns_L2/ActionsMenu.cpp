@@ -138,7 +138,7 @@ UIComponent::MenuActionReturn ActionsMenu::RewindCallback()
 	return UIComponent::NoAction;
 }
 
-void ActionsMenu::SetEnemy(std::shared_ptr<Enemy> enemy) 
+void ActionsMenu::SetEnemy(shared_ptr<Enemy> enemy) 
 {
 	enemy_ = enemy;
 	if (enemy_)
@@ -146,11 +146,20 @@ void ActionsMenu::SetEnemy(std::shared_ptr<Enemy> enemy)
 }
 
 
-void ActionsMenu::SetPlayer(std::shared_ptr<Player> player) 
+void ActionsMenu::SetPlayer(shared_ptr<Player> player) 
 { 
 	player_ = player; 
 	if (player_)
 		player_->SetConsoleWindow(GetParentWindow());
+}
+
+void ActionsMenu::SetParentWindow(const shared_ptr<ConsoleWindow> & window)
+{
+	__super::SetParentWindow(window);
+	if (enemy_)
+		enemy_->SetConsoleWindow(window);
+	if (player_)
+		player_->SetConsoleWindow(window);
 }
 
 void ActionsMenu::Draw()
@@ -158,6 +167,8 @@ void ActionsMenu::Draw()
 	__super::Draw();
 	if (enemy_)
 		enemy_->Draw();
+	if (player_)
+		player_->Draw();
 }
 
 const string ActionsMenu::RESPATH_ACTIONS_MENU = "ActionsMenu.txt";
