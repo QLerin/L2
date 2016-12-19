@@ -81,6 +81,12 @@ namespace l2
 					}
 				}
 			}
+
+			virtual void getStaticPosition(uint16_t & x, uint16_t & y)
+			{
+				x = 200;
+				y = 30;
+			}
 		};
 
 	}

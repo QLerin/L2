@@ -50,6 +50,12 @@ namespace l2
 			void saveStateToMemento(Caretaker & c);
 			void restoreStateFromMemento(Caretaker & c);
 
+			virtual void getStaticPosition(uint16_t & x, uint16_t & y)
+			{
+				x = 76;
+				y = 30;
+			}
+
 			
         };
 
