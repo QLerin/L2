@@ -11,6 +11,7 @@
 				int times = 0;
 			public:
 				RegularAttackState(Player * p) : PlayerState(p) {}
+				PlayerState * clone() override;
 				void PlayerAttack(Enemy * enemy) override;
 				void ChangePlayerHealth(double diff) override;
 

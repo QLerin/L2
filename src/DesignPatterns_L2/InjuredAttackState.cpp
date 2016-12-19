@@ -11,6 +11,11 @@ namespace l2
 #pragma warning (push)
 #pragma warning (disable : 4244)
 
+		PlayerState* InjuredAttackState::clone()
+		{
+			return new InjuredAttackState(player_);
+		}
+
 		void InjuredAttackState::PlayerAttack(Enemy * enemy)
 		{
 			if (player_->isAlive()) {

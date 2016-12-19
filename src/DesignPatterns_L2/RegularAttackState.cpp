@@ -11,6 +11,11 @@ namespace l2
 	{
 #pragma warning (push)
 #pragma warning (disable : 4244)
+		PlayerState* RegularAttackState::clone()
+		{
+			return new RegularAttackState(player_);
+		}
+
 		void RegularAttackState::PlayerAttack(Enemy * enemy)
 		{
 			if (player_->isAlive()) {

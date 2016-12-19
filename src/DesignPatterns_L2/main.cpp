@@ -120,19 +120,26 @@ void FunkcijaLinui()
 	Player *Stanislovas = new Player("Stanislovas");
 
 	Caretaker *care = new Caretaker(Stanislovas);
+	Stanislovas->saveStateToMemento(*care);
 	
 	b->Attack(static_cast <Player*>(Stanislovas));
 	LOG_INFO(std::to_string(b->getEnemyHealth()));
 	Stanislovas->Attack(b);
+	Stanislovas->setAcc(30);
+	Stanislovas->saveStateToMemento(*care);
+	
 
 	Stanislovas->Attack(ga);
 	ga->Attack(static_cast <Player*>(Stanislovas));
 	LOG_INFO(std::to_string(ga->getEnemyHealth()));
 	LOG_INFO(std::to_string(Stanislovas->getCharacterStatistics()->GetLife().GetHealth()));
+	Stanislovas->saveStateToMemento(*care);
 
 	Stanislovas->Attack(ga);
 	ga->Attack(static_cast <Player*>(Stanislovas));
 	LOG_INFO(std::to_string(ga->getEnemyHealth()));
+	LOG_INFO(std::to_string(Stanislovas->getCharacterStatistics()->GetLife().GetHealth()));
+	Stanislovas->restoreStateFromMemento(*care);
 	LOG_INFO(std::to_string(Stanislovas->getCharacterStatistics()->GetLife().GetHealth()));
 
 

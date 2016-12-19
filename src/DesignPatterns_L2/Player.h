@@ -28,6 +28,7 @@ namespace l2
 			void setAcc(double acc) { acc_ = acc;  }
 			void setState(PlayerState * state) { delete state_; state_ = state; }
 			double getAcc() { return acc_;  }
+
 			PlayerState* getState() { return state_;  }
 
 			bool isAlive()

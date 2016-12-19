@@ -12,6 +12,9 @@ namespace l2
 
 #pragma warning (push)
 #pragma warning (disable : 4244)
+		PlayerState * FirstAttackState::clone(){
+			return new FirstAttackState(player_);
+		}
 
 		void FirstAttackState::PlayerAttack(Enemy * enemy)
 		{

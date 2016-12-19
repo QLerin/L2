@@ -18,7 +18,7 @@ namespace l2
 		public:
 			Memento(Player * p);
 			Memento() = default;
-			//Memento(const Memento &) = default;
+			Memento(const Memento &) = default;
 			
 
 

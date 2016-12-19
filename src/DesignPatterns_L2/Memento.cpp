@@ -7,8 +7,8 @@ namespace l2
 		Memento::Memento(Player * p)
 		{
 			acc_ = p->getAcc();
-			state_ = p->getState();
-			stats_ = p->getCharacterStatistics();
+			state_ = p->getState()->clone();
+			stats_ = std::make_shared<CharacterStatistics>(*(p->getCharacterStatistics()));
 		}
 
 	}

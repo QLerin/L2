@@ -15,7 +15,7 @@ namespace l2
 			Player * player_;
 		public:
 			PlayerState(Player * player);
-
+			virtual PlayerState * clone() = 0;
 
 			virtual void PlayerAttack(Enemy * enemy) = 0;
 			virtual void ChangePlayerHealth(double diff) = 0;

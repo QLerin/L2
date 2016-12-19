@@ -12,6 +12,11 @@ namespace l2
 #pragma warning (push)
 #pragma warning (disable : 4244)
 
+		PlayerState* TiredAttackState::clone()
+		{
+			return new TiredAttackState(player_);
+		}
+
 		void TiredAttackState::PlayerAttack(Enemy * enemy)
 		{
 			if (player_->isAlive()) {
