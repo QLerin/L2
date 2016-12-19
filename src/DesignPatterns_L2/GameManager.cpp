@@ -77,8 +77,8 @@ void GameManager::SetupTransitionTable()
     transitions_.Assign(sm, smTransitions);
     ///Actions menu
 	TransitionTable::TRANSITION amTransitions;
-	smTransitions.backward = sm;
-	smTransitions.forward = nullptr;
+	amTransitions.backward = sm;
+	amTransitions.forward = nullptr;
 	transitions_.Assign(am, amTransitions);
 	///Character menu
 	TransitionTable::TRANSITION cmTransitions;

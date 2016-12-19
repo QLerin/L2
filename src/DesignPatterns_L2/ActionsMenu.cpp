@@ -88,6 +88,8 @@ UIComponent::MenuActionReturn ActionsMenu::AttackCallback()
 		LOG_INFO(".............................");
 		LOG_INFO(".............................");
 	}
+	else
+		return RequestBwdTransition;
 	
 	return UIComponent::NoAction;
 }
