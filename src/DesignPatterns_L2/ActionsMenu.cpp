@@ -1,4 +1,5 @@
 #include "ActionsMenu.h"
+#include "EnemyFactory.h"
 
 using namespace std;
 using namespace l2::gameobjects;
@@ -65,19 +66,76 @@ UIComponent::MenuActionReturn ActionsMenu::OpenInventoryCallback()
 UIComponent::MenuActionReturn ActionsMenu::AttackCallback()
 {
 	//Player attacks enemy, enemy retaliates
-	return MenuActionReturn();
+	if (player_->isAlive()) {
+		shared_ptr < Player> cpy = player_;
+		shared_ptr < Enemy> cpy2 = enemy_;
+		player_->saveStateToMemento(*caretaker_);
+		LOG_INFO(".............................");
+		LOG_INFO(".............................");
+		player_->Attack(cpy2.get());
+		LOG_INFO("............................." + std::to_string(player_->getCharacterStatistics()->GetLife().GetHealth()));
+		if (enemy_->isEnemyAlive() == false)
+		{
+			LOG_INFO("<<<<<<<<<<<<<<<<<<<<<<<< ENEMY DIED >>>>>>>>>>>>>>>>>>>>>");
+			enemy_ = fac_.CreateRandomEnemy();
+		}
+		else {
+			enemy_->Attack(cpy.get());
+			LOG_INFO("............................." + std::to_string(enemy_->getEnemyHealth()));
+		}
+
+		LOG_INFO(".............................");
+		LOG_INFO(".............................");
+	}
+	
+	return UIComponent::NoAction;
 }
 
 UIComponent::MenuActionReturn ActionsMenu::SkipTurnCallback()
 {
+	if (player_->isAlive()) {
+		player_->saveStateToMemento(*caretaker_);
+		shared_ptr < Player> cpy = player_;
+		luck_ += 10; //Increasing chance to rewind time
+		LOG_INFO("<<<<<<<<<<<<<<<<<<<<<<<< BEFORE ATTACK >>>>>>>>>>>>>>>>>>>>>");
+		LOG_INFO("............................." + std::to_string(player_->getCharacterStatistics()->GetLife().GetHealth()));
+		enemy_->Attack(cpy.get());
+		LOG_INFO("<<<<<<<<<<<<<<<<<<<<<<<< ENEMY ATTACKS, PLAYERS INCREASES REWIND CHANCE >>>>>>>>>>>>>>>>>>>>>");
+		LOG_INFO("............................." + std::to_string(player_->getCharacterStatistics()->GetLife().GetHealth()));
+	}
 	//Enemy attacks player
-	return MenuActionReturn();
+	return UIComponent::NoAction;
 }
 
 UIComponent::MenuActionReturn ActionsMenu::RewindCallback()
 {
-	//Guy rewinds time
-	return MenuActionReturn();
+	if (player_->isAlive()) {
+		shared_ptr < Player> cpy = player_;
+		std::random_device rd;
+		std::mt19937 eng(rd());
+		std::uniform_int_distribution<> distr(0, 100);
+		double chance = distr(eng);
+		if (luck_ > chance)
+		{
+			LOG_INFO("<<<<<<<<<<<<<<<<<<<<<<<< BEFORE REWIND >>>>>>>>>>>>>>>>>>>>>");
+			LOG_INFO("............................." + std::to_string(player_->getCharacterStatistics()->GetLife().GetHealth()));
+			player_->restoreStateFromMemento(*caretaker_);
+			LOG_INFO("<<<<<<<<<<<<<<<<<<<<<<<< TIME REWINDED >>>>>>>>>>>>>>>>>>>>>");
+			LOG_INFO("............................." + std::to_string(player_->getCharacterStatistics()->GetLife().GetHealth()));
+			luck_ -= 20;
+			player_->saveStateToMemento(*caretaker_);
+		} else
+		{
+			LOG_INFO("<<<<<<<<<<<<<<<<<<<<<<<< BEFORE ATTACK AFTER FAILED REWIND>>>>>>>>>>>>>>>>>>>>>");
+			LOG_INFO("............................." + std::to_string(player_->getCharacterStatistics()->GetLife().GetHealth()));
+			enemy_->Attack(cpy.get());
+			LOG_INFO("<<<<<<<<<<<<<<<<<<<<<<<< ENEMY ATTACKS >>>>>>>>>>>>>>>>>>>>>");
+			LOG_INFO("............................." + std::to_string(player_->getCharacterStatistics()->GetLife().GetHealth()));
+			luck_ += 15;
+		}
+	}
+	
+	return UIComponent::NoAction;
 }
 
 const string ActionsMenu::RESPATH_ACTIONS_MENU = "ActionsMenu.txt";

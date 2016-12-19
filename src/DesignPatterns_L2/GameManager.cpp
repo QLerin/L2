@@ -2,6 +2,8 @@
 
 #include "ActionsMenu.h"
 #include "CharacterMenu.h"
+#include "EnemyFactory.h"
+#include "Caretaker.h"
 
 using namespace std;
 using namespace l2::rendering;
@@ -90,7 +92,20 @@ void GameManager::SetupTransitionTable()
     ///----------------------------------------+
 
     activeMenu_ = activeMenus_.front();
+
+	LOG_INFO("Starting logger...");
+	EnemyFactory fac;
+
+	shared_ptr<Player>player = make_shared<Player>("Player");
+	shared_ptr<Enemy> ene = fac.CreateRandomEnemy();
+	shared_ptr<Caretaker>caretaker = make_shared<Caretaker>(player);
+
+	am->SetEnemy(ene);
+	am->SetPlayer(player);
+	am->SetCaretaker(caretaker);
+
 }
+
 
 void GameManager::SetMainWindow(shared_ptr<ConsoleWindow> pWindow)
 {

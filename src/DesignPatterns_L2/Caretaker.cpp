@@ -4,7 +4,7 @@ namespace l2
 
 	namespace gameobjects
 	{
-		Caretaker::Caretaker(Player * p)
+		Caretaker::Caretaker(std::shared_ptr<Player> p)
 		{
 			lastTurn_ = Memento(p);
 			beforeLastTurn_ = Memento(p);

@@ -3,6 +3,7 @@
 #include "Menu.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "EnemyFactory.h"
 
 namespace l2
 {
@@ -18,6 +19,9 @@ namespace l2
 
 			std::shared_ptr<Enemy> enemy_;
 			std::shared_ptr<Player> player_;
+			std::shared_ptr<Caretaker> caretaker_;
+			int luck_ = 50;
+			EnemyFactory fac_;
 
 			static const std::string RESPATH_ACTIONS_MENU;
 
@@ -38,6 +42,8 @@ namespace l2
 			void SetEnemy(std::shared_ptr<Enemy> enemy) { enemy_ = enemy; }
 
 			void SetPlayer(std::shared_ptr<Player> player) { player_ = player; }
+
+			void SetCaretaker(std::shared_ptr<Caretaker> caretaker) { caretaker_ = caretaker; }
         };
 
     }

@@ -31,7 +31,7 @@ namespace l2
 
 		void Player::saveStateToMemento(Caretaker & c)
 		{
-			c.add(Memento(this));
+			c.add(Memento(acc_, state_, stats_));
 		}
 
 		void Player::restoreStateFromMemento(Caretaker & c)

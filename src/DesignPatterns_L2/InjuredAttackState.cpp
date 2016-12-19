@@ -28,7 +28,7 @@ namespace l2
 				if (fabs(player_->getAcc() * 0.7 - chance) > 0)
 				{
 					LOG_INFO("Player attacked in InjuredAttack state");
-					enemy->changeHP(-10 * 0.8); //-10 should be changed to damage from playerstats
+					enemy->changeHP(-20 * 0.8); //-10 should be changed to damage from playerstats
 					if (enemy->isEnemyAlive()) {
 
 					}
