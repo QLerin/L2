@@ -1,10 +1,10 @@
 CN				W			B		
 CSEL			R			B
 
-MX				179
-MY				69
-MW 				60
-MH				11
+MX				80
+MY				65
+MW 				160
+MH				18
 
 CORNER 			+
 UL_BORDER 		-

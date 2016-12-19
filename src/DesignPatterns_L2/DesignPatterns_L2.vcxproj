@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Caretaker.cpp" />
     <ClCompile Include="ActionsMenu.cpp" />
+    <ClCompile Include="CharacterMenu.cpp" />
     <ClCompile Include="ColorizeDrawable.cpp" />
     <ClCompile Include="Colorizer.cpp" />
     <ClCompile Include="ConsoleWindow.cpp" />

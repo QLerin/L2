@@ -1,8 +1,8 @@
 CN				W			B		
 CSEL			R			B
 
-MX				10
-MY				10
+MX				130
+MY				30
 MW 				60
 MH				17
 

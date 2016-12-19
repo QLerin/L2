@@ -236,14 +236,17 @@
     <ClCompile Include="TiredAttackState.cpp">
       <Filter>Source Files\GameObjects\Player</Filter>
     </ClCompile>
-    <ClCompile Include="ActionsMenu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Memento.cpp">
       <Filter>Source Files\GameObjects\Player</Filter>
     </ClCompile>
     <ClCompile Include="Caretaker.cpp">
       <Filter>Source Files\GameObjects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionsMenu.cpp">
+      <Filter>Source Files\GameObjects\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterMenu.cpp">
+      <Filter>Source Files\GameObjects\Menus</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
