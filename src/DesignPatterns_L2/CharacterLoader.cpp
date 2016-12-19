@@ -9,6 +9,8 @@ using namespace l2::sys;
 
 const bool CharacterLoader::LoadL2CharacterImage(Character * character, const string & path)
 {
+	uint16_t x = 0;
+	uint16_t y = 0;
 	std::string outBuffer;
 
 	ifstream in;
@@ -52,7 +54,8 @@ const bool CharacterLoader::LoadL2CharacterImage(Character * character, const st
 	}
 
 	character->model_.SetDrawableData(data);
-	character->model_.SetDrawableSpace(0, 0, w, h);
+	character->getStaticPosition(x, y);
+	character->model_.SetDrawableSpace(x, y, w, h);
 	delete line;
 
 	in.close();

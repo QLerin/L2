@@ -38,6 +38,12 @@ namespace l2
 			virtual bool isNull() = 0;
 			virtual void checkState() {}
 
+			virtual void getStaticPosition(uint16_t & x, uint16_t & y)
+			{
+				x = 200;
+				y = 30;
+			}
+
 			virtual void changeHP(double diff)
 			{
 				if(diff > 0)
