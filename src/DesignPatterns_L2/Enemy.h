@@ -30,7 +30,7 @@ namespace l2
 			double damage_ = 1;
 			double health_ = 1;
 			double maxHealth_ = 1;
-			double acc_ = 1;
+			double acc_ = 0;
 			char state_ = 'n';
 			bool alive_ = true;
         public:

@@ -24,7 +24,7 @@ namespace l2
 				std::uniform_int_distribution<> distr(0, 100);
 				double chance = distr(eng);
 
-				if (fabs(player_->getAcc() * 1 - chance) > 0)
+				if (player_->getAcc() * 1 > chance)
 				{
 					LOG_INFO("Player attacked in RegularAttackState state");
 					enemy->changeHP(-20 * 1); //-10 should be changed to damage from playerstats

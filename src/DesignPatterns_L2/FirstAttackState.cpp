@@ -25,7 +25,7 @@ namespace l2
 				double chance = distr(eng);
 
 
-				if (fabs(player_->getAcc()*1.1 - chance) > 0)
+				if (player_->getAcc()*1.1 > chance)
 				{
 					LOG_INFO("Player attacked in FirstAttack state");
 					enemy->changeHP(-20 * 1.2); 

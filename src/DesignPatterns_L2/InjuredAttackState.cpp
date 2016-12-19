@@ -25,7 +25,7 @@ namespace l2
 				double chance = distr(eng);
 
 
-				if (fabs(player_->getAcc() * 0.7 - chance) > 0)
+				if (player_->getAcc() * 0.7 > chance)
 				{
 					LOG_INFO("Player attacked in InjuredAttack state");
 					enemy->changeHP(-20 * 0.8); //-10 should be changed to damage from playerstats

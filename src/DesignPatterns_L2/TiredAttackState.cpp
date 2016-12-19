@@ -25,7 +25,7 @@ namespace l2
 				std::uniform_int_distribution<> distr(0, 100);
 				double chance = distr(eng);
 
-				if (fabs(player_->getAcc() * 0.8 - chance) > 0)
+				if (player_->getAcc() * 0.8 > chance)
 				{
 					LOG_INFO("Player attacked in TiredAttackState state");
 					enemy->changeHP(-20 * 0.7); //-10 should be changed to damage from playerstats

@@ -20,7 +20,7 @@ namespace l2
 				std::mt19937 eng(rd());
 				std::uniform_int_distribution<> distr(0, 100);
 				double chance = distr(eng);
-				if (fabs(attacker->getEnemyAcc()*0.7 - chance))
+				if (attacker->getEnemyAcc()*0.7 > chance)
 				{
 					double damage = attacker->getEnemyDamage() * 1.2;
 					player->TakeDamage(-damage);
