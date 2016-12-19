@@ -35,6 +35,7 @@ namespace l2
 
 		void Player::ChangeHealth(double diff) {
 			state_->ChangePlayerHealth(diff);
+			healthbar_.DecrementBar((uint16_t)abs((int)diff));
 			if(stats_->GetLife().GetHealth() < 0.1)
 			{
 				alive = false;
@@ -52,6 +53,7 @@ namespace l2
 			state_ = temp.getState();
 			stats_ = temp.getStats();
 			acc_ = temp.getAcc();
+			healthbar_.SetProgressAt(stats_->GetLife().GetHealth());
 		}
 
 		const std::string Player::RESPATH_PLAYER = "PlayerImage.txt";
