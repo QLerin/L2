@@ -47,9 +47,11 @@ namespace l2
 						state_ = 't';
 						eat = new TiredAttack();
 					}
-					else 
+					else
+					{
 						state_ = 'd';
 						alive_ = false;
+					}
 				}
 			}
 			void Attack(Character * target) override;
