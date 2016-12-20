@@ -1,0 +1,11 @@
+CN				Y			B		
+CSEL			M			B
+
+MX				130
+MY				30
+MW 				120
+MH				25
+
+CORNER 			+
+UL_BORDER 		-
+LR_BORDER		|

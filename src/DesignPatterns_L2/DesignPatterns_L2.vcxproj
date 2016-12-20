@@ -33,6 +33,7 @@
     <ClCompile Include="FirstAttackState.cpp" />
     <ClCompile Include="Frame.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="GameOverMenu.cpp" />
     <ClCompile Include="IDrawable.cpp" />
     <ClCompile Include="InjuredAttackState.cpp" />
     <ClCompile Include="InputManager.cpp" />
@@ -92,6 +93,7 @@
     <ClInclude Include="FuriousAttack.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameOverMenu.h" />
     <ClInclude Include="Gem.h" />
     <ClInclude Include="GlitteringGem.h" />
     <ClInclude Include="IDrawable.h" />

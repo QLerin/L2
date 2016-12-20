@@ -263,6 +263,9 @@
     <ClCompile Include="CharacterLoader.cpp">
       <Filter>Source Files\Sys</Filter>
     </ClCompile>
+    <ClCompile Include="GameOverMenu.cpp">
+      <Filter>Source Files\GameObjects\Menus</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CharacterStatistics.h">
@@ -597,6 +600,9 @@
     </ClInclude>
     <ClInclude Include="CharacterLoader.h">
       <Filter>Header Files\Sys\XEQTR</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverMenu.h">
+      <Filter>Header Files\GameObjects\Menus</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

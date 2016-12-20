@@ -4,6 +4,7 @@
 #include "CharacterMenu.h"
 #include "EnemyFactory.h"
 #include "Caretaker.h"
+#include "GameOverMenu.h"
 
 using namespace std;
 using namespace l2::rendering;
@@ -65,6 +66,8 @@ void GameManager::SetupTransitionTable()
 	activeMenus_.push_back(cm);
 	ActionsMenu * am = new ActionsMenu(mainWindow_);
 	activeMenus_.push_back(am);
+	GameOverMenu * gom = new GameOverMenu(mainWindow_);
+	activeMenus_.push_back(gom);
     ///---------------------------------------+
 
     /// SETUP THE TRANSITION TABLE -----------+
@@ -73,7 +76,6 @@ void GameManager::SetupTransitionTable()
     TransitionTable::TRANSITION smTransitions;
     smTransitions.forward = am;
     smTransitions.backward = nullptr;
-
     transitions_.Assign(sm, smTransitions);
     ///Actions menu
 	TransitionTable::TRANSITION amTransitions;
@@ -85,8 +87,12 @@ void GameManager::SetupTransitionTable()
 	cmTransitions.backward = nullptr;
 	cmTransitions.forward = nullptr;
 	transitions_.Assign(cm, cmTransitions);
-    ///Inventory menu
-    
+    ///Game over menu
+	TransitionTable::TRANSITION gomTransitions;
+	gomTransitions.backward = nullptr;
+	gomTransitions.forward = nullptr;
+	transitions_.Assign(gom, gomTransitions);
+
     ///Stats menu
     
     ///----------------------------------------+
