@@ -1,0 +1,14 @@
+BUTTON_DATA
+
+WIDTH
+107
+HEIGHT
+8
+GGGGGGGGGGG GGGGGGGGGGG GGG      GGG GGGGGGGGGGGG    GGGGGGGGGGGGG GG          GG GGGGGGGGGGGG GGGGGGGGGGGG
+GG          GG       GG GGGGG  GGGGG GG              GG         GG  GG        GG  GG           GG        GG
+GG    GG    GG       GG GG  GGGG  GG GG              GG         GG   GG      GG   GG           GG        GG
+GG   GGGGGG GGGGGGGGGGG GG   GG   GG GGGGGGGGGGGG    GG         GG    GG    GG    GGGGGGGGGGGG GGGGGGGGGGGG
+GG    GG GG GG       GG GG        GG GG              GG         GG     GG  GG     GG           GG  GGG     
+GG       GG GG       GG GG        GG GG              GG         GG      GGGG      GG           GG    GGG   
+GGGGGGGGGGG GG       GG GG        GG GGGGGGGGGGGG    GGGGGGGGGGGGG       GG       GGGGGGGGGGGG GG      GGGG
+                                             U fukin suk :(                                                
