@@ -90,7 +90,7 @@ const bool MenuLoader::LoadL2Menu(l2g::Menu * const menu, const std::string & pa
     return true;
 }
 
-const bool MenuLoader::LoadL2MenuItem(l2g::MenuItem * const menu, const std::string & path)
+const bool MenuLoader::LoadL2MenuItem(l2g::SUIComponent * const menu, const std::string & path)
 {
     ifstream in;
     in.open(path.c_str());

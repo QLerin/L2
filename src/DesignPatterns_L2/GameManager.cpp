@@ -11,10 +11,12 @@ using namespace l2::rendering;
 using namespace l2::sys;
 using namespace l2::gameobjects;
 
-static const uint16_t DEFAULT_FRAME_WIDTH = 150;
-static const uint16_t DEFAULT_FRAME_HEIGHT = 75;
-static const std::string SCENE_CONTENTS_PATH_DEBUG = "Contents.dat";
+static const uint16_t DEFAULT_FRAME_WIDTH            = 150;
+static const uint16_t DEFAULT_FRAME_HEIGHT           = 75;
+static const std::string SCENE_CONTENTS_PATH_DEBUG   = "Contents.dat";
 static const std::string SCENE_CONTENTS_PATH_RELEASE = "/res/Contents.dat";
+
+static const uint16_t NUM_SINGLEDRAW_MENUS = 2;
 
 GameManager::GameManager() : mainWindow_(nullptr), shouldExit_(false), activeMenu_(nullptr)
 {
@@ -44,7 +46,7 @@ void GameManager::HandleMessage(const shared_ptr<Message> & message)
     if (rc == UIComponent::RequestFwdTransition || rc == UIComponent::RequestBwdTransition)
     {
         uicmp * nextComponent = transitions_.Retrieve(rc, activeMenu_);
-        if (nextComponent == nullptr && activeMenu_ == transitions_.GetFrontElement())
+        if (nextComponent == nullptr /*&& activeMenu_ == transitions_.GetFrontElement()*/)
         {
             shouldExit_ = true;
             return;
@@ -62,12 +64,12 @@ void GameManager::SetupTransitionTable()
     /// INITIALIZE MENUS HERE ----------------+
     StartMenu * sm = new StartMenu(mainWindow_);
     activeMenus_.push_back(sm);
+	GameOverMenu * gom = new GameOverMenu(mainWindow_);
+	activeMenus_.push_back(gom);
 	CharacterMenu * cm = new CharacterMenu(mainWindow_);
 	activeMenus_.push_back(cm);
 	ActionsMenu * am = new ActionsMenu(mainWindow_);
 	activeMenus_.push_back(am);
-	GameOverMenu * gom = new GameOverMenu(mainWindow_);
-	activeMenus_.push_back(gom);
     ///---------------------------------------+
 
     /// SETUP THE TRANSITION TABLE -----------+
@@ -79,7 +81,7 @@ void GameManager::SetupTransitionTable()
     transitions_.Assign(sm, smTransitions);
     ///Actions menu
 	TransitionTable::TRANSITION amTransitions;
-	amTransitions.backward = sm;
+	amTransitions.backward = gom;
 	amTransitions.forward = nullptr;
 	transitions_.Assign(am, amTransitions);
 	///Character menu
@@ -96,6 +98,8 @@ void GameManager::SetupTransitionTable()
     ///Stats menu
     
     ///----------------------------------------+
+
+	drawableMenuOffset_ = NUM_SINGLEDRAW_MENUS;
 
     activeMenu_ = activeMenus_.front();
 
@@ -125,8 +129,13 @@ void GameManager::ExecuteDrawProcedure()
 {
     mainWindow_->ClearActiveBuffer();
 
-    for (auto a : activeMenus_)
-        if (a)
-            a->Draw();
+	auto iter = activeMenus_.begin();
+	for (auto i = 0; i < drawableMenuOffset_; ++i)
+		iter++;
+	for (iter; iter != activeMenus_.end(); ++iter)
+        if ((*iter))
+            (*iter)->Draw();
+	if (activeMenu_)
+		activeMenu_->Draw();
     mainWindow_->SwapBuffers();
 }

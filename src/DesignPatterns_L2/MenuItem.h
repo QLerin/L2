@@ -20,7 +20,6 @@ namespace l2
 
 		class MenuItem : public SUICallbackComponent
 		{
-            friend sys::MenuLoader;
 		private:
             MenuItem() = delete;
             MenuItem(const MenuItem & right) = delete;

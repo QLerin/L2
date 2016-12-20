@@ -24,6 +24,7 @@
     <ClCompile Include="CharacterLoader.cpp" />
     <ClCompile Include="CharacterMenu.cpp" />
     <ClCompile Include="ColoredProgressBar.cpp" />
+    <ClCompile Include="ColoredText.cpp" />
     <ClCompile Include="ColorizeDrawable.cpp" />
     <ClCompile Include="Colorizer.cpp" />
     <ClCompile Include="ConsoleWindow.cpp" />
@@ -69,6 +70,7 @@
     <ClInclude Include="CharacterLoader.h" />
     <ClInclude Include="ClothArmor.h" />
     <ClInclude Include="ColoredProgressBar.h" />
+    <ClInclude Include="ColoredText.h" />
     <ClInclude Include="CombatLogMenu.h" />
     <ClInclude Include="CommonFactory.h" />
     <ClInclude Include="Enchantment.h" />

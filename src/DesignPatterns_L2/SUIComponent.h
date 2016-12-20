@@ -7,6 +7,11 @@
 namespace l2
 {
 
+	namespace sys
+	{
+		class MenuLoader;
+	}
+
     namespace gameobjects
     {
         /// Base for all ui components
@@ -14,6 +19,7 @@ namespace l2
         /// Acts as a transition table of sorts
         class SUIComponent : public UIComponent
         {
+			friend l2::sys::MenuLoader;
         protected:
             UIComponent * child_;
         public:

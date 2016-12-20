@@ -8,10 +8,6 @@ using namespace l2::gameobjects;
 
 CharacterMenu::CharacterMenu(shared_ptr<ConsoleWindow> parentWindow) : Menu(RESPATH_CHARACTER_MENU)
 {
-	ColoredProgressBar * prog = new ColoredProgressBar();
-	prog->SetColor(Colorizer::Color::Green);
-	AddChild(prog);
-
 	SetParentWindow(parentWindow);
 }
 

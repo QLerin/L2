@@ -29,6 +29,8 @@ namespace l2
             bool shouldExit_;
 
             uicmp * activeMenu_;
+
+			uint16_t drawableMenuOffset_;
 		protected:
             GameManager();
 			GameManager(const GameManager & right) = delete;

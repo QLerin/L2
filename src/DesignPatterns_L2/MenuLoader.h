@@ -9,7 +9,7 @@ namespace l2
     namespace gameobjects
     {
         class Menu;
-        class MenuItem;
+        class SUIComponent;
     }
 }
 
@@ -26,7 +26,7 @@ namespace l2
         {
         public:
             const bool LoadL2Menu(l2g::Menu * const menu, const std::string & path);
-            const bool LoadL2MenuItem(l2g::MenuItem * const menu, const std::string & path);
+            const bool LoadL2MenuItem(l2g::SUIComponent * const menu, const std::string & path);
         };
 
     }

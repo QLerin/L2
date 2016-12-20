@@ -16,6 +16,8 @@ namespace l2
 
 			static const std::string RESPATH_GAMEOVER_MENU;
 
+			MenuActionReturn PlayCallback();
+			MenuActionReturn ExitCallback();
 		public:
 			GameOverMenu(std::shared_ptr<l2r::ConsoleWindow> parentWindow);
 
