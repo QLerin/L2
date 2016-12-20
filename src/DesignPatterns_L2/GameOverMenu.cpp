@@ -71,8 +71,6 @@ GameOverMenu::GameOverMenu(shared_ptr<l2r::ConsoleWindow> parentWindow) : Menu(R
 		exitButton->GetDrawable().GetDrawableSpace(x, y, w, h);
 		exitButton->SetOffsets(tX + tW - w, tY + tH + 2);
 	}
-
-	AddChild(exitButton);
 }
 
 const string GameOverMenu::RESPATH_GAMEOVER_MENU = "GameOverMenu.txt";
